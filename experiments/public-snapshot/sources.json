@@ -1,0 +1,160 @@
+{
+  "_comment": "Advisory source URLs for the final 30-CVE benchmark (D-026 snapshot 2026-10-11). Raw + extracted NVD/CPE data is fetched separately from the NVD 2.0 API by fetch_public_snapshot.py. 'advisory_url' = the vendor/NVD advisory recorded in the workspace; 'provenance' records where that URL came from.",
+  "_benchmark": "30 distinct CVE IDs = notes/cve-verification-2026-10-07.md rows #1-#22, #24, #27-#30 (30 verified), minus the 3 dropped/dropped-replaced rows #23 CVE-2020-35489, #25 CVE-2024-27956, #26 CVE-2021-24284 (see experiments/26cve/registry.md, selection-log.md), plus the 3 replacements CVE-2023-5798, CVE-2021-24917, CVE-2023-28121.",
+  "cves": [
+    {
+      "cve_id": "CVE-2021-41773",
+      "advisory_url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+      "provenance": "notes/cve-verification-2026-10-07.md row #1"
+    },
+    {
+      "cve_id": "CVE-2021-42013",
+      "advisory_url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+      "provenance": "notes/cve-verification-2026-10-07.md row #2"
+    },
+    {
+      "cve_id": "CVE-2014-3704",
+      "advisory_url": "https://www.drupal.org/sa-core-2014-005",
+      "provenance": "notes/cve-verification-2026-10-07.md row #3"
+    },
+    {
+      "cve_id": "CVE-2018-7600",
+      "advisory_url": "https://www.drupal.org/sa-core-2018-002",
+      "provenance": "notes/cve-verification-2026-10-07.md row #4"
+    },
+    {
+      "cve_id": "CVE-2018-7602",
+      "advisory_url": "https://www.drupal.org/sa-core-2018-004",
+      "provenance": "notes/cve-verification-2026-10-07.md row #5"
+    },
+    {
+      "cve_id": "CVE-2019-6340",
+      "advisory_url": "https://www.drupal.org/sa-core-2019-003",
+      "provenance": "notes/cve-verification-2026-10-07.md row #6"
+    },
+    {
+      "cve_id": "CVE-2020-25213",
+      "advisory_url": "https://plugins.trac.wordpress.org/changeset/2373068",
+      "provenance": "notes/cve-verification-2026-10-07.md row #7",
+      "fallback_advisory_url": "https://wordpress.org/plugins/wp-file-manager/",
+      "fallback_provenance": "FALLBACK ONLY. The recorded plugins.trac.wordpress.org changeset URL returns an HTTP 403 JS bot-challenge page to non-browser clients (recorded in manifest failure list). Fallback = the vendor-hosted File Manager plugin page/changelog on wordpress.org, taken from the NVD 2.0 record references (tags: Product, Release Notes)."
+    },
+    {
+      "cve_id": "CVE-2024-28000",
+      "advisory_url": "https://patchstack.com/database/Wordpress/Plugin/litespeed-cache/vulnerability/wordpress-litespeed-cache-plugin-6-3-0-1-unauthenticated-privilege-escalation-vulnerability",
+      "provenance": "notes/cve-verification-2026-10-07.md row #8 recorded a Patchstack URL truncated with an ellipsis; the full URL was resolved from the NVD 2.0 record references (patchstack.com database entry) during snapshot setup on 2026-10-11."
+    },
+    {
+      "cve_id": "CVE-2024-10924",
+      "advisory_url": "https://www.wordfence.com/blog/2024/11/really-simple-security-vulnerability/",
+      "provenance": "notes/cve-verification-2026-10-07.md row #9",
+      "fallback_advisory_url": "https://wordpress.org/plugins/really-simple-ssl/",
+      "fallback_provenance": "FALLBACK ONLY. The recorded wordfence.com blog URL is served through a Cloudflare bot challenge (HTTP 202, empty body) to non-browser clients (recorded in manifest failure list). Fallback = the vendor-hosted Really Simple Security plugin page/changelog on wordpress.org."
+    },
+    {
+      "cve_id": "CVE-2023-32243",
+      "advisory_url": "https://patchstack.com/articles/critical-privilege-escalation-in-essential-addons-for-elementor-plugin-affecting-1-million-sites/",
+      "provenance": "notes/cve-verification-2026-10-07.md row #10"
+    },
+    {
+      "cve_id": "CVE-2021-44026",
+      "advisory_url": "https://github.com/roundcube/roundcubemail/commit/c8947ecb762d9e89c2091bda28d49002817263f1",
+      "provenance": "notes/cve-verification-2026-10-07.md row #11 recorded the Roundcube commit with a truncated hash; the full commit URL was resolved from the NVD 2.0 record references (Patch) during snapshot setup on 2026-10-11."
+    },
+    {
+      "cve_id": "CVE-2023-5631",
+      "advisory_url": "https://roundcube.net/news/2023/10/16/security-update-1.6.4-released",
+      "provenance": "notes/cve-verification-2026-10-07.md row #12"
+    },
+    {
+      "cve_id": "CVE-2024-37383",
+      "advisory_url": "https://github.com/roundcube/roundcubemail/releases/tag/1.5.7",
+      "provenance": "notes/cve-verification-2026-10-07.md row #13"
+    },
+    {
+      "cve_id": "CVE-2020-12625",
+      "advisory_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+      "provenance": "notes/cve-verification-2026-10-07.md row #14"
+    },
+    {
+      "cve_id": "CVE-2020-12640",
+      "advisory_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+      "provenance": "notes/cve-verification-2026-10-07.md row #15"
+    },
+    {
+      "cve_id": "CVE-2017-1001000",
+      "advisory_url": "https://make.wordpress.org/core/2017/02/01/disclosure-of-additional-security-fix-in-wordpress-4-7-2/",
+      "provenance": "notes/cve-verification-2026-10-07.md row #16"
+    },
+    {
+      "cve_id": "CVE-2019-8942",
+      "advisory_url": "https://blog.ripstech.com/2019/wordpress-image-remote-code-execution/",
+      "provenance": "notes/cve-verification-2026-10-07.md row #17"
+    },
+    {
+      "cve_id": "CVE-2021-29447",
+      "advisory_url": "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-rv47-pc52-qrhh",
+      "provenance": "notes/cve-verification-2026-10-07.md row #18"
+    },
+    {
+      "cve_id": "CVE-2022-21661",
+      "advisory_url": "https://wordpress.org/news/2022/01/wordpress-5-8-3-security-release/",
+      "provenance": "notes/cve-verification-2026-10-07.md row #19"
+    },
+    {
+      "cve_id": "CVE-2015-3440",
+      "advisory_url": "https://wordpress.org/news/2015/04/wordpress-4-2-1/",
+      "provenance": "notes/cve-verification-2026-10-07.md row #20"
+    },
+    {
+      "cve_id": "CVE-2023-2745",
+      "advisory_url": "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/",
+      "provenance": "notes/cve-verification-2026-10-07.md row #21"
+    },
+    {
+      "cve_id": "CVE-2023-3460",
+      "advisory_url": "https://wpscan.com/vulnerability/694235c7-4469-4ffd-a722-9225b19e98d7",
+      "provenance": "notes/cve-verification-2026-10-07.md row #22"
+    },
+    {
+      "cve_id": "CVE-2019-10692",
+      "advisory_url": "https://wordpress.org/plugins/wp-google-maps/#developers",
+      "provenance": "notes/cve-verification-2026-10-07.md row #24"
+    },
+    {
+      "cve_id": "CVE-2021-23017",
+      "advisory_url": "https://ubuntu.com/security/CVE-2021-23017",
+      "provenance": "notes/cve-verification-2026-10-07.md row #27"
+    },
+    {
+      "cve_id": "CVE-2020-12641",
+      "advisory_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+      "provenance": "notes/cve-verification-2026-10-07.md row #28"
+    },
+    {
+      "cve_id": "CVE-2020-13671",
+      "advisory_url": "https://www.drupal.org/sa-core-2020-012",
+      "provenance": "notes/cve-verification-2026-10-07.md row #29"
+    },
+    {
+      "cve_id": "CVE-2019-6341",
+      "advisory_url": "https://www.drupal.org/sa-core-2019-004",
+      "provenance": "notes/cve-verification-2026-10-07.md row #30"
+    },
+    {
+      "cve_id": "CVE-2023-5798",
+      "advisory_url": "https://wpscan.com/vulnerability/bbb4c98c-4dd7-421e-9666-98f15acde761",
+      "provenance": "replacement for CVE-2021-24284; experiments/26cve/CVE-2023-5798/README.md 'Advisory refs'"
+    },
+    {
+      "cve_id": "CVE-2021-24917",
+      "advisory_url": "https://wpscan.com/vulnerability/15bb711a-7d70-4891-b7a2-c473e3e8b375",
+      "provenance": "replacement for CVE-2024-27956; no advisory URL was recorded in the registry/selection-log, so the vendor/advisory reference was resolved from the NVD 2.0 record references (WPScan, tagged Exploit/Third Party Advisory) on 2026-10-11."
+    },
+    {
+      "cve_id": "CVE-2023-28121",
+      "advisory_url": "https://developer.woocommerce.com/2023/03/23/critical-vulnerability-detected-in-woocommerce-payments-what-you-need-to-know/",
+      "provenance": "replacement for CVE-2020-35489; resolved from the NVD 2.0 record references (tagged Vendor Advisory) on 2026-10-11."
+    }
+  ]
+}

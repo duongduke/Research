@@ -1,0 +1,185 @@
+# Batch 0 stack (RQ-C1 26-CVE build) — de-risk probe
+#   Case 2  CVE-2019-8942  WordPress core 5.0.0 / 5.0.1   (image crop RCE, needs author)
+#   Case 3  CVE-2021-29447 WordPress core 5.7.0/5.7.1 PHP8 (XXE Media Library, needs PHP8)
+#   Case 4  CVE-2022-21661 WordPress core 5.8.2 / 5.8.3   (WP_Query SQLi, needs a fixture plugin)
+#
+# SAFETY / SCOPE
+#   * Every published port is bound to 127.0.0.1 ONLY (loopback). Never 0.0.0.0.
+#   * No CGI. RCE payload is the harmless marker only.
+#   * Images pinned by manifest digest (repo@sha256:...). Tag shown in comment.
+#
+# Deploy dir on the lab VM: ~/batch0-lab
+name: batch0-lab
+
+networks:
+  batch0-net:
+    name: batch0-net
+    driver: bridge
+
+volumes:
+  mariadb-data:
+
+services:
+  # ---------------------------------------------------------------- shared DB
+  db:
+    # mariadb:10.11
+    image: mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+    container_name: b0-db
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-changeme}
+    ports:
+      - "127.0.0.1:13307:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+    networks: [batch0-net]
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  # -------------------------------------------- Case 2 : CVE-2019-8942 (author)
+  wp-8942-vuln:
+    # wordpress:5.0.0-apache
+    image: wordpress@sha256:871ae0ebe72e7eef309bf2b2b9a33ddaba19410a0b3b487b83a7b0252681659a
+    container_name: b0-wp-8942-vuln
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_8942_vuln
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_AUTO_UPDATE_CORE', false);
+    ports:
+      - "127.0.0.1:8111:80"
+    volumes:
+      - ./wordpress/8942-vuln:/var/www/html
+      - ./apache/extra-port.conf:/etc/apache2/conf-enabled/zzz-extra-port.conf:ro
+    networks: [batch0-net]
+
+  wp-8942-fixed:
+    # wordpress:5.0.1-apache
+    image: wordpress@sha256:33da10a3c3fbf52a815612c9a3688d020b4c3ebcd5c6dff4dbe9ae55bed6cd5b
+    container_name: b0-wp-8942-fixed
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_8942_fixed
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_AUTO_UPDATE_CORE', false);
+    ports:
+      - "127.0.0.1:8112:80"
+    volumes:
+      - ./wordpress/8942-fixed:/var/www/html
+      - ./apache/extra-port.conf:/etc/apache2/conf-enabled/zzz-extra-port.conf:ro
+    networks: [batch0-net]
+
+  # --------------------------------- Case 3 : CVE-2021-29447 (author, PHP 8)
+  wp-29447-vuln:
+    # wordpress:5.7.0-php8.0-apache
+    image: wordpress@sha256:0632e5687c1365d635e38a850456349972b3f8e8f039a98f6453e3115340b131
+    container_name: b0-wp-29447-vuln
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_29447_vuln
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_AUTO_UPDATE_CORE', false);
+    ports:
+      - "127.0.0.1:8121:80"
+    volumes:
+      - ./wordpress/29447-vuln:/var/www/html
+    networks: [batch0-net]
+
+  wp-29447-fixed:
+    # wordpress:5.7.1-php8.0-apache
+    image: wordpress@sha256:fb3de10a201997be88ef562fe470552334acef18ca92a01873cdd0ee821aa014
+    container_name: b0-wp-29447-fixed
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_29447_fixed
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_AUTO_UPDATE_CORE', false);
+    ports:
+      - "127.0.0.1:8122:80"
+    volumes:
+      - ./wordpress/29447-fixed:/var/www/html
+    networks: [batch0-net]
+
+  # ------------------------------- Case 4 : CVE-2022-21661 (fixture plugin)
+  wp-21661-vuln:
+    # wordpress:5.8.2-apache
+    image: wordpress@sha256:fc33b796b04162a0db2e9ea9b4c361a07058b21597b1317ad9ab3ea4593de241
+    container_name: b0-wp-21661-vuln
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_21661_vuln
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_AUTO_UPDATE_CORE', false);
+    ports:
+      - "127.0.0.1:8131:80"
+    volumes:
+      - ./wordpress/21661-vuln:/var/www/html
+    networks: [batch0-net]
+
+  wp-21661-fixed:
+    # wordpress:5.8.3-apache
+    image: wordpress@sha256:70246a8dc8282bbe4f9d53d3e88f4b0a2287cdb84b8da356d8bf44542ae14f2d
+    container_name: b0-wp-21661-fixed
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_21661_fixed
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_AUTO_UPDATE_CORE', false);
+    ports:
+      - "127.0.0.1:8132:80"
+    volumes:
+      - ./wordpress/21661-fixed:/var/www/html
+    networks: [batch0-net]
+
+  # --------------------------------------- XXE attacker DTD/exfil listener
+  attacker:
+    # python:3.12-alpine
+    image: python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+    container_name: b0-attacker
+    restart: unless-stopped
+    command: ["python3", "-m", "http.server", "8000", "--directory", "/srv"]
+    ports:
+      - "127.0.0.1:8199:8000"
+    volumes:
+      - ./attacker:/srv:ro
+    networks: [batch0-net]

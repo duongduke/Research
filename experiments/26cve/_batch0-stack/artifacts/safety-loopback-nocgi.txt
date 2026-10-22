@@ -1,0 +1,13 @@
+== Apache modules: cgi/cgid must be absent (WP instances) ==
+No module matches cgi
+No module matches cgid
+== listening sockets on VM (all must be 127.0.0.1) ==
+LISTEN 0      4096       127.0.0.1:8111       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8122       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8121       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8112       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8190       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8132       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8131       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:13307      0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8199       0.0.0.0:*          

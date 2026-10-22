@@ -1,0 +1,31 @@
+{
+ "mode": "check (pre-step-4 structural gate; no benchmark result emitted)",
+ "generated_at_utc": "2026-10-17T15:44:04Z",
+ "mapping_sha256": "c186250ea27797c7203161aa113e6484cbab3bd877cdfe979ba0174d2500e42c",
+ "snapshot_manifest_sha256": "854853ec2ca083a1f779da22debc4413131fe3695aa32e2fff01649f1d227bf7",
+ "snapshot_cohorts": [
+  {
+   "dir": "data/public-snapshot",
+   "manifest_sha256": "854853ec2ca083a1f779da22debc4413131fe3695aa32e2fff01649f1d227bf7",
+   "snapshot_date": "2026-10-11",
+   "n_cves_loaded": 30
+  },
+  {
+   "dir": "data/public-snapshot-2026-10-17",
+   "manifest_sha256": "ae334955768e6cf18f6be14d7f2fabaaaa04dfd86558645f5cd23bed99353679",
+   "snapshot_date": "2026-10-17",
+   "n_cves_loaded": 2
+  }
+ ],
+ "n_cases": 69,
+ "n_methods": 5,
+ "n_records": 345,
+ "all_predictions_in_allowed_set": true,
+ "invalid_predictions": [],
+ "label_isolation_preserved": true,
+ "records_missing_reasons_or_provenance": [],
+ "benchmark_result_written": false,
+ "metrics_computed": false,
+ "metric_code_invoked": false,
+ "predictions_computed": true
+}

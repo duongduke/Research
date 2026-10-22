@@ -1,0 +1,49 @@
+# Batch 2 stack — WordPress plugin cases (one pair of WP instances; plugins swapped per case)
+name: batch2-lab
+networks:
+  b2-net: {name: b2-net, driver: bridge}
+volumes:
+  mariadb-data:
+x-wp-env: &wpenv
+  WORDPRESS_DB_HOST: db:3306
+  WORDPRESS_DB_USER: labuser
+  WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+  WORDPRESS_TABLE_PREFIX: wp_
+  WORDPRESS_CONFIG_EXTRA: |
+    define('WP_AUTO_UPDATE_CORE', false);
+services:
+  db:
+    image: mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+    container_name: b2-db
+    restart: unless-stopped
+    environment: {MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD:-changeme}"}
+    ports: ["127.0.0.1:13310:3306"]
+    volumes: [mariadb-data:/var/lib/mysql, ./db-init:/docker-entrypoint-initdb.d:ro]
+    networks: [b2-net]
+    healthcheck: {test: ["CMD","healthcheck.sh","--connect","--innodb_initialized"], interval: 5s, timeout: 5s, retries: 30}
+  wp-v:
+    image: wordpress@sha256:7e46cf3373751b6d62b7a0fc3a7d6686f641a34a2a0eb18947da5375c55fd009
+    container_name: b2-wp-v
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {WORDPRESS_DB_NAME: wp_b2_v, <<: *wpenv}
+    ports: ["127.0.0.1:8830:80"]
+    volumes: [./wordpress/v:/var/www/html]
+    networks: [b2-net]
+  wp-f:
+    image: wordpress@sha256:7e46cf3373751b6d62b7a0fc3a7d6686f641a34a2a0eb18947da5375c55fd009
+    container_name: b2-wp-f
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {WORDPRESS_DB_NAME: wp_b2_f, <<: *wpenv}
+    ports: ["127.0.0.1:8831:80"]
+    volumes: [./wordpress/f:/var/www/html]
+    networks: [b2-net]
+  attacker:
+    image: python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+    container_name: b2-attacker
+    restart: unless-stopped
+    command: ["python3","-m","http.server","8000","--directory","/srv"]
+    ports: ["127.0.0.1:8839:8000"]
+    volumes: [./attacker:/srv:ro]
+    networks: [b2-net]

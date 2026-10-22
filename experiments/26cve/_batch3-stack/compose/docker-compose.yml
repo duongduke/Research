@@ -1,0 +1,87 @@
+# Batch 3 stack — WordPress core cases
+#   CVE-2017-1001000  WP 4.7.1 / 4.7.2
+#   CVE-2023-2745     WP 6.2   / 6.2.1
+#   CVE-2015-3440     WP 4.2.0 / 4.2.1  (no pullable image -> custom base + core dirs)
+# Loopback only. No CGI. RCE = marker only.
+name: batch3-lab
+networks:
+  b3-net: {name: b3-net, driver: bridge}
+volumes:
+  mariadb-data:
+
+x-wp-env: &wpenv
+  WORDPRESS_DB_HOST: db:3306
+  WORDPRESS_DB_USER: labuser
+  WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+  WORDPRESS_TABLE_PREFIX: wp_
+  WORDPRESS_CONFIG_EXTRA: |
+    define('WP_AUTO_UPDATE_CORE', false);
+
+services:
+  db:
+    image: mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+    container_name: b3-db
+    restart: unless-stopped
+    environment: {MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD:-changeme}"}
+    ports: ["127.0.0.1:13309:3306"]
+    volumes: [mariadb-data:/var/lib/mysql, ./db-init:/docker-entrypoint-initdb.d:ro]
+    networks: [b3-net]
+    healthcheck: {test: ["CMD","healthcheck.sh","--connect","--innodb_initialized"], interval: 5s, timeout: 5s, retries: 30}
+
+  wp-1701-vuln:
+    image: wordpress@sha256:9e397d900023f0ca04b8ce3ac61b1b212e8ea1487d78da2dea89a9bda87c70c5
+    container_name: b3-wp-1701-vuln
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {WORDPRESS_DB_NAME: wp_1701_vuln, <<: *wpenv}
+    ports: ["127.0.0.1:8711:80"]
+    volumes: [./wordpress/1701-vuln:/var/www/html]
+    networks: [b3-net]
+  wp-1701-fixed:
+    image: wordpress@sha256:498509cc3778374f65037f8dae67bb660d4fe650e8ac2129135224d5d2d81726
+    container_name: b3-wp-1701-fixed
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {WORDPRESS_DB_NAME: wp_1701_fixed, <<: *wpenv}
+    ports: ["127.0.0.1:8712:80"]
+    volumes: [./wordpress/1701-fixed:/var/www/html]
+    networks: [b3-net]
+
+  wp-2745-vuln:
+    image: wordpress@sha256:06b3c3b2fdc126d5e28b1f1c78a99009fe186d7354c907074095d5661bd18570
+    container_name: b3-wp-2745-vuln
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {WORDPRESS_DB_NAME: wp_2745_vuln, <<: *wpenv}
+    ports: ["127.0.0.1:8721:80"]
+    volumes: [./wordpress/2745-vuln:/var/www/html]
+    networks: [b3-net]
+  wp-2745-fixed:
+    image: wordpress@sha256:f3b8d54fe9b80e88255121a46933ca1961fb9f3f39e6981a668cdb7f019a5bbd
+    container_name: b3-wp-2745-fixed
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {WORDPRESS_DB_NAME: wp_2745_fixed, <<: *wpenv}
+    ports: ["127.0.0.1:8722:80"]
+    volumes: [./wordpress/2745-fixed:/var/www/html]
+    networks: [b3-net]
+
+  # custom: base image provides PHP5.6/Apache; bind dir holds the 4.2.0 / 4.2.1 core
+  wp-3440-vuln:
+    image: wordpress@sha256:9e397d900023f0ca04b8ce3ac61b1b212e8ea1487d78da2dea89a9bda87c70c5
+    container_name: b3-wp-3440-vuln
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {WORDPRESS_DB_NAME: wp_3440_vuln, <<: *wpenv}
+    ports: ["127.0.0.1:8731:80"]
+    volumes: [./wordpress/3440-vuln:/var/www/html]
+    networks: [b3-net]
+  wp-3440-fixed:
+    image: wordpress@sha256:9e397d900023f0ca04b8ce3ac61b1b212e8ea1487d78da2dea89a9bda87c70c5
+    container_name: b3-wp-3440-fixed
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {WORDPRESS_DB_NAME: wp_3440_fixed, <<: *wpenv}
+    ports: ["127.0.0.1:8732:80"]
+    volumes: [./wordpress/3440-fixed:/var/www/html]
+    networks: [b3-net]

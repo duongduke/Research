@@ -1,0 +1,38 @@
+# Batch 1 — Drupal core cases (tarball cores on the local drupal:8.6.9-apache base, D-022).
+#   CVE-2014-3704  7.31 / 7.32
+#   CVE-2018-7600  8.5.0 / 8.5.1
+#   CVE-2018-7602  8.5.2 / 8.5.3
+#   CVE-2020-13671 8.9.8 / 8.9.9
+#   CVE-2019-6341  8.6.12 / 8.6.13
+# Loopback only. No CGI. RCE = marker only.
+name: batch1-lab
+networks:
+  b1-net: {name: b1-net, driver: bridge}
+volumes:
+  mariadb-data:
+x-dru: &dru
+  image: drupal@sha256:d6073e2f6c662a9406cbe0b00215276ca206ded5e170268a29faa104bf2b97f0
+  restart: unless-stopped
+  depends_on: {db: {condition: service_healthy}}
+  networks: [b1-net]
+services:
+  db:
+    image: mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+    container_name: b1-db
+    restart: unless-stopped
+    environment: {MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD:-changeme}"}
+    ports: ["127.0.0.1:13312:3306"]
+    volumes: [mariadb-data:/var/lib/mysql, ./db-init:/docker-entrypoint-initdb.d:ro]
+    networks: [b1-net]
+    healthcheck: {test: ["CMD","healthcheck.sh","--connect","--innodb_initialized"], interval: 5s, timeout: 5s, retries: 30}
+
+  d7-731:  {<<: *dru, container_name: b1-d7-731,  ports: ["127.0.0.1:8901:80"], volumes: [./drupal/d7-731/html:/var/www/html]}
+  d7-732:  {<<: *dru, container_name: b1-d7-732,  ports: ["127.0.0.1:8902:80"], volumes: [./drupal/d7-732/html:/var/www/html]}
+  d8-850:  {<<: *dru, container_name: b1-d8-850,  ports: ["127.0.0.1:8903:80"], volumes: [./drupal/d8-850/html:/var/www/html]}
+  d8-851:  {<<: *dru, container_name: b1-d8-851,  ports: ["127.0.0.1:8904:80"], volumes: [./drupal/d8-851/html:/var/www/html]}
+  d8-852:  {<<: *dru, container_name: b1-d8-852,  ports: ["127.0.0.1:8905:80"], volumes: [./drupal/d8-852/html:/var/www/html]}
+  d8-853:  {<<: *dru, container_name: b1-d8-853,  ports: ["127.0.0.1:8906:80"], volumes: [./drupal/d8-853/html:/var/www/html]}
+  d8-898:  {<<: *dru, container_name: b1-d8-898,  ports: ["127.0.0.1:8907:80"], volumes: [./drupal/d8-898/html:/var/www/html]}
+  d8-899:  {<<: *dru, container_name: b1-d8-899,  ports: ["127.0.0.1:8908:80"], volumes: [./drupal/d8-899/html:/var/www/html]}
+  d8-8612: {<<: *dru, container_name: b1-d8-8612, ports: ["127.0.0.1:8909:80"], volumes: [./drupal/d8-8612/html:/var/www/html]}
+  d8-8613: {<<: *dru, container_name: b1-d8-8613, ports: ["127.0.0.1:8910:80"], volumes: [./drupal/d8-8613/html:/var/www/html]}

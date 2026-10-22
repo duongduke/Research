@@ -1,0 +1,30 @@
+## 8711 (WP 4.7.1)
+  GET / -> 200
+  generator: content="WordPress 4.7.1"
+  GET /wp-json/ -> 200
+  headers: Server: Apache/2.4.10 (Debian) X-Powered-By: PHP/5.6.30
+## 8712 (WP 4.7.2)
+  GET / -> 200
+  generator: content="WordPress 4.7.2"
+  GET /wp-json/ -> 200
+  headers: Server: Apache/2.4.10 (Debian) X-Powered-By: PHP/5.6.30
+## 8721 (WP 6.2.0)
+  GET / -> 200
+  generator: content="WordPress 6.2"
+  GET /wp-json/ -> 200
+  headers: Server: Apache/2.4.56 (Debian) X-Powered-By: PHP/8.0.28
+## 8722 (WP 6.2.1)
+  GET / -> 200
+  generator: content="WordPress 6.2.1"
+  GET /wp-json/ -> 200
+  headers: Server: Apache/2.4.56 (Debian) X-Powered-By: PHP/8.0.28
+## 8731 (WP 4.2.0)
+  GET / -> 200
+  generator: content="WordPress 4.2-src"
+  GET /wp-json/ -> 404
+  headers: Server: Apache/2.4.10 (Debian) X-Powered-By: PHP/5.6.30
+## 8732 (WP 4.2.1)
+  GET / -> 200
+  generator: content="WordPress 4.2.1"
+  GET /wp-json/ -> 404
+  headers: Server: Apache/2.4.10 (Debian) X-Powered-By: PHP/5.6.30

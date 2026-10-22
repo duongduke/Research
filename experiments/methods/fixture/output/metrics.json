@@ -1,0 +1,350 @@
+{
+ "unit": "case",
+ "labels_attached_after_prediction": true,
+ "n_unique_cves": 13,
+ "n_cases": 26,
+ "n_labels": {
+  "Not Applicable": 11,
+  "Applicable": 14,
+  "Unresolved": 1
+ },
+ "duplicate_prediction_vectors": [
+  [
+   "cpe_only",
+   "http_version_only"
+  ]
+ ],
+ "methods": {
+  "cpe_only": {
+   "confusion": {
+    "TP": 8,
+    "FP": 3,
+    "TN": 3,
+    "FN_def": 1,
+    "U_A": 5,
+    "U_N": 5
+   },
+   "scores": {
+    "N": 25,
+    "n_determined": 15,
+    "n_abstained": 10,
+    "precision": 0.7272727272727273,
+    "recall": 0.5714285714285714,
+    "F1": 0.64,
+    "coverage": 0.6,
+    "unknown_rate": 0.4
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-9000-0009__f_unresolved",
+     "cve_id": "CVE-9000-0009",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-9000-0001__f_in",
+     "CVE-9000-0001__f_start",
+     "CVE-9000-0002__f_exact",
+     "CVE-9000-0003__f_ok",
+     "CVE-9000-0003__f_needs_control_bogus",
+     "CVE-9000-0007__f_empty_path",
+     "CVE-9000-0008__f_pending_bogus",
+     "CVE-9000-0013__f_out_of_line"
+    ],
+    "FP": [
+     "CVE-9000-0003__f_blocked",
+     "CVE-9000-0004__f_precedence",
+     "CVE-9000-0005__f_tier_conflict"
+    ],
+    "TN": [
+     "CVE-9000-0001__f_below",
+     "CVE-9000-0001__f_end",
+     "CVE-9000-0013__f_line_patched"
+    ],
+    "FN_def": [
+     "CVE-9000-0013__f_in_line"
+    ],
+    "U_A": [
+     "CVE-9000-0001__f_noversion",
+     "CVE-9000-0002__f_unknown_product",
+     "CVE-9000-0010__f_empty_ranges",
+     "CVE-9000-0011__f_e4_unlinked",
+     "CVE-9000-0012__f_branch_vuln"
+    ],
+    "U_N": [
+     "CVE-9000-0002__f_decoy",
+     "CVE-9000-0003__f_blocked_noversion",
+     "CVE-9000-0006__f_no_range",
+     "CVE-9000-0011__f_e4_linked",
+     "CVE-9000-0012__f_branch_patched"
+    ]
+   }
+  },
+  "nvd_only": {
+   "confusion": {
+    "TP": 8,
+    "FP": 2,
+    "TN": 4,
+    "FN_def": 1,
+    "U_A": 5,
+    "U_N": 5
+   },
+   "scores": {
+    "N": 25,
+    "n_determined": 15,
+    "n_abstained": 10,
+    "precision": 0.8,
+    "recall": 0.5714285714285714,
+    "F1": 0.6666666666666666,
+    "coverage": 0.6,
+    "unknown_rate": 0.4
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-9000-0009__f_unresolved",
+     "cve_id": "CVE-9000-0009",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-9000-0001__f_in",
+     "CVE-9000-0001__f_start",
+     "CVE-9000-0002__f_exact",
+     "CVE-9000-0003__f_ok",
+     "CVE-9000-0003__f_needs_control_bogus",
+     "CVE-9000-0007__f_empty_path",
+     "CVE-9000-0008__f_pending_bogus",
+     "CVE-9000-0013__f_out_of_line"
+    ],
+    "FP": [
+     "CVE-9000-0003__f_blocked",
+     "CVE-9000-0004__f_precedence"
+    ],
+    "TN": [
+     "CVE-9000-0001__f_below",
+     "CVE-9000-0001__f_end",
+     "CVE-9000-0005__f_tier_conflict",
+     "CVE-9000-0013__f_line_patched"
+    ],
+    "FN_def": [
+     "CVE-9000-0013__f_in_line"
+    ],
+    "U_A": [
+     "CVE-9000-0001__f_noversion",
+     "CVE-9000-0002__f_unknown_product",
+     "CVE-9000-0010__f_empty_ranges",
+     "CVE-9000-0011__f_e4_unlinked",
+     "CVE-9000-0012__f_branch_vuln"
+    ],
+    "U_N": [
+     "CVE-9000-0002__f_decoy",
+     "CVE-9000-0003__f_blocked_noversion",
+     "CVE-9000-0006__f_no_range",
+     "CVE-9000-0011__f_e4_linked",
+     "CVE-9000-0012__f_branch_patched"
+    ]
+   }
+  },
+  "advisory_only": {
+   "confusion": {
+    "TP": 4,
+    "FP": 0,
+    "TN": 8,
+    "FN_def": 0,
+    "U_A": 10,
+    "U_N": 3
+   },
+   "scores": {
+    "N": 25,
+    "n_determined": 12,
+    "n_abstained": 13,
+    "precision": 1.0,
+    "recall": 0.2857142857142857,
+    "F1": 0.4444444444444444,
+    "coverage": 0.48,
+    "unknown_rate": 0.52
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-9000-0009__f_unresolved",
+     "cve_id": "CVE-9000-0009",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-9000-0002__f_exact",
+     "CVE-9000-0007__f_empty_path",
+     "CVE-9000-0012__f_branch_vuln",
+     "CVE-9000-0013__f_in_line"
+    ],
+    "FP": [],
+    "TN": [
+     "CVE-9000-0001__f_below",
+     "CVE-9000-0001__f_end",
+     "CVE-9000-0002__f_decoy",
+     "CVE-9000-0004__f_precedence",
+     "CVE-9000-0006__f_no_range",
+     "CVE-9000-0011__f_e4_linked",
+     "CVE-9000-0012__f_branch_patched",
+     "CVE-9000-0013__f_line_patched"
+    ],
+    "FN_def": [],
+    "U_A": [
+     "CVE-9000-0001__f_in",
+     "CVE-9000-0001__f_start",
+     "CVE-9000-0001__f_noversion",
+     "CVE-9000-0002__f_unknown_product",
+     "CVE-9000-0003__f_ok",
+     "CVE-9000-0003__f_needs_control_bogus",
+     "CVE-9000-0008__f_pending_bogus",
+     "CVE-9000-0010__f_empty_ranges",
+     "CVE-9000-0011__f_e4_unlinked",
+     "CVE-9000-0013__f_out_of_line"
+    ],
+    "U_N": [
+     "CVE-9000-0003__f_blocked",
+     "CVE-9000-0003__f_blocked_noversion",
+     "CVE-9000-0005__f_tier_conflict"
+    ]
+   }
+  },
+  "http_version_only": {
+   "confusion": {
+    "TP": 8,
+    "FP": 3,
+    "TN": 3,
+    "FN_def": 1,
+    "U_A": 5,
+    "U_N": 5
+   },
+   "scores": {
+    "N": 25,
+    "n_determined": 15,
+    "n_abstained": 10,
+    "precision": 0.7272727272727273,
+    "recall": 0.5714285714285714,
+    "F1": 0.64,
+    "coverage": 0.6,
+    "unknown_rate": 0.4
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-9000-0009__f_unresolved",
+     "cve_id": "CVE-9000-0009",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-9000-0001__f_in",
+     "CVE-9000-0001__f_start",
+     "CVE-9000-0002__f_exact",
+     "CVE-9000-0003__f_ok",
+     "CVE-9000-0003__f_needs_control_bogus",
+     "CVE-9000-0007__f_empty_path",
+     "CVE-9000-0008__f_pending_bogus",
+     "CVE-9000-0013__f_out_of_line"
+    ],
+    "FP": [
+     "CVE-9000-0003__f_blocked",
+     "CVE-9000-0004__f_precedence",
+     "CVE-9000-0005__f_tier_conflict"
+    ],
+    "TN": [
+     "CVE-9000-0001__f_below",
+     "CVE-9000-0001__f_end",
+     "CVE-9000-0013__f_line_patched"
+    ],
+    "FN_def": [
+     "CVE-9000-0013__f_in_line"
+    ],
+    "U_A": [
+     "CVE-9000-0001__f_noversion",
+     "CVE-9000-0002__f_unknown_product",
+     "CVE-9000-0010__f_empty_ranges",
+     "CVE-9000-0011__f_e4_unlinked",
+     "CVE-9000-0012__f_branch_vuln"
+    ],
+    "U_N": [
+     "CVE-9000-0002__f_decoy",
+     "CVE-9000-0003__f_blocked_noversion",
+     "CVE-9000-0006__f_no_range",
+     "CVE-9000-0011__f_e4_linked",
+     "CVE-9000-0012__f_branch_patched"
+    ]
+   }
+  },
+  "fusion": {
+   "confusion": {
+    "TP": 7,
+    "FP": 0,
+    "TN": 10,
+    "FN_def": 0,
+    "U_A": 7,
+    "U_N": 1
+   },
+   "scores": {
+    "N": 25,
+    "n_determined": 17,
+    "n_abstained": 8,
+    "precision": 1.0,
+    "recall": 0.5,
+    "F1": 0.6666666666666666,
+    "coverage": 0.68,
+    "unknown_rate": 0.32
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-9000-0009__f_unresolved",
+     "cve_id": "CVE-9000-0009",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-9000-0001__f_in",
+     "CVE-9000-0001__f_start",
+     "CVE-9000-0002__f_exact",
+     "CVE-9000-0007__f_empty_path",
+     "CVE-9000-0012__f_branch_vuln",
+     "CVE-9000-0013__f_out_of_line",
+     "CVE-9000-0013__f_in_line"
+    ],
+    "FP": [],
+    "TN": [
+     "CVE-9000-0001__f_below",
+     "CVE-9000-0001__f_end",
+     "CVE-9000-0002__f_decoy",
+     "CVE-9000-0003__f_blocked",
+     "CVE-9000-0003__f_blocked_noversion",
+     "CVE-9000-0004__f_precedence",
+     "CVE-9000-0006__f_no_range",
+     "CVE-9000-0011__f_e4_linked",
+     "CVE-9000-0012__f_branch_patched",
+     "CVE-9000-0013__f_line_patched"
+    ],
+    "FN_def": [],
+    "U_A": [
+     "CVE-9000-0001__f_noversion",
+     "CVE-9000-0002__f_unknown_product",
+     "CVE-9000-0003__f_ok",
+     "CVE-9000-0003__f_needs_control_bogus",
+     "CVE-9000-0008__f_pending_bogus",
+     "CVE-9000-0010__f_empty_ranges",
+     "CVE-9000-0011__f_e4_unlinked"
+    ],
+    "U_N": [
+     "CVE-9000-0005__f_tier_conflict"
+    ]
+   }
+  }
+ }
+}

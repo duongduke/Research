@@ -1,0 +1,23 @@
+{
+ "mode": "fixture (synthetic; not the benchmark)",
+ "harness": "experiments/methods/fixture/run_fixture.py",
+ "inputs": {
+  "mapping": {
+   "path": "experiments/methods/fixture/fixture_mapping.md",
+   "sha256": "69eebe68a47f9bfd746f801250a1ad343807b0bdb67217bd63f432818f593c72"
+  },
+  "cases": {
+   "path": "experiments/methods/fixture/fixture_cases.json",
+   "sha256": "bb8d4c9d77f1698697f575d91d0b4c036c58fb535084da3e20dd718b2eef1617"
+  },
+  "observations": {
+   "path": "experiments/methods/fixture/fixture_observations.json",
+   "sha256": "f2e4ace86126a3a5c2fe4344897c77c7dfdb23f4b7cb2f0571da4248c373e543"
+  },
+  "advisory_ranges": {
+   "path": "experiments/methods/fixture/fixture_advisory_ranges.json",
+   "sha256": "545a389d0d11bb665e8ba94f7e1094fc671c4686c331c14fd93f162305333907"
+  }
+ },
+ "labels_visible_to_methods": false
+}

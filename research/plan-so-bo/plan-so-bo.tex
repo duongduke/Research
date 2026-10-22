@@ -1,0 +1,226 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{fontspec}
+\setmainfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xurl}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Đồ án tốt nghiệp RQ-C1}\\[2mm]
+  {\large\bfseries Evidence-based CVE Applicability}\\[4mm]
+  {\large Tìm hiểu sơ bộ và kế hoạch}\\[2mm]
+  {\normalsize Bản cập nhật 06/10/2026}
+\end{center}
+
+\vspace{1mm}
+\hrule
+\vspace{4mm}
+
+\section*{1. Tóm tắt}
+
+Đề tài đặt câu hỏi: \emph{kết hợp nhiều nguồn bằng chứng có nâng cao độ chính xác khi xác định một CVE có thực sự áp dụng cho một triển khai web cụ thể hay không}. Đồ án chọn hướng \textbf{kiểm chứng khả năng áp dụng CVE mà không trực tiếp khai thác mục tiêu}, kết luận ở \textbf{mức 2} (áp dụng cho triển khai cụ thể, kèm cấu hình/tiền điều kiện). Đối tượng ưu tiên là \textbf{CMS/framework/webmail}; việc tái tạo lỗi trong môi trường sandbox được dùng làm căn cứ để xác lập nhãn chuẩn, với mục tiêu \textbf{$\ge 30$ CVE khác nhau}.
+
+\section*{2. Hiểu bài toán}
+
+Pipeline chính của đề tài:
+
+\begin{center}
+\texttt{input (product + version)} $\rightarrow$ \texttt{thu bằng chứng (CPE/advisory/version history/patch + quan sát HTTP)} $\rightarrow$ \texttt{evidence-fusion} $\rightarrow$ \texttt{Applicable / Not Applicable / Unknown} $\rightarrow$ \texttt{đánh giá}
+\end{center}
+
+Ba điểm mấu chốt:
+
+\begin{itemize}
+  \item \textbf{Ba mức kết luận khác nhau} (mục 2.1): ``CVE ảnh hưởng bản phần mềm'' $\neq$ ``CVE áp dụng cho triển khai cụ thể'' $\neq$ ``đã khai thác thành công''. Đồ án chọn mức 2.
+  \item \textbf{Unknown là đầu ra hợp lệ.} Thiếu bằng chứng thì trả Unknown, không được coi ``không chắc'' thành ``Not Applicable''.
+  \item \textbf{Vì sao cần kết hợp nhiều nguồn.} Một nguồn đơn (CPE hay chuỗi version) không đáng tin: range CPE có thể thiếu hoặc sai, tên sản phẩm mơ hồ, và distro có thể \emph{backport} bản vá khiến version string ``có vẻ affected'' nhưng thực chất đã vá. Kết hợp nhiều nguồn giúp giảm false mapping.
+\end{itemize}
+
+\subsection*{2.1. Ba mức kết luận (không được trộn lẫn)}
+
+\begin{center}
+\begin{tabular}{@{}p{3.2cm}p{5.0cm}p{7.2cm}@{}}
+\toprule
+\textbf{Mức kết luận} & \textbf{Câu hỏi trả lời} & \textbf{Bằng chứng cần} \\
+\midrule
+1. Bản phần mềm (version) & Bản này có chứa lỗi CVE, hay đã vá? & product, version/build, advisory, patch \\
+2. Triển khai cụ thể (deployment) & Cấu hình/điều kiện thực tế có thỏa để lỗi gây tác động? & thêm config, preconditions \\
+3. Đã khai thác thành công & Có thực sự khai thác được không? & runtime evidence (PoC chạy) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Ghi chú input: pipeline ghi input là \texttt{(product + version)} — tương ứng mức 1. Ở mức 2 (deployment), input mở rộng thêm bằng chứng cấu hình/tiền điều kiện \emph{quan sát được qua HTTP} (không dùng cấu hình nội bộ làm đầu vào của phương pháp).
+
+\section*{3. Định nghĩa và phạm vi đối tượng nghiên cứu}
+
+\subsection*{3.1. Thuật ngữ}
+
+\begin{itemize}
+  \item \textbf{Vulnerability} (NIST SP 800-30 Rev.~1, dẫn qua CNSSI 4009): \emph{``Weakness in an information system, system security procedures, internal controls, or implementation that could be exploited or triggered by a threat source.''} \cite{nist}
+  \item \textbf{Vulnerability} (OWASP): \emph{``A weakness that makes the system susceptible to attack or damage.''} \cite{owasp}
+  \item \textbf{System} (OWASP): \emph{``A generic term covering the operating systems, web server, application frameworks and related infrastructure.''} \cite{owasp}
+\end{itemize}
+
+\subsection*{3.2. Phạm vi ``web interface''}
+
+Không có chuẩn duy nhất liệt kê sẵn ``web interface''. Đồ án dùng định nghĩa \textbf{operational} (lựa chọn của tác giả, dẫn dắt từ định nghĩa ``System'' của OWASP \cite{owasp}): \textbf{web-facing target} = phần mềm dùng giao thức HTTP(S) và quan sát/phát hiện được từ phía mạng, gồm 4 nhóm:
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Nhóm} & \textbf{Ví dụ} \\
+\midrule
+1. Web server & Apache HTTP Server, nginx, IIS, Tomcat \\
+2. Reverse proxy / LB / WAF / gateway & HAProxy, Traefik, Envoy, Kong \\
+3. Backend framework & Spring, Django, Rails, Laravel, Express.js \\
+4. Web application / CMS & WordPress, Drupal, Joomla, Jenkins, Grafana \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Ngoài phạm vi} (không nói HTTP hoặc là hạ tầng bên dưới): SSH (OpenSSH), Docker daemon, cơ sở dữ liệu, kernel hệ điều hành, DNS, FTP.
+
+Ghi chú: việc chia 4 nhóm là \emph{lựa chọn operational} để giới hạn dataset; không phải chuẩn công bố.
+
+\section*{4. Bài học từ hai bài báo}
+
+Hai bài báo bổ trợ cho cách nghiên cứu; \textbf{không bài nào} làm đúng bài toán của đồ án.
+
+\subsection*{4.1. VAVI (ASE 2025) — Vulnerability-Affected Versions Identification \cite{vavi}}
+
+\textbf{Thực chất:} nghiên cứu thực nghiệm đánh giá 12 công cụ xác định ``phiên bản bị ảnh hưởng'' trên 1.128 CVE C/C++ (9 dự án). Đây là bài toán \emph{mức 1} (affected version), không phải web fingerprinting.
+
+\textbf{Kết quả cần đọc đúng:}
+\begin{itemize}
+  \item Công cụ đơn tốt nhất (VCCFinder): accuracy \textbf{44,9\%} ở mức \emph{đúng toàn bộ tập affected versions} (exact-set), F1 \textbf{77,8\%} ở mức từng version.
+  \item Kết hợp nhiều công cụ (ensemble voting): accuracy \textbf{55,0\%}, F1 \textbf{84,8\%}.
+\end{itemize}
+
+Lưu ý: \textbf{44,9\% là accuracy của \emph{một công cụ} (single tool), không phải ``một nguồn bằng chứng'' (single source).} Không được dùng con số này dự báo baseline CPE-only của đồ án, cũng không suy sang web black-box.
+
+\textbf{Điều dùng được:} (i) chuẩn gán nhãn \emph{độc lập} (2 người + phân xử, Cohen's Kappa 0,83); (ii) metric hai tầng (exact-set + per-unit); (iii) bài học: nhận diện affected version còn sai nhiều, nhưng đó là mức 1 — đồ án nhắm mức 2.
+
+\subsection*{4.2. Vuln2Action (JISA 2026) \cite{vuln2action}}
+
+\textbf{Thực chất:} framework dựa LLM biến mô tả CVE thành \emph{chuỗi bước tái tạo} (dạng văn bản) và map sang exploit có sẵn. Không chạy PoC thật; đánh giá chủ yếu là tương đồng văn bản (BLEU 0,7589) và review chuyên gia (86,9\% correctness). Sandbox execution nằm \emph{ngoài phạm vi}.
+
+\textbf{Lưu ý diễn giải đúng:} ``thiếu kiểm chứng thực thi'' là giới hạn có thật của Vuln2Action. Tuy nhiên, lab của đồ án kiểm chứng \emph{nhãn applicability cho classifier}, khác với kiểm chứng \emph{bước do Vuln2Action sinh ra}. Tính mới phải được lập luận từ bài toán, cách biểu diễn bằng chứng, cách kết hợp và cách đánh giá của riêng đồ án.
+
+\textbf{Điều dùng được:} mẫu kết hợp nhiều nguồn CTI (CVE/CWE/CPE/CAPEC/Exploit-DB) và danh sách nguồn bằng chứng.
+
+\section*{5. Hướng đi đã chọn}
+
+Đồ án chọn:
+
+\begin{itemize}
+  \item \textbf{Kiểm chứng khả năng áp dụng mà không trực tiếp khai thác}: kết hợp nhiều nguồn bằng chứng → quyết định \texttt{Applicable / Not Applicable / Unknown}, so sánh với baseline dùng nguồn lẻ trên cùng benchmark có nhãn chuẩn độc lập.
+  \item \textbf{Mức kết luận 2} (deployment): ``khả thi'' được hiểu là \emph{applicable} (thỏa cấu hình/tiền điều kiện), \emph{không phải} exploitable (mức 3). Lý do: mức 1 chỉ cần (product, version), gần trùng bài toán affected-version đã được nghiên cứu; mức 2 mới là nơi kết hợp nhiều nguồn (gồm cả bằng chứng cấu hình) tạo khác biệt so với nguồn đơn.
+  \item \textbf{Đối tượng ưu tiên}: CMS/framework/webmail (nơi có nhiều CVE và có thể tái tạo được); web server như Apache/nginx giữ vai trò phụ.
+  \item \textbf{Tái tạo trong sandbox là bắt buộc} để xác lập nhãn chuẩn — không tái tạo được thì không có ground truth. Mục tiêu \textbf{$\ge 30$ CVE khác nhau}.
+\end{itemize}
+
+Câu hỏi nghiên cứu cụ thể: \emph{``So với dùng một nguồn bằng chứng lẻ (baseline), kết hợp nhiều nguồn có làm tăng accuracy/precision/recall và giảm false mapping hay không, và tăng/giảm bao nhiêu (đo trên benchmark có nhãn chuẩn độc lập)?''}
+
+\section*{6. Phương pháp nghiên cứu và ground truth}
+
+\subsection*{6.1. Đơn vị đánh giá và nhãn}
+
+Mỗi \textbf{case} = bộ tứ \texttt{(product, version/build, configuration, CVE)}. Ở mức 2, \emph{configuration} là một phần định danh case (cùng version khác config → khác case).
+
+\begin{itemize}
+  \item \textbf{Nhãn chuẩn (ground truth)}: \texttt{Applicable / Not Applicable} + bucket \texttt{Unresolved} (chưa xác định được trạng thái thật). \texttt{Unresolved} không phải lớp mục tiêu.
+  \item \textbf{Đầu ra phương pháp}: \texttt{Applicable / Not Applicable / Unknown}.
+\end{itemize}
+
+\subsection*{6.2. Ground truth hai lớp (tách khỏi đầu vào phương pháp)}
+
+\begin{enumerate}
+  \item \textbf{Lớp A — dải affected (mức 1):} vendor advisory + patch reference (NVD/CPE). Nguồn công khai.
+  \item \textbf{Lớp B — applicability (mức 2):} \textbf{tái tạo trong sandbox} — dựng đúng (product, version, config), chạy tiền điều kiện + PoC có kiểm soát, ghi kết quả.
+\end{enumerate}
+
+\textbf{Luật nhãn âm (hai nhánh):}
+\begin{itemize}
+  \item (a) danh tính bản phần mềm + dải affected \emph{đáng tin} và version nằm ngoài dải → Not Applicable.
+  \item (b) bản bị ảnh hưởng nhưng \emph{mỗi đường tác động liên quan đều thiếu ít nhất một điều kiện bắt buộc} → Not Applicable (không cần mọi điều kiện đều vắng; nếu nhiều đường phải kiểm từng đường).
+\end{itemize}
+
+\textbf{Chống circularity:} người gán nhãn không xem dự đoán của phương pháp; PoC thất bại không tự sinh nhãn âm; mỗi nhãn kèm vết truy (advisory + artifact tái tạo + config diff).
+
+\subsection*{6.3. Đo lường (Unknown vs sai)}
+
+\texttt{Unknown} là \emph{từ chối kết luận trung thực} khi thiếu bằng chứng — không tự là sai, nhưng là một \emph{bỏ lỡ} cần đo. Quy ước metric:
+\begin{itemize}
+  \item \texttt{coverage} = số dự đoán Applicable/Not Applicable trên số ca có nhãn chuẩn xác định.
+  \item \texttt{Unknown rate} (cùng mẫu số); \texttt{precision} trên các dự đoán Applicable.
+  \item \texttt{recall(Applicable)} giữ \emph{toàn bộ} ground-truth Applicable ở mẫu số, kể cả ca bị trả Unknown (không bỏ Unknown để báo recall cao hơn).
+\end{itemize}
+
+\subsection*{6.4. Đếm CVE khác case}
+
+Theo dõi riêng \texttt{n\_unique\_cves} (mục tiêu $\ge 30$), \texttt{n\_deployments}, \texttt{n\_cases}, \texttt{n\_observation\_conditions}. Biến thể config không làm tăng số CVE; các case cùng CVE phụ thuộc nhau (không chia ngẫu nhiên vào tập chỉnh luật và tập đánh giá).
+
+\subsection*{6.5. Các bước thực hiện}
+
+\begin{enumerate}
+  \item \textbf{Thí điểm} 3 ca đại diện (trước khi mở rộng) để kiểm chứng cả khả năng tái tạo lẫn khả năng quan sát tiền điều kiện qua HTTP.
+  \item \textbf{Xây benchmark}: chọn sản phẩm/plugin + registry $\ge 30$ CVE khác nhau; tái tạo từng ca để gán nhãn chuẩn.
+  \item \textbf{Trích xuất bằng chứng}: CPE/NVD, vendor advisory, version history, patch + dấu hiệu HTTP (mức 2).
+  \item \textbf{Baseline đơn nguồn} và \textbf{fusion} (rule-based/voting) → 3 lớp.
+  \item \textbf{Đánh giá} trên cùng benchmark: accuracy, precision, recall, false mapping, coverage, Unknown rate.
+  \item \textbf{Phân tích} + threats to validity.
+\end{enumerate}
+
+\section*{7. Phạm vi sơ bộ}
+
+\begin{itemize}
+  \item \textbf{Sản phẩm:} CMS (WordPress + một số plugin, Drupal), webmail (Roundcube) là chính; Apache/nginx giữ ít ca. Framework tạm gác giai đoạn này.
+  \item \textbf{Nguồn bằng chứng:} CPE/NVD, vendor advisory, version history, patch reference + \emph{dấu hiệu tiền điều kiện quan sát qua HTTP} ở mức 2. Source/binary là phần mở rộng nếu còn thời gian.
+  \item \textbf{Lab tái tạo:} bắt buộc, $\ge 30$ CVE; dựng affected/fixed + biến thể config để có ca dương và âm đã kiểm chứng.
+  \item \textbf{Tool:} prototype pipeline (collector → fusion → evaluation), fusion rule-based/weighted.
+  \item \textbf{Đánh giá:} accuracy, precision, recall, false mapping, coverage, Unknown rate.
+\end{itemize}
+
+\section*{8. Kế hoạch (tháng 10 -- 12/2026)}
+
+\begin{center}
+\begin{tabular}{@{}p{4.0cm}p{1.8cm}p{9.4cm}@{}}
+\toprule
+\textbf{Giai đoạn} & \textbf{Thời gian} & \textbf{Nội dung chính} \\
+\midrule
+1. Thí điểm & Tuần 1--2 & 3 ca: Really Simple Security CVE-2024-10924, Drupal CVE-2019-6340, Roundcube XSS \\
+2. Benchmark + ground truth & Tuần 2--4 & Chọn $\ge 30$ CVE, tái tạo gán nhãn, ghi registry \\
+3. Baseline + fusion & Tuần 4--6 & Xây baseline đơn nguồn và fusion model \\
+4. Đánh giá & Tuần 7--8 & Đo accuracy/precision/recall/false mapping/coverage/Unknown \\
+5. Viết luận văn & Tuần 8--12 & Viết song song, hoàn thiện cuối T12 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Tài liệu tham khảo}
+
+\begin{thebibliography}{9}
+
+\bibitem{nist} NIST Computer Security Resource Center (CSRC) Glossary, mục ``Vulnerability'' (NIST SP 800-30 Rev.~1, dẫn qua CNSSI 4009). \url{https://csrc.nist.gov/glossary/term/vulnerability}
+
+\bibitem{owasp} OWASP Secure Coding Practices Quick Reference Guide, Appendix B: Glossary. \url{https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/stable-en/03-appendices/05-glossary}
+
+\bibitem{cisa-kev} CISA, Known Exploited Vulnerabilities (KEV) Catalog. \url{https://www.cisa.gov/known-exploited-vulnerabilities-catalog}
+
+\bibitem{vavi} X. Chen, C. Liu, J. Cao, Y. Xiao, et al., ``Vulnerability-Affected Versions Identification: How Far Are We?'', in \emph{Proc. IEEE/ACM International Conference on Automated Software Engineering (ASE)}, 2025. \url{https://arxiv.org/abs/2509.03876}
+
+\bibitem{vuln2action} S. Kumari and G. Yadav, ``Vuln2Action: An LLM-based framework for generating vulnerability reproduction steps and mapping exploits'', \emph{Journal of Information Security and Applications}, vol. 99, 2026, art. 104420. \url{https://doi.org/10.1016/j.jisa.2026.104420}
+
+\end{thebibliography}
+
+\end{document}

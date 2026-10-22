@@ -1,0 +1,17 @@
+## containers
+topup-wp	Up 6 minutes	127.0.0.1:8930->80/tcp
+topup-db	Up 6 minutes (healthy)	127.0.0.1:13313->3306/tcp
+topup-jl428	Up 6 minutes	127.0.0.1:8921->80/tcp
+topup-jl427	Up 6 minutes	127.0.0.1:8920->80/tcp
+
+## marker
+MARKER-ABSENT
+
+## plugin
+backup-backup	active	1.3.8
+
+## joomla api status (liveness)
+427=200 428=401
+
+## non-loopback container ports
+none

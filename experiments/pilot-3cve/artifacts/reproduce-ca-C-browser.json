@@ -1,0 +1,130 @@
+[
+  {
+    "label": "roundcube-1.4.3 (vuln)",
+    "port": 18085,
+    "uid": 2,
+    "logged_in": true,
+    "attempts": [
+      {
+        "url": "http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX",
+        "frames": [
+          {
+            "url": "http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX",
+            "hasScript": true,
+            "body": "\n<script>\nvar UI = new rcube_mail_ui();\n</script>\n\n<div id=\"header\">\n<div id=\"topline\" role=\"banner\" aria-labelledby=\"aria-label-topnav\">\n\t<h2 id=\"aria-label-topnav\" class=\"voice\">Window control</h2>\n\t<div class=\"topleft\">\n\t\t\n\t\t\t\t\t<a class=\"about-link\" onclick=\"UI.show_about(this);return false\" id=\"rcmbtn100\" role=\"button\" href=\"#\">About</a>\n\t\t\t\t\t</div>\n\t\n\t<div class=\"topright\">\n\t\n\t\t\t<span class=\""
+          }
+        ],
+        "page_url": "http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX",
+        "html_len": 23302,
+        "has_script_tag": true,
+        "has_cdata": false,
+        "has_marker_text": true,
+        "html_head": "<!DOCTYPE html><html lang=\"en\" class=\" js chrome webkit\"><head>\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n<title>Roundcube Webmail :: RQ-C1 HTML test message</title>\n<meta name=\"viewport\" content=\"\" id=\"viewport\">\n\n<link rel=\"shortcut icon\" href=\"skins/larry/images/favicon.ico?s=1582145757\">\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/styles.min.css?s=1582145757\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/mail.min.css?s=1582145757\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"plugins/jqueryui/themes/larry/jquery-ui.css?s=1582145757\">\n<scr"
+      },
+      {
+        "url": "http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1",
+        "frames": [
+          {
+            "url": "http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1",
+            "hasScript": true,
+            "body": "\n\n<script>\nvar UI = new rcube_mail_ui();\n</script>\n\n<div id=\"header\">\n<div id=\"topline\" role=\"banner\" aria-labelledby=\"aria-label-topnav\">\n\t<h2 id=\"aria-label-topnav\" class=\"voice\">Window control</h2>\n\t<div class=\"topleft\">\n\t\t\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\n\t<div class=\"topright\">\n\t\n\t\t\t<a class=\"closelink\" onclick=\"self.close()\" id=\"rcmbtn100\" role=\"button\" href=\"#\">Close</a>\n\t\t</div>\n</div>\n<br style=\"clear"
+          }
+        ],
+        "page_url": "http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1",
+        "html_len": 19762,
+        "has_script_tag": true,
+        "has_cdata": false,
+        "has_marker_text": true,
+        "html_head": "<!DOCTYPE html><html lang=\"en\" class=\" js chrome webkit\"><head>\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n<title>Roundcube Webmail :: RQ-C1 HTML test message</title>\n<meta name=\"viewport\" content=\"\" id=\"viewport\">\n\n<link rel=\"shortcut icon\" href=\"skins/larry/images/favicon.ico?s=1582145757\">\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/styles.min.css?s=1582145757\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/mail.min.css?s=1582145757\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"plugins/jqueryui/themes/larry/jquery-ui.css?s=1582145757\">\n<scr"
+      },
+      {
+        "url": "http://127.0.0.1:18085/?_task=mail&_mbox=INBOX&_uid=2&_action=preview",
+        "frames": [
+          {
+            "url": "http://127.0.0.1:18085/?_task=mail&_mbox=INBOX&_uid=2&_action=preview",
+            "hasScript": true,
+            "body": "\n\n<div id=\"messageheader\" class=\"previewheader\">\n\n<!-- record navigation -->\n<div id=\"countcontrols\" role=\"toolbar\" aria-labelledby=\"aria-label-messagetoolbar\">\n<h2 id=\"aria-label-messagetoolbar\" class=\"voice\">Message actions</h2>\n\t<span class=\"buttongroup\">\n\t\t<a class=\"button first changeformat html selected\" title=\"Display in HTML format\" id=\"rcmbtn100\" role=\"button\" href=\"#\" onclick=\"return rcm"
+          }
+        ],
+        "page_url": "http://127.0.0.1:18085/?_task=mail&_mbox=INBOX&_uid=2&_action=preview",
+        "html_len": 9946,
+        "has_script_tag": true,
+        "has_cdata": false,
+        "has_marker_text": true,
+        "html_head": "<!DOCTYPE html><html lang=\"en\" class=\" js chrome webkit\"><head>\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n<title>Roundcube Webmail :: RQ-C1 HTML test message</title>\n<meta name=\"viewport\" content=\"\" id=\"viewport\">\n\n<link rel=\"shortcut icon\" href=\"skins/larry/images/favicon.ico?s=1582145757\">\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/styles.min.css?s=1582145757\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/mail.min.css?s=1582145757\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"plugins/jqueryui/themes/larry/jquery-ui.css?s=1582145757\">\n<scr"
+      }
+    ],
+    "executed": true,
+    "executed_in": "(console marker)",
+    "console": [
+      "[log] RQ-C1-XSS-EXECUTED @http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX",
+      "[log] RQ-C1-XSS-EXECUTED @http://127.0.0.1:18085/?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1",
+      "[log] RQ-C1-XSS-EXECUTED @http://127.0.0.1:18085/?_task=mail&_mbox=INBOX&_uid=2&_action=preview"
+    ],
+    "dialogs": [],
+    "page_errors": [],
+    "screenshot": "/tmp/caC/caC-1.4.3.png"
+  },
+  {
+    "label": "roundcube-1.4.4 (fixed)",
+    "port": 18086,
+    "uid": 2,
+    "logged_in": true,
+    "attempts": [
+      {
+        "url": "http://127.0.0.1:18086/?_task=mail&_action=show&_uid=2&_mbox=INBOX",
+        "frames": [
+          {
+            "url": "http://127.0.0.1:18086/?_task=mail&_action=show&_uid=2&_mbox=INBOX",
+            "hasScript": true,
+            "body": "\n<script>\nvar UI = new rcube_mail_ui();\n</script>\n\n<div id=\"header\">\n<div id=\"topline\" role=\"banner\" aria-labelledby=\"aria-label-topnav\">\n\t<h2 id=\"aria-label-topnav\" class=\"voice\">Window control</h2>\n\t<div class=\"topleft\">\n\t\t\n\t\t\t\t\t<a class=\"about-link\" onclick=\"UI.show_about(this);return false\" id=\"rcmbtn100\" role=\"button\" href=\"#\">About</a>\n\t\t\t\t\t</div>\n\t\n\t<div class=\"topright\">\n\t\n\t\t\t<span class=\""
+          }
+        ],
+        "page_url": "http://127.0.0.1:18086/?_task=mail&_action=show&_uid=2&_mbox=INBOX",
+        "html_len": 23280,
+        "has_script_tag": true,
+        "has_cdata": false,
+        "has_marker_text": true,
+        "html_head": "<!DOCTYPE html><html lang=\"en\" class=\" js chrome webkit\"><head>\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n<title>Roundcube Webmail :: RQ-C1 HTML test message</title>\n<meta name=\"viewport\" content=\"\" id=\"viewport\">\n\n<link rel=\"shortcut icon\" href=\"skins/larry/images/favicon.ico?s=1587930608\">\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/styles.min.css?s=1587930608\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/mail.min.css?s=1587930608\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"plugins/jqueryui/themes/larry/jquery-ui.css?s=1587930607\">\n<scr"
+      },
+      {
+        "url": "http://127.0.0.1:18086/?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1",
+        "frames": [
+          {
+            "url": "http://127.0.0.1:18086/?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1",
+            "hasScript": true,
+            "body": "\n\n<script>\nvar UI = new rcube_mail_ui();\n</script>\n\n<div id=\"header\">\n<div id=\"topline\" role=\"banner\" aria-labelledby=\"aria-label-topnav\">\n\t<h2 id=\"aria-label-topnav\" class=\"voice\">Window control</h2>\n\t<div class=\"topleft\">\n\t\t\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\n\t<div class=\"topright\">\n\t\n\t\t\t<a class=\"closelink\" onclick=\"self.close()\" id=\"rcmbtn100\" role=\"button\" href=\"#\">Close</a>\n\t\t</div>\n</div>\n<br style=\"clear"
+          }
+        ],
+        "page_url": "http://127.0.0.1:18086/?_task=mail&_action=show&_uid=2&_mbox=INBOX&_extwin=1",
+        "html_len": 19774,
+        "has_script_tag": true,
+        "has_cdata": false,
+        "has_marker_text": true,
+        "html_head": "<!DOCTYPE html><html lang=\"en\" class=\" js chrome webkit\"><head>\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n<title>Roundcube Webmail :: RQ-C1 HTML test message</title>\n<meta name=\"viewport\" content=\"\" id=\"viewport\">\n\n<link rel=\"shortcut icon\" href=\"skins/larry/images/favicon.ico?s=1587930608\">\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/styles.min.css?s=1587930608\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/mail.min.css?s=1587930608\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"plugins/jqueryui/themes/larry/jquery-ui.css?s=1587930607\">\n<scr"
+      },
+      {
+        "url": "http://127.0.0.1:18086/?_task=mail&_mbox=INBOX&_uid=2&_action=preview",
+        "frames": [
+          {
+            "url": "http://127.0.0.1:18086/?_task=mail&_mbox=INBOX&_uid=2&_action=preview",
+            "hasScript": true,
+            "body": "\n\n<div id=\"messageheader\" class=\"previewheader\">\n\n<!-- record navigation -->\n<div id=\"countcontrols\" role=\"toolbar\" aria-labelledby=\"aria-label-messagetoolbar\">\n<h2 id=\"aria-label-messagetoolbar\" class=\"voice\">Message actions</h2>\n\t<span class=\"buttongroup\">\n\t\t<a class=\"button first changeformat html selected\" title=\"Display in HTML format\" id=\"rcmbtn100\" role=\"button\" href=\"#\" onclick=\"return rcm"
+          }
+        ],
+        "page_url": "http://127.0.0.1:18086/?_task=mail&_mbox=INBOX&_uid=2&_action=preview",
+        "html_len": 9958,
+        "has_script_tag": true,
+        "has_cdata": false,
+        "has_marker_text": true,
+        "html_head": "<!DOCTYPE html><html lang=\"en\" class=\" js chrome webkit\"><head>\n<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\">\n<title>Roundcube Webmail :: RQ-C1 HTML test message</title>\n<meta name=\"viewport\" content=\"\" id=\"viewport\">\n\n<link rel=\"shortcut icon\" href=\"skins/larry/images/favicon.ico?s=1587930608\">\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/styles.min.css?s=1587930608\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"skins/larry/mail.min.css?s=1587930608\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"plugins/jqueryui/themes/larry/jquery-ui.css?s=1587930607\">\n<scr"
+      }
+    ],
+    "executed": false,
+    "executed_in": null,
+    "console": [],
+    "dialogs": [],
+    "page_errors": [],
+    "screenshot": "/tmp/caC/caC-1.4.4.png"
+  }
+]

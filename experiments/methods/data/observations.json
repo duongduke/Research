@@ -1,0 +1,2173 @@
+{
+ "generated_at_utc": "2026-10-17T15:41:17Z",
+ "generated_by": "experiments/methods/build_inputs.py (engineer, step 3 phase A)",
+ "policy": {
+  "source": "only probes with validation.status == 'verified' contribute an observed value (G7)",
+  "extraction": "value read from the frozen HTTP capture referenced by the probe (artifact line recorded per observation)",
+  "shared_response": "a probe whose single response maps to several conditions emits one record per condition from the same extraction (R4: 2 extractions = 1 request), never a second probe/request",
+  "excluded_sources": [
+   "PoC/exploit logs",
+   "database state dumps",
+   "attacker listeners",
+   "dpkg -l / installed-package metadata",
+   "image digests",
+   "tarball/zip sha256"
+  ],
+  "not_ground_truth": "this file is an INPUT to the methods (observed evidence), not ground truth"
+ },
+ "counts": {
+  "verified_probe_requests": 56,
+  "accepted_observations": 59,
+  "extra_condition_extractions": 3,
+  "unobserved_entries": 77
+ },
+ "cases": {
+  "CVE-2021-41773__weakened_249": {
+   "cve_id": "CVE-2021-41773",
+   "artifact_state_key": "httpd2449_weakened_8083",
+   "observations": [
+    {
+     "probe_id": "observe_server_header",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/reproduce-cve-2021-41773/03-lab-traversal.txt",
+     "artifact_section": null,
+     "artifact_line": "< Server: Apache/2.4.49 (Unix)",
+     "extraction_rule": "Server:\\s*(Apache/[0-9.]+)",
+     "value_kind": "version",
+     "identity_text": "Apache Apache/2.4.49",
+     "version": "Apache/2.4.49",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token 'Apache/2.4.49' at experiments/reproduce-cve-2021-41773/03-lab-traversal.txt"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2021-41773__default_249": {
+   "cve_id": "CVE-2021-41773",
+   "artifact_state_key": "httpd2449_default_249_8081",
+   "observations": [
+    {
+     "probe_id": "observe_server_header",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/reproduce-cve-2021-41773/05-default-249-traversal.txt",
+     "artifact_section": null,
+     "artifact_line": "< Server: Apache/2.4.49 (Unix)",
+     "extraction_rule": "Server:\\s*(Apache/[0-9.]+)",
+     "value_kind": "version",
+     "identity_text": "Apache Apache/2.4.49",
+     "version": "Apache/2.4.49",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token 'Apache/2.4.49' at experiments/reproduce-cve-2021-41773/05-default-249-traversal.txt"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2021-41773__fixed_251": {
+   "cve_id": "CVE-2021-41773",
+   "artifact_state_key": "httpd2451_8082",
+   "observations": [
+    {
+     "probe_id": "observe_server_header",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/reproduce-cve-2021-41773/04-fixed-251-traversal.txt",
+     "artifact_section": null,
+     "artifact_line": "< Server: Apache/2.4.51 (Unix)",
+     "extraction_rule": "Server:\\s*(Apache/[0-9.]+)",
+     "value_kind": "version",
+     "identity_text": "Apache Apache/2.4.51",
+     "version": "Apache/2.4.51",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token 'Apache/2.4.51' at experiments/reproduce-cve-2021-41773/04-fixed-251-traversal.txt"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2019-6340__rest_on_869": {
+   "cve_id": "CVE-2019-6340",
+   "artifact_state_key": "drupal869_rest_on",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_rest_route",
+     "condition_id": "p_rest_module_on",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_jsonapi_route",
+     "condition_id": "p_jsonapi_route_on",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_form",
+     "condition_id": "p_auth_content_creation",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2019-6340__rest_off_jsonapi_on_869": {
+   "cve_id": "CVE-2019-6340",
+   "artifact_state_key": "drupal869_jsonapi_on",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_rest_route",
+     "condition_id": "p_rest_module_on",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_jsonapi_route",
+     "condition_id": "p_jsonapi_route_on",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_form",
+     "condition_id": "p_auth_content_creation",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2019-6340__both_off_869": {
+   "cve_id": "CVE-2019-6340",
+   "artifact_state_key": "drupal869_both_off",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_rest_route",
+     "condition_id": "p_rest_module_on",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_jsonapi_route",
+     "condition_id": "p_jsonapi_route_on",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_form",
+     "condition_id": "p_auth_content_creation",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2019-6340__rest_on_8610_fixed": {
+   "cve_id": "CVE-2019-6340",
+   "artifact_state_key": "drupal8610_rest_on",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_rest_route",
+     "condition_id": "p_rest_module_on",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_jsonapi_route",
+     "condition_id": "p_jsonapi_route_on",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_form",
+     "condition_id": "p_auth_content_creation",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2024-10924__9_1_1_1_2fa_on": {
+   "cve_id": "CVE-2024-10924",
+   "artifact_state_key": "rss_9111_2fa_on",
+   "observations": [
+    {
+     "probe_id": "observe_plugin_asset_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/pilot-3cve/artifacts/http-verification.txt",
+     "artifact_section": "-- [wp-vuln-9.1.1.1] http://127.0.0.1:8081",
+     "artifact_line": "plugin asset ver -> ver=9.1.1.1",
+     "extraction_rule": "plugin asset ver\\s*->\\s*ver=([0-9.]+)",
+     "value_kind": "version",
+     "identity_text": "really-simple-ssl 9.1.1.1",
+     "version": "9.1.1.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '9.1.1.1' at experiments/pilot-3cve/artifacts/http-verification.txt"
+    },
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_core_version_671",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/pilot-3cve/artifacts/http-verification.txt",
+     "artifact_section": "-- [wp-vuln-9.1.1.1] http://127.0.0.1:8081",
+     "artifact_line": "generator meta   -> content=\"WordPress 6.7.1\"",
+     "extraction_rule": "generator meta\\s*->\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 6.7.1",
+     "version": "6.7.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '6.7.1' at experiments/pilot-3cve/artifacts/http-verification.txt"
+    },
+    {
+     "probe_id": "probe_two_fa_route",
+     "condition_id": "p_2fa_enabled",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2024-10924/8081-2fa-on-POST-skip_onboarding.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 400 Bad Request",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "rest_route_presence",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 400 rest_missing_callback_param -> the two_fa route is registered, so login protection (2FA) is ON and the skip_onboarding route exists"
+    },
+    {
+     "probe_id": "probe_two_fa_route",
+     "condition_id": "p_skip_onboarding_route",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2024-10924/8081-2fa-on-POST-skip_onboarding.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 400 Bad Request",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "rest_route_presence",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 400 rest_missing_callback_param -> the two_fa route is registered, so login protection (2FA) is ON and the skip_onboarding route exists — same response as probe_two_fa_route (R4: 2 extractions = 1 request)",
+     "shared_response_with": "probe_two_fa_route"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2024-10924__9_1_1_1_2fa_off": {
+   "cve_id": "CVE-2024-10924",
+   "artifact_state_key": "rss_9111_2fa_off",
+   "observations": [
+    {
+     "probe_id": "observe_plugin_asset_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/pilot-3cve/artifacts/http-verification.txt",
+     "artifact_section": "-- [wp-vuln-9.1.1.1] http://127.0.0.1:8081",
+     "artifact_line": "plugin asset ver -> ver=9.1.1.1",
+     "extraction_rule": "plugin asset ver\\s*->\\s*ver=([0-9.]+)",
+     "value_kind": "version",
+     "identity_text": "really-simple-ssl 9.1.1.1",
+     "version": "9.1.1.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '9.1.1.1' at experiments/pilot-3cve/artifacts/http-verification.txt"
+    },
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_core_version_671",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/pilot-3cve/artifacts/http-verification.txt",
+     "artifact_section": "-- [wp-vuln-9.1.1.1] http://127.0.0.1:8081",
+     "artifact_line": "generator meta   -> content=\"WordPress 6.7.1\"",
+     "extraction_rule": "generator meta\\s*->\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 6.7.1",
+     "version": "6.7.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '6.7.1' at experiments/pilot-3cve/artifacts/http-verification.txt"
+    },
+    {
+     "probe_id": "probe_two_fa_route",
+     "condition_id": "p_2fa_enabled",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2024-10924/8081-2fa-off-POST-skip_onboarding.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 404 Not Found",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "rest_route_presence",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": false,
+     "predicate_reason": "HTTP 404 rest_no_route -> the two_fa route is not registered, so login protection (2FA) is OFF and the skip_onboarding route does not exist"
+    },
+    {
+     "probe_id": "probe_two_fa_route",
+     "condition_id": "p_skip_onboarding_route",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2024-10924/8081-2fa-off-POST-skip_onboarding.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 404 Not Found",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "rest_route_presence",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": false,
+     "predicate_reason": "HTTP 404 rest_no_route -> the two_fa route is not registered, so login protection (2FA) is OFF and the skip_onboarding route does not exist — same response as probe_two_fa_route (R4: 2 extractions = 1 request)",
+     "shared_response_with": "probe_two_fa_route"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2024-10924__9_1_2_2fa_on_fixed": {
+   "cve_id": "CVE-2024-10924",
+   "artifact_state_key": "rss_912_2fa_on",
+   "observations": [
+    {
+     "probe_id": "observe_plugin_asset_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/pilot-3cve/artifacts/http-verification.txt",
+     "artifact_section": "-- [wp-fixed-9.1.2] http://127.0.0.1:8082",
+     "artifact_line": "plugin asset ver -> ver=9.1.2",
+     "extraction_rule": "plugin asset ver\\s*->\\s*ver=([0-9.]+)",
+     "value_kind": "version",
+     "identity_text": "really-simple-ssl 9.1.2",
+     "version": "9.1.2",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '9.1.2' at experiments/pilot-3cve/artifacts/http-verification.txt"
+    },
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_core_version_671",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/pilot-3cve/artifacts/http-verification.txt",
+     "artifact_section": "-- [wp-fixed-9.1.2] http://127.0.0.1:8082",
+     "artifact_line": "generator meta   -> content=\"WordPress 6.7.1\"",
+     "extraction_rule": "generator meta\\s*->\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 6.7.1",
+     "version": "6.7.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '6.7.1' at experiments/pilot-3cve/artifacts/http-verification.txt"
+    },
+    {
+     "probe_id": "probe_two_fa_route",
+     "condition_id": "p_2fa_enabled",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2024-10924/8082-fixed-9.1.2-2fa-on-POST-skip_onboarding.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 400 Bad Request",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "rest_route_presence",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 400 rest_missing_callback_param -> the two_fa route is registered, so login protection (2FA) is ON and the skip_onboarding route exists"
+    },
+    {
+     "probe_id": "probe_two_fa_route",
+     "condition_id": "p_skip_onboarding_route",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2024-10924/8082-fixed-9.1.2-2fa-on-POST-skip_onboarding.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 400 Bad Request",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "rest_route_presence",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 400 rest_missing_callback_param -> the two_fa route is registered, so login protection (2FA) is ON and the skip_onboarding route exists — same response as probe_two_fa_route (R4: 2 extractions = 1 request)",
+     "shared_response_with": "probe_two_fa_route"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2020-12625__1_4_3": {
+   "cve_id": "CVE-2020-12625",
+   "artifact_state_key": "rc143",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-12625__1_4_4_fixed": {
+   "cve_id": "CVE-2020-12625",
+   "artifact_state_key": "rc144",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2014-3704__vuln": {
+   "cve_id": "CVE-2014-3704",
+   "artifact_state_key": "drupal7_731",
+   "observations": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal7",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch1-stack/artifacts/http-observations.txt",
+     "artifact_section": "## drupal 7.31 (8901)",
+     "artifact_line": "headers: Server: Apache/2.4.25 (Debian) X-Generator: Drupal 7 (http://drupal.org)",
+     "extraction_rule": "X-Generator:\\s*(Drupal\\s+\\d+)",
+     "value_kind": "family",
+     "identity_text": "Drupal 7",
+     "version": null,
+     "version_status": "family_only",
+     "predicate_value": true,
+     "predicate_reason": "observed product family 'Drupal 7'; minor/patch not exposed (mapping note)"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_form",
+     "condition_id": "p_login_form_reachable",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2014-3704__fixed": {
+   "cve_id": "CVE-2014-3704",
+   "artifact_state_key": "drupal7_732",
+   "observations": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal7",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch1-stack/artifacts/http-observations.txt",
+     "artifact_section": "## drupal 7.32 (8902)",
+     "artifact_line": "headers: Server: Apache/2.4.25 (Debian) X-Generator: Drupal 7 (http://drupal.org)",
+     "extraction_rule": "X-Generator:\\s*(Drupal\\s+\\d+)",
+     "value_kind": "family",
+     "identity_text": "Drupal 7",
+     "version": null,
+     "version_status": "family_only",
+     "predicate_value": true,
+     "predicate_reason": "observed product family 'Drupal 7'; minor/patch not exposed (mapping note)"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_form",
+     "condition_id": "p_login_form_reachable",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2015-3440__vuln": {
+   "cve_id": "CVE-2015-3440",
+   "artifact_state_key": "wp420_src",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch3-stack/artifacts/http-observations.txt",
+     "artifact_section": "## 8731 (WP 4.2.0)",
+     "artifact_line": "generator: content=\"WordPress 4.2-src\"",
+     "extraction_rule": "generator:\\s*content=\"WordPress\\s+([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 4.2-src",
+     "version": "4.2-src",
+     "version_status": "ambiguous",
+     "predicate_value": null,
+     "predicate_reason": "observed token '4.2-src' is not a clean release (mapping ambiguity_when) -> not used as E5"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_comment_form",
+     "condition_id": "p_comments_open_on_post",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2015-3440__fixed": {
+   "cve_id": "CVE-2015-3440",
+   "artifact_state_key": "wp421",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch3-stack/artifacts/http-observations.txt",
+     "artifact_section": "## 8732 (WP 4.2.1)",
+     "artifact_line": "generator: content=\"WordPress 4.2.1\"",
+     "extraction_rule": "generator:\\s*content=\"WordPress\\s+([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 4.2.1",
+     "version": "4.2.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '4.2.1' at experiments/26cve/_batch3-stack/artifacts/http-observations.txt"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_comment_form",
+     "condition_id": "p_comments_open_on_post",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2017-1001000__vuln": {
+   "cve_id": "CVE-2017-1001000",
+   "artifact_state_key": "wp471",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch3-stack/artifacts/http-observations.txt",
+     "artifact_section": "## 8711 (WP 4.7.1)",
+     "artifact_line": "generator: content=\"WordPress 4.7.1\"",
+     "extraction_rule": "generator:\\s*content=\"WordPress\\s+([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 4.7.1",
+     "version": "4.7.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '4.7.1' at experiments/26cve/_batch3-stack/artifacts/http-observations.txt"
+    },
+    {
+     "probe_id": "probe_rest_root",
+     "condition_id": "p_rest_reachable",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2017-1001000/8711-wp471-GET-rest-route-index-SUPPLEMENTARY.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 200 OK",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "rest_routes",
+     "body_has_routes": true,
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 200 and body JSON 'routes' present (experiments/methods/captures-v2/CVE-2017-1001000/8711-wp471-GET-rest-route-index-SUPPLEMENTARY.txt)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2017-1001000__fixed": {
+   "cve_id": "CVE-2017-1001000",
+   "artifact_state_key": "wp472",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch3-stack/artifacts/http-observations.txt",
+     "artifact_section": "## 8712 (WP 4.7.2)",
+     "artifact_line": "generator: content=\"WordPress 4.7.2\"",
+     "extraction_rule": "generator:\\s*content=\"WordPress\\s+([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 4.7.2",
+     "version": "4.7.2",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '4.7.2' at experiments/26cve/_batch3-stack/artifacts/http-observations.txt"
+    },
+    {
+     "probe_id": "probe_rest_root",
+     "condition_id": "p_rest_reachable",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2017-1001000/8712-wp472-GET-rest-route-index-SUPPLEMENTARY.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 200 OK",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "rest_routes",
+     "body_has_routes": true,
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 200 and body JSON 'routes' present (experiments/methods/captures-v2/CVE-2017-1001000/8712-wp472-GET-rest-route-index-SUPPLEMENTARY.txt)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2018-7600__vuln": {
+   "cve_id": "CVE-2018-7600",
+   "artifact_state_key": "drupal8_850",
+   "observations": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal8",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch1-stack/artifacts/http-observations.txt",
+     "artifact_section": "## drupal 8.5.0 (8903)",
+     "artifact_line": "headers: Server: Apache/2.4.25 (Debian) X-Drupal-Dynamic-Cache: MISS|X-Generator: Drupal 8 (https://www.drupal.org) X-Drupal-Cache: HIT",
+     "extraction_rule": "X-Generator:\\s*(Drupal\\s+\\d+)",
+     "value_kind": "family",
+     "identity_text": "Drupal 8",
+     "version": null,
+     "version_status": "family_only",
+     "predicate_value": true,
+     "predicate_reason": "observed product family 'Drupal 8'; minor/patch not exposed (mapping note)"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_register_ajax",
+     "condition_id": "p_user_register_ajax_wrapper",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2018-7600__fixed": {
+   "cve_id": "CVE-2018-7600",
+   "artifact_state_key": "drupal8_851",
+   "observations": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal8",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch1-stack/artifacts/http-observations.txt",
+     "artifact_section": "## drupal 8.5.1 (8904)",
+     "artifact_line": "headers: Server: Apache/2.4.25 (Debian) X-Drupal-Dynamic-Cache: MISS|X-Generator: Drupal 8 (https://www.drupal.org) X-Drupal-Cache: HIT",
+     "extraction_rule": "X-Generator:\\s*(Drupal\\s+\\d+)",
+     "value_kind": "family",
+     "identity_text": "Drupal 8",
+     "version": null,
+     "version_status": "family_only",
+     "predicate_value": true,
+     "predicate_reason": "observed product family 'Drupal 8'; minor/patch not exposed (mapping note)"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_register_ajax",
+     "condition_id": "p_user_register_ajax_wrapper",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2018-7602__vuln": {
+   "cve_id": "CVE-2018-7602",
+   "artifact_state_key": "drupal7_758",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal7",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_form",
+     "condition_id": "p_authenticated_session",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2018-7602__fixed": {
+   "cve_id": "CVE-2018-7602",
+   "artifact_state_key": "drupal7_759",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal7",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_form",
+     "condition_id": "p_authenticated_session",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2019-10692__vuln": {
+   "cve_id": "CVE-2019-10692",
+   "artifact_state_key": "wgm_71117",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_markers_route",
+     "condition_id": "p_markers_route_registered",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2019-10692__fixed": {
+   "cve_id": "CVE-2019-10692",
+   "artifact_state_key": "wgm_71118",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_markers_route",
+     "condition_id": "p_markers_route_registered",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2019-6341__unresolved": {
+   "cve_id": "CVE-2019-6341",
+   "artifact_state_key": "drupal8_8612",
+   "observations": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal8",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch1-stack/artifacts/http-observations.txt",
+     "artifact_section": "## drupal 8.6.12 (8909)",
+     "artifact_line": "headers: Server: Apache/2.4.25 (Debian) X-Drupal-Dynamic-Cache: MISS|X-Generator: Drupal 8 (https://www.drupal.org) X-Drupal-Cache: HIT",
+     "extraction_rule": "X-Generator:\\s*(Drupal\\s+\\d+)",
+     "value_kind": "family",
+     "identity_text": "Drupal 8",
+     "version": null,
+     "version_status": "family_only",
+     "predicate_value": true,
+     "predicate_reason": "observed product family 'Drupal 8'; minor/patch not exposed (mapping note)"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_register_form",
+     "condition_id": "p_open_registration_user_picture",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2019-8942__vuln": {
+   "cve_id": "CVE-2019-8942",
+   "artifact_state_key": "wp500",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2019-8942  WP 5.0.0 (vuln)",
+     "artifact_line": "generator meta: content=\"WordPress 5.0\"",
+     "extraction_rule": "generator meta:\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 5.0",
+     "version": "5.0",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '5.0' at experiments/26cve/_batch0-stack/artifacts/http-observations.txt"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_upload_capable_author",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2019-8942__fixed": {
+   "cve_id": "CVE-2019-8942",
+   "artifact_state_key": "wp501",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2019-8942  WP 5.0.1 (fixed)",
+     "artifact_line": "generator meta: content=\"WordPress 5.0.1\"",
+     "extraction_rule": "generator meta:\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 5.0.1",
+     "version": "5.0.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '5.0.1' at experiments/26cve/_batch0-stack/artifacts/http-observations.txt"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_upload_capable_author",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-12640__config_off": {
+   "cve_id": "CVE-2020-12640",
+   "artifact_state_key": "rc143_default_config_off",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_installer_dir",
+     "condition_id": "p_installer_public",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-12640__config_on_vuln": {
+   "cve_id": "CVE-2020-12640",
+   "artifact_state_key": "rc143_config_on",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_installer_dir",
+     "condition_id": "p_installer_public",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-12640__config_on_fixed": {
+   "cve_id": "CVE-2020-12640",
+   "artifact_state_key": "rc144_config_on",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_installer_dir",
+     "condition_id": "p_installer_public",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-12641__config_off": {
+   "cve_id": "CVE-2020-12641",
+   "artifact_state_key": "rc143_default_config_off",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_installer_dir",
+     "condition_id": "p_installer_public",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-12641__config_on_vuln": {
+   "cve_id": "CVE-2020-12641",
+   "artifact_state_key": "rc143_config_on",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_installer_dir",
+     "condition_id": "p_installer_public",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-12641__config_on_fixed": {
+   "cve_id": "CVE-2020-12641",
+   "artifact_state_key": "rc144_config_on",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_installer_dir",
+     "condition_id": "p_installer_public",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-13671__config_off": {
+   "cve_id": "CVE-2020-13671",
+   "artifact_state_key": "drupal8_898",
+   "observations": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal8",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch1-stack/artifacts/http-observations.txt",
+     "artifact_section": "## drupal 8.9.8 (8907)",
+     "artifact_line": "headers: Server: Apache/2.4.25 (Debian) X-Drupal-Dynamic-Cache: MISS|X-Generator: Drupal 8 (https://www.drupal.org) X-Drupal-Cache: HIT",
+     "extraction_rule": "X-Generator:\\s*(Drupal\\s+\\d+)",
+     "value_kind": "family",
+     "identity_text": "Drupal 8",
+     "version": null,
+     "version_status": "family_only",
+     "predicate_value": true,
+     "predicate_reason": "observed product family 'Drupal 8'; minor/patch not exposed (mapping note)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2020-13671__config_on_vuln": {
+   "cve_id": "CVE-2020-13671",
+   "artifact_state_key": "drupal8_898",
+   "observations": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal8",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch1-stack/artifacts/http-observations.txt",
+     "artifact_section": "## drupal 8.9.8 (8907)",
+     "artifact_line": "headers: Server: Apache/2.4.25 (Debian) X-Drupal-Dynamic-Cache: MISS|X-Generator: Drupal 8 (https://www.drupal.org) X-Drupal-Cache: HIT",
+     "extraction_rule": "X-Generator:\\s*(Drupal\\s+\\d+)",
+     "value_kind": "family",
+     "identity_text": "Drupal 8",
+     "version": null,
+     "version_status": "family_only",
+     "predicate_value": true,
+     "predicate_reason": "observed product family 'Drupal 8'; minor/patch not exposed (mapping note)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2020-13671__config_on_fixed": {
+   "cve_id": "CVE-2020-13671",
+   "artifact_state_key": "drupal8_899",
+   "observations": [
+    {
+     "probe_id": "observe_xgenerator_drupal",
+     "condition_id": "p_product_drupal8",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch1-stack/artifacts/http-observations.txt",
+     "artifact_section": "## drupal 8.9.9 (8908)",
+     "artifact_line": "headers: Server: Apache/2.4.25 (Debian) X-Drupal-Dynamic-Cache: MISS|X-Generator: Drupal 8 (https://www.drupal.org) X-Drupal-Cache: HIT",
+     "extraction_rule": "X-Generator:\\s*(Drupal\\s+\\d+)",
+     "value_kind": "family",
+     "identity_text": "Drupal 8",
+     "version": null,
+     "version_status": "family_only",
+     "predicate_value": true,
+     "predicate_reason": "observed product family 'Drupal 8'; minor/patch not exposed (mapping note)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2020-25213__vuln": {
+   "cve_id": "CVE-2020-25213",
+   "artifact_state_key": "wfm_60",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_connector",
+     "condition_id": "p_connector_reachable",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2020-25213__fixed": {
+   "cve_id": "CVE-2020-25213",
+   "artifact_state_key": "wfm_806",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_connector",
+     "condition_id": "p_connector_reachable",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2021-23017__backport_na_a": {
+   "cve_id": "CVE-2021-23017",
+   "artifact_state_key": "nginx_jammy_backport",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_server_header",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2021-24917__vuln": {
+   "cve_id": "CVE-2021-24917",
+   "artifact_state_key": "whl_19",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_secret_login_redirect",
+     "condition_id": "p_secret_login_configured",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2021-24917__fixed": {
+   "cve_id": "CVE-2021-24917",
+   "artifact_state_key": "whl_191",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_secret_login_redirect",
+     "condition_id": "p_secret_login_configured",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2021-29447__vuln": {
+   "cve_id": "CVE-2021-29447",
+   "artifact_state_key": "wp570_php803",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2021-29447 WP 5.7.0 (vuln)",
+     "artifact_line": "generator meta: content=\"WordPress 5.7\"",
+     "extraction_rule": "generator meta:\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 5.7",
+     "version": "5.7",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '5.7' at experiments/26cve/_batch0-stack/artifacts/http-observations.txt"
+    },
+    {
+     "probe_id": "observe_php_version",
+     "condition_id": "p_php8_runtime",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2021-29447 WP 5.7.0 (vuln)",
+     "artifact_line": "Server header    : Server: Apache/2.4.38 (Debian) X-Powered-By: PHP/8.0.3",
+     "extraction_rule": "X-Powered-By: PHP/([0-9.]+)",
+     "value_kind": "php8",
+     "identity_text": "PHP 8.0.3",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "X-Powered-By: PHP/8.0.3 -> PHP 8 runtime precondition"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_author_upload",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2021-29447__fixed": {
+   "cve_id": "CVE-2021-29447",
+   "artifact_state_key": "wp571_php806",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2021-29447 WP 5.7.1 (fixed)",
+     "artifact_line": "generator meta: content=\"WordPress 5.7.1\"",
+     "extraction_rule": "generator meta:\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 5.7.1",
+     "version": "5.7.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '5.7.1' at experiments/26cve/_batch0-stack/artifacts/http-observations.txt"
+    },
+    {
+     "probe_id": "observe_php_version",
+     "condition_id": "p_php8_runtime",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2021-29447 WP 5.7.1 (fixed)",
+     "artifact_line": "Server header    : Server: Apache/2.4.38 (Debian) X-Powered-By: PHP/8.0.6",
+     "extraction_rule": "X-Powered-By: PHP/([0-9.]+)",
+     "value_kind": "php8",
+     "identity_text": "PHP 8.0.6",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "X-Powered-By: PHP/8.0.6 -> PHP 8 runtime precondition"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_author_upload",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2021-42013__vuln": {
+   "cve_id": "CVE-2021-42013",
+   "artifact_state_key": "httpd2450_8860",
+   "observations": [
+    {
+     "probe_id": "observe_server_header",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/CVE-2021-42013/artifacts/42013-repro.txt",
+     "artifact_section": "### CVE-2021-42013 vuln-2.4.50 (port 8860)",
+     "artifact_line": "Server: Server: Apache/2.4.50 (Unix)",
+     "extraction_rule": "Server:\\s*Server:\\s*(Apache/[0-9.]+)",
+     "value_kind": "version",
+     "identity_text": "Apache Apache/2.4.50",
+     "version": "Apache/2.4.50",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token 'Apache/2.4.50' at experiments/26cve/CVE-2021-42013/artifacts/42013-repro.txt"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2021-42013__fixed": {
+   "cve_id": "CVE-2021-42013",
+   "artifact_state_key": "httpd2451_8861",
+   "observations": [
+    {
+     "probe_id": "observe_server_header",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/CVE-2021-42013/artifacts/42013-repro.txt",
+     "artifact_section": "### CVE-2021-42013 fixed-2.4.51 (port 8861)",
+     "artifact_line": "Server: Server: Apache/2.4.51 (Unix)",
+     "extraction_rule": "Server:\\s*Server:\\s*(Apache/[0-9.]+)",
+     "value_kind": "version",
+     "identity_text": "Apache Apache/2.4.51",
+     "version": "Apache/2.4.51",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token 'Apache/2.4.51' at experiments/26cve/CVE-2021-42013/artifacts/42013-repro.txt"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2021-44026__vuln": {
+   "cve_id": "CVE-2021-44026",
+   "artifact_state_key": "rc1411",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2021-44026__fixed": {
+   "cve_id": "CVE-2021-44026",
+   "artifact_state_key": "rc1412",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2022-21661__vuln": {
+   "cve_id": "CVE-2022-21661",
+   "artifact_state_key": "wp582",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2022-21661 WP 5.8.2 (vuln)",
+     "artifact_line": "generator meta: content=\"WordPress 5.8.2\"",
+     "extraction_rule": "generator meta:\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 5.8.2",
+     "version": "5.8.2",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '5.8.2' at experiments/26cve/_batch0-stack/artifacts/http-observations.txt"
+    },
+    {
+     "probe_id": "observe_fixture_asset_version",
+     "condition_id": "p_trigger_plugin_present",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2022-21661 WP 5.8.2 (vuln)",
+     "artifact_line": "ECS fixture asset: ele-custom-skin/assets/css/ecs-style.css?ver=3.1.3",
+     "extraction_rule": "ECS fixture asset:\\s*(.*)",
+     "value_kind": "fixture_asset",
+     "identity_text": "ele-custom-skin/assets/css/ecs-style.css?ver=3.1.3",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "fixture asset observed: 'ele-custom-skin/assets/css/ecs-style.css?ver=3.1.3'"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_fixture_route",
+     "condition_id": "p_fixture_route_unauth",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2022-21661__fixed": {
+   "cve_id": "CVE-2022-21661",
+   "artifact_state_key": "wp583",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2022-21661 WP 5.8.3 (fixed)",
+     "artifact_line": "generator meta: content=\"WordPress 5.8.3\"",
+     "extraction_rule": "generator meta:\\s*content=\"WordPress ([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 5.8.3",
+     "version": "5.8.3",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '5.8.3' at experiments/26cve/_batch0-stack/artifacts/http-observations.txt"
+    },
+    {
+     "probe_id": "observe_fixture_asset_version",
+     "condition_id": "p_trigger_plugin_present",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch0-stack/artifacts/http-observations.txt",
+     "artifact_section": "## CVE-2022-21661 WP 5.8.3 (fixed)",
+     "artifact_line": "ECS fixture asset: ele-custom-skin/assets/css/ecs-style.css?ver=3.1.3",
+     "extraction_rule": "ECS fixture asset:\\s*(.*)",
+     "value_kind": "fixture_asset",
+     "identity_text": "ele-custom-skin/assets/css/ecs-style.css?ver=3.1.3",
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "fixture asset observed: 'ele-custom-skin/assets/css/ecs-style.css?ver=3.1.3'"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_fixture_route",
+     "condition_id": "p_fixture_route_unauth",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2023-2745__vuln": {
+   "cve_id": "CVE-2023-2745",
+   "artifact_state_key": "wp620",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch3-stack/artifacts/http-observations.txt",
+     "artifact_section": "## 8721 (WP 6.2.0)",
+     "artifact_line": "generator: content=\"WordPress 6.2\"",
+     "extraction_rule": "generator:\\s*content=\"WordPress\\s+([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 6.2",
+     "version": "6.2",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '6.2' at experiments/26cve/_batch3-stack/artifacts/http-observations.txt"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2023-2745__fixed": {
+   "cve_id": "CVE-2023-2745",
+   "artifact_state_key": "wp621",
+   "observations": [
+    {
+     "probe_id": "observe_wp_generator",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/_batch3-stack/artifacts/http-observations.txt",
+     "artifact_section": "## 8722 (WP 6.2.1)",
+     "artifact_line": "generator: content=\"WordPress 6.2.1\"",
+     "extraction_rule": "generator:\\s*content=\"WordPress\\s+([^\"]+)\"",
+     "value_kind": "version",
+     "identity_text": "WordPress 6.2.1",
+     "version": "6.2.1",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '6.2.1' at experiments/26cve/_batch3-stack/artifacts/http-observations.txt"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2023-28121__vuln": {
+   "cve_id": "CVE-2023-28121",
+   "artifact_state_key": "wcpay_561",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_users_route",
+     "condition_id": "p_known_admin_id",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2023-28121__fixed": {
+   "cve_id": "CVE-2023-28121",
+   "artifact_state_key": "wcpay_562",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_users_route",
+     "condition_id": "p_known_admin_id",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2023-32243__vuln": {
+   "cve_id": "CVE-2023-32243",
+   "artifact_state_key": "ea_571",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_eael_token",
+     "condition_id": "p_eael_nonce_unauth",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_users_route",
+     "condition_id": "p_known_username",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2023-32243__fixed": {
+   "cve_id": "CVE-2023-32243",
+   "artifact_state_key": "ea_572",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_eael_token",
+     "condition_id": "p_eael_nonce_unauth",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_users_route",
+     "condition_id": "p_known_username",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2023-3460__vuln": {
+   "cve_id": "CVE-2023-3460",
+   "artifact_state_key": "um_266",
+   "observations": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2023-3460/8830-um266-GET-readme.txt",
+     "artifact_section": null,
+     "artifact_line": "Stable tag: 2.6.6",
+     "extraction_rule": "Stable tag:\\s*([0-9][0-9A-Za-z.\\-]*)",
+     "value_kind": "version",
+     "identity_text": "ultimate-member 2.6.6",
+     "version": "2.6.6",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '2.6.6' at experiments/methods/captures-v2/CVE-2023-3460/8830-um266-GET-readme.txt"
+    },
+    {
+     "probe_id": "probe_um_register_form",
+     "condition_id": "p_open_registration_form",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2023-3460/8830-um266-GET-register-page.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 200 OK",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "form_markers",
+     "form_markers": {
+      "um-form": true,
+      "user_login-7": true,
+      "_wpnonce": true
+     },
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 200 and registration-form markers present {'um-form': True, 'user_login-7': True, '_wpnonce': True} (experiments/methods/captures-v2/CVE-2023-3460/8830-um266-GET-register-page.txt)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2023-3460__fixed": {
+   "cve_id": "CVE-2023-3460",
+   "artifact_state_key": "um_267",
+   "observations": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2023-3460/8831-um267-GET-readme.txt",
+     "artifact_section": null,
+     "artifact_line": "Stable tag: 2.6.7",
+     "extraction_rule": "Stable tag:\\s*([0-9][0-9A-Za-z.\\-]*)",
+     "value_kind": "version",
+     "identity_text": "ultimate-member 2.6.7",
+     "version": "2.6.7",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '2.6.7' at experiments/methods/captures-v2/CVE-2023-3460/8831-um267-GET-readme.txt"
+    },
+    {
+     "probe_id": "probe_um_register_form",
+     "condition_id": "p_open_registration_form",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/methods/captures-v2/CVE-2023-3460/8831-um267-GET-page_id6-AS-SPECIFIED.txt",
+     "artifact_section": null,
+     "artifact_line": "HTTP/1.1 200 OK",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "form_markers",
+     "form_markers": {
+      "um-form": true,
+      "user_login-7": true,
+      "_wpnonce": true
+     },
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 200 and registration-form markers present {'um-form': True, 'user_login-7': True, '_wpnonce': True} (experiments/methods/captures-v2/CVE-2023-3460/8831-um267-GET-page_id6-AS-SPECIFIED.txt)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2023-5631__unresolved": {
+   "cve_id": "CVE-2023-5631",
+   "artifact_state_key": "rc1411",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2023-5798__vuln": {
+   "cve_id": "CVE-2023-5798",
+   "artifact_state_key": "asst_143",
+   "observations": [
+    {
+     "probe_id": "probe_home_no_assistant_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/CVE-2023-5798/artifacts/5798-http-observations.txt",
+     "artifact_section": "## http://127.0.0.1:8611 (assistant 1.4.3)",
+     "artifact_line": "assistant asset:",
+     "extraction_rule": "assistant asset:\\s*(.*)",
+     "value_kind": "negative_version",
+     "negative_observability": {
+      "version_observable": false,
+      "evidence": "assistant asset:"
+     },
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": null,
+     "predicate_reason": "negative-observability probe: the capture confirms the plugin version asset is absent; the mapping's true_when cannot fire, so p_version_observed stays undecided and E5 remains unknown"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_editor_role",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2023-5798__fixed": {
+   "cve_id": "CVE-2023-5798",
+   "artifact_state_key": "asst_144",
+   "observations": [
+    {
+     "probe_id": "probe_home_no_assistant_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/26cve/CVE-2023-5798/artifacts/5798-http-observations.txt",
+     "artifact_section": "## http://127.0.0.1:8612 (assistant 1.4.4)",
+     "artifact_line": "assistant asset:",
+     "extraction_rule": "assistant asset:\\s*(.*)",
+     "value_kind": "negative_version",
+     "negative_observability": {
+      "version_observable": false,
+      "evidence": "assistant asset:"
+     },
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": null,
+     "predicate_reason": "negative-observability probe: the capture confirms the plugin version asset is absent; the mapping's true_when cannot fire, so p_version_observed stays undecided and E5 remains unknown"
+    }
+   ],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_editor_role",
+     "kind": "precondition",
+     "validation_status": "needs_control",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='needs_control' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2024-28000__vuln": {
+   "cve_id": "CVE-2024-28000",
+   "artifact_state_key": "lsc_6301",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_async_handler",
+     "condition_id": "p_nopriv_async_handler",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2024-28000__fixed": {
+   "cve_id": "CVE-2024-28000",
+   "artifact_state_key": "lsc_64",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    },
+    {
+     "probe_id": "probe_async_handler",
+     "condition_id": "p_nopriv_async_handler",
+     "kind": "precondition",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2024-37383__vuln": {
+   "cve_id": "CVE-2024-37383",
+   "artifact_state_key": "rc156",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2024-37383__fixed": {
+   "cve_id": "CVE-2024-37383",
+   "artifact_state_key": "rc157",
+   "observations": [],
+   "unobserved": [
+    {
+     "probe_id": "probe_login_page",
+     "condition_id": "p_product_roundcube",
+     "kind": "build",
+     "validation_status": "pending",
+     "observed": null,
+     "reason": "G7 gate: probe validation.status='pending' -> Unknown (no accepted capture)"
+    }
+   ]
+  },
+  "CVE-2023-23752__4_2_7_default": {
+   "cve_id": "CVE-2023-23752",
+   "artifact_state_key": "jl427_default",
+   "observations": [
+    {
+     "probe_id": "observe_joomla_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-23752/artifacts/427/GET-joomla.xml.raw.txt",
+     "artifact_section": null,
+     "artifact_line": "<version>4.2.7</version>",
+     "extraction_rule": "<version>\\s*([0-9][0-9A-Za-z.\\-]*)\\s*</version>",
+     "value_kind": "version",
+     "identity_text": "Joomla 4.2.7",
+     "version": "4.2.7",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '4.2.7' at experiments/topup-2026-10-17/cases/CVE-2023-23752/artifacts/427/GET-joomla.xml.raw.txt"
+    },
+    {
+     "probe_id": "probe_config_application_public",
+     "condition_id": "p_config_object_readable",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-23752/artifacts/427/GET-api-config-application_public-true.raw.txt",
+     "artifact_section": null,
+     "artifact_line": "< HTTP/1.1 200 OK",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "config_disclosure",
+     "jconfig_min_keys": {
+      "dbprefix": true,
+      "sitename": true,
+      "host": true,
+      "user": true
+     },
+     "jconfig_secret_keys_present": {
+      "password": true,
+      "secret": false
+     },
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 200, JSON:API envelope=True, JConfig keys present {'dbprefix': True, 'sitename': True, 'host': True, 'user': True} (experiments/topup-2026-10-17/cases/CVE-2023-23752/artifacts/427/GET-api-config-application_public-true.raw.txt) -> unauthenticated global-config object read back"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2023-23752__4_2_8_default_fixed": {
+   "cve_id": "CVE-2023-23752",
+   "artifact_state_key": "jl428_default",
+   "observations": [
+    {
+     "probe_id": "observe_joomla_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-23752/artifacts/428/GET-joomla.xml.raw.txt",
+     "artifact_section": null,
+     "artifact_line": "<version>4.2.8</version>",
+     "extraction_rule": "<version>\\s*([0-9][0-9A-Za-z.\\-]*)\\s*</version>",
+     "value_kind": "version",
+     "identity_text": "Joomla 4.2.8",
+     "version": "4.2.8",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '4.2.8' at experiments/topup-2026-10-17/cases/CVE-2023-23752/artifacts/428/GET-joomla.xml.raw.txt"
+    },
+    {
+     "probe_id": "probe_config_application_public",
+     "condition_id": "p_config_object_readable",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-23752/artifacts/428/GET-api-config-application_public-true.raw.txt",
+     "artifact_section": null,
+     "artifact_line": "< HTTP/1.1 401 Unauthorized",
+     "extraction_rule": "HTTP/1\\.[01]\\s+(\\d{3})",
+     "value_kind": "config_disclosure",
+     "jconfig_min_keys": {
+      "dbprefix": false,
+      "sitename": false,
+      "host": false,
+      "user": false
+     },
+     "jconfig_secret_keys_present": {
+      "password": false,
+      "secret": false
+     },
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": false,
+     "predicate_reason": "HTTP 401 + Joomla JSON:API error envelope {\"errors\":[{\"title\":\"Forbidden\"}]} -> the resource answers and denies the unauthenticated request (application level)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2023-6553__1_3_7_active": {
+   "cve_id": "CVE-2023-6553",
+   "artifact_state_key": "bb137_active",
+   "observations": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/plugin-readme-137.raw.txt",
+     "artifact_section": "### GET /wp-content/plugins/backup-backup/readme.txt (plugin 1.3.7 active)",
+     "artifact_line": "Stable tag: 1.3.7",
+     "extraction_rule": "Stable tag:\\s*([0-9][0-9A-Za-z.\\-]*)",
+     "value_kind": "version",
+     "identity_text": "backup-backup 1.3.7",
+     "version": "1.3.7",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '1.3.7' at experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/plugin-readme-137.raw.txt"
+    },
+    {
+     "probe_id": "probe_direct_file_reachable",
+     "condition_id": "p_plugin_files_present",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/d-137-active-benign-include.raw.txt",
+     "artifact_section": null,
+     "artifact_line": "### RESPONSE 200 (0 bytes) after 0.004s",
+     "extraction_rule": "###\\s+RESPONSE\\s+(\\d{3})\\s+\\((\\d+) bytes?\\)",
+     "value_kind": "empty_body_200",
+     "response_bytes": 0,
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 200 with a 0-byte body -> a PHP file at the exact path executed and discarded its output (benign Content-Dir, no filter chain) (experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/d-137-active-benign-include.raw.txt)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2023-6553__1_3_7_inactive": {
+   "cve_id": "CVE-2023-6553",
+   "artifact_state_key": "bb137_inactive",
+   "observations": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/plugin-readme-137.raw.txt",
+     "artifact_section": "### GET /wp-content/plugins/backup-backup/readme.txt (plugin 1.3.7 active)",
+     "artifact_line": "Stable tag: 1.3.7",
+     "extraction_rule": "Stable tag:\\s*([0-9][0-9A-Za-z.\\-]*)",
+     "value_kind": "version",
+     "identity_text": "backup-backup 1.3.7",
+     "version": "1.3.7",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '1.3.7' at experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/plugin-readme-137.raw.txt",
+     "artifact_state_note": "readme capture taken in the 1.3.7 ACTIVE state; deactivation does not modify plugin files (registry Appendix F: 'directory untouched'), and the case README §6 lists states a/b in one column -> accepted as the E5 artifact for both 1.3.7 states"
+    },
+    {
+     "probe_id": "probe_direct_file_reachable",
+     "condition_id": "p_plugin_files_present",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/d-137-inactive-benign-include.raw.txt",
+     "artifact_section": null,
+     "artifact_line": "### RESPONSE 200 (0 bytes) after 0.003s",
+     "extraction_rule": "###\\s+RESPONSE\\s+(\\d{3})\\s+\\((\\d+) bytes?\\)",
+     "value_kind": "empty_body_200",
+     "response_bytes": 0,
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 200 with a 0-byte body -> a PHP file at the exact path executed and discarded its output (benign Content-Dir, no filter chain) (experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/d-137-inactive-benign-include.raw.txt)"
+    }
+   ],
+   "unobserved": []
+  },
+  "CVE-2023-6553__1_3_8_active_fixed": {
+   "cve_id": "CVE-2023-6553",
+   "artifact_state_key": "bb138_active",
+   "observations": [
+    {
+     "probe_id": "observe_plugin_readme_version",
+     "condition_id": "p_version_observed",
+     "kind": "build",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/version-observability-138.raw.txt",
+     "artifact_section": "### REQUEST: GET http://127.0.0.1:8930/wp-content/plugins/backup-backup/readme.txt",
+     "artifact_line": "Stable tag: 1.3.8",
+     "extraction_rule": "Stable tag:\\s*([0-9][0-9A-Za-z.\\-]*)",
+     "value_kind": "version",
+     "identity_text": "backup-backup 1.3.8",
+     "version": "1.3.8",
+     "version_status": "observed",
+     "predicate_value": true,
+     "predicate_reason": "observed version token '1.3.8' at experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/version-observability-138.raw.txt"
+    },
+    {
+     "probe_id": "probe_direct_file_reachable",
+     "condition_id": "p_plugin_files_present",
+     "kind": "precondition",
+     "validation_status": "verified",
+     "observed": true,
+     "artifact_ref": "experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/c-138-active-benign-include-control.raw.txt",
+     "artifact_section": null,
+     "artifact_line": "### RESPONSE 200 (0 bytes) after 0.007s",
+     "extraction_rule": "###\\s+RESPONSE\\s+(\\d{3})\\s+\\((\\d+) bytes?\\)",
+     "value_kind": "empty_body_200",
+     "response_bytes": 0,
+     "version": null,
+     "version_status": "not_observed",
+     "predicate_value": true,
+     "predicate_reason": "HTTP 200 with a 0-byte body -> a PHP file at the exact path executed and discarded its output (benign Content-Dir, no filter chain) (experiments/topup-2026-10-17/cases/CVE-2023-6553/artifacts/c-138-active-benign-include-control.raw.txt)"
+    }
+   ],
+   "unobserved": []
+  }
+ }
+}

@@ -1,0 +1,80 @@
+==================================================================
+## STATE B1 / 8.6.9 / REST on  (pilot-drupal-vuln :8083)
+==================================================================
+-- ground truth --
+   enabled modules : basic_auth,hal,rest,serialization
+   drupal version  : 8.6.9
+   field_link      : exists
+   marker before   : ABSENT
+-- REST path: POST /node?_format=hal_json (basic auth admin) --
+   HTTP code       : 500
+   response        : The website encountered an unexpected error. Please try again later.
+   marker after    : PRESENT:RQ-C1-POC-MARKER
+   => marker created by REST path
+-- JSON:API path: POST /jsonapi/node/article (basic auth admin) --
+   HTTP code       : 404
+   response        : <!DOCTYPE html> <html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp
+   marker after    : ABSENT
+-- marker metadata (if present) --
+   (no marker file)
+
+==================================================================
+## STATE B2 / 8.6.9 / REST off + JSON:API on  (pilot-drupal-vuln :8083)
+==================================================================
+-- ground truth --
+   enabled modules : basic_auth,hal,serialization,jsonapi
+   drupal version  : 8.6.9
+   field_link      : exists
+   marker before   : ABSENT
+-- REST path: POST /node?_format=hal_json (basic auth admin) --
+   HTTP code       : 406
+   response        : {"message":"No route found for the specified format hal_json. Supported formats: html."}
+   marker after    : ABSENT
+-- JSON:API path: POST /jsonapi/node/article (basic auth admin) --
+   HTTP code       : 500
+   response        : {"errors":[{"title":"Internal Server Error","status":500,"detail":"Invalid values given. Values must be represented as an associative array.","links":{"info":"http:\/\/www.w3.org\/
+   marker after    : PRESENT:RQ-C1-POC-MARKER
+   => marker created by JSON:API path
+-- marker metadata (if present) --
+-rw-r--r-- 1 www-data www-data 17 Oct  7 00:54 /tmp/rq-c1-poc-marker
+
+==================================================================
+## STATE B3 / 8.6.9 / both off  (pilot-drupal-vuln :8083)
+==================================================================
+-- ground truth --
+   enabled modules : basic_auth,hal,serialization
+   drupal version  : 8.6.9
+   field_link      : exists
+   marker before   : ABSENT
+-- REST path: POST /node?_format=hal_json (basic auth admin) --
+   HTTP code       : 406
+   response        : {"message":"No route found for the specified format hal_json. Supported formats: html."}
+   marker after    : ABSENT
+-- JSON:API path: POST /jsonapi/node/article (basic auth admin) --
+   HTTP code       : 404
+   response        : <!DOCTYPE html> <html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp
+   marker after    : ABSENT
+-- marker metadata (if present) --
+   (no marker file)
+
+==================================================================
+## STATE B4 / 8.6.10 / REST on (fixed)  (pilot-drupal-fixed :8084)
+==================================================================
+-- ground truth --
+   enabled modules : basic_auth,hal,rest,serialization
+   drupal version  : 8.6.10
+   field_link      : exists
+   marker before   : ABSENT
+-- REST path: POST /node?_format=hal_json (basic auth admin) --
+   HTTP code       : 500
+   response        : The website encountered an unexpected error. Please try again later.
+   marker after    : ABSENT
+-- JSON:API path: POST /jsonapi/node/article (basic auth admin) --
+   HTTP code       : 404
+   response        : <!DOCTYPE html> <html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp
+   marker after    : ABSENT
+-- marker metadata (if present) --
+   (no marker file)
+
+== restore: vuln 8.6.9 + fixed 8.6.10 to state (i) REST on ==
+done.

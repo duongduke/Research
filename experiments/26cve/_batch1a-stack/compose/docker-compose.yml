@@ -1,0 +1,19 @@
+# Batch 1a — Apache CVE-2021-42013 (path-traversal variant), loopback only.
+name: batch1a-lab
+networks:
+  b1a-net: {name: b1a-net, driver: bridge}
+services:
+  httpd-2450:
+    image: httpd@sha256:b73a8591d3f1f170568b501ce645dc900f8f1c4c697fbc2420cae3502ab5e02c
+    container_name: b1-httpd-2450
+    restart: unless-stopped
+    ports: ["127.0.0.1:8860:80"]
+    volumes: [./httpd50.conf:/usr/local/apache2/conf/httpd.conf:ro]
+    networks: [b1a-net]
+  httpd-2451:
+    image: httpd@sha256:0c8dd1d9f90f0da8a29a25dcc092aed76b09a1c9e5e6e93c8db3903c8ce6ef29
+    container_name: b1-httpd-2451
+    restart: unless-stopped
+    ports: ["127.0.0.1:8861:80"]
+    volumes: [./httpd51.conf:/usr/local/apache2/conf/httpd.conf:ro]
+    networks: [b1a-net]

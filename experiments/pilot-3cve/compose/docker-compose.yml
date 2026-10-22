@@ -1,0 +1,169 @@
+# Pilot lab stack — 3-CVE feasibility deployment
+#   Ca A  CVE-2024-10924  Really Simple Security (WordPress plugin)
+#   Ca B  CVE-2019-6340   Drupal 8.6.x REST/web-services
+#   Ca C  CVE-2020-12625  Roundcube XSS
+#
+# SAFETY / SCOPE
+#   * Every published port is bound to 127.0.0.1 ONLY (loopback). Never 0.0.0.0.
+#   * No CGI, no RCE payloads; this file only stands the environments up so we can
+#     verify versions and build the required configuration states.
+#   * Images are pinned by manifest digest (repo@sha256:...). Tag shown in comment.
+#
+# Deploy dir on the lab VM: ~/pilot-lab
+name: pilot-lab
+
+networks:
+  pilot-net:
+    name: pilot-net
+    driver: bridge
+
+volumes:
+  mariadb-data:
+
+services:
+  # ---------------------------------------------------------------- shared DB
+  db:
+    # mariadb:10.11
+    image: mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+    container_name: pilot-db
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-changeme}
+    ports:
+      - "127.0.0.1:13306:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+    networks: [pilot-net]
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  # ---------------------------------------------- Ca A : WordPress + plugin
+  wp-vuln:
+    # wordpress:6.7.1-apache
+    image: wordpress@sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b
+    container_name: pilot-wp-vuln
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_vuln
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+    ports:
+      - "127.0.0.1:8081:80"
+    volumes:
+      - ./wordpress/vuln/html:/var/www/html
+    networks: [pilot-net]
+
+  wp-fixed:
+    # wordpress:6.7.1-apache
+    image: wordpress@sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b
+    container_name: pilot-wp-fixed
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_fixed
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+    ports:
+      - "127.0.0.1:8082:80"
+    volumes:
+      - ./wordpress/fixed/html:/var/www/html
+    networks: [pilot-net]
+
+  # ------------------------------------------- Ca B : Drupal 8.6.x REST/RCE
+  drupal-vuln:
+    # drupal:8.6.9-apache
+    image: drupal@sha256:d6073e2f6c662a9406cbe0b00215276ca206ded5e170268a29faa104bf2b97f0
+    container_name: pilot-drupal-vuln
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    ports:
+      - "127.0.0.1:8083:80"
+    volumes:
+      - ./drupal/vuln/html:/var/www/html
+    networks: [pilot-net]
+
+  drupal-fixed:
+    # drupal:8.6.10-apache
+    image: drupal@sha256:8eec19505eb7e210b60dd2186fdd5df221d152ad06bc8455bfa57c0e6f5f6eca
+    container_name: pilot-drupal-fixed
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    ports:
+      - "127.0.0.1:8084:80"
+    volumes:
+      - ./drupal/fixed/html:/var/www/html
+    networks: [pilot-net]
+
+  # --------------------------------------------------- Ca C : Roundcube 1.4.x
+  roundcube-vuln:
+    # roundcube/roundcubemail:1.4.3-apache
+    image: roundcube/roundcubemail@sha256:0ee2f1b7a008b719ec8e0a36020e9a4e773acc5ca9dde787742e180d7c78628c
+    container_name: pilot-roundcube-vuln
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      ROUNDCUBEMAIL_DB_TYPE: mysql
+      ROUNDCUBEMAIL_DB_HOST: db
+      ROUNDCUBEMAIL_DB_PORT: "3306"
+      ROUNDCUBEMAIL_DB_NAME: roundcube_vuln
+      ROUNDCUBEMAIL_DB_USER: labuser
+      ROUNDCUBEMAIL_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      ROUNDCUBEMAIL_DEFAULT_HOST: imap
+      ROUNDCUBEMAIL_DEFAULT_PORT: "3143"
+      ROUNDCUBEMAIL_SMTP_SERVER: imap
+      ROUNDCUBEMAIL_SMTP_PORT: "3025"
+    ports:
+      - "127.0.0.1:8085:80"
+    networks: [pilot-net]
+
+  roundcube-fixed:
+    # roundcube/roundcubemail:1.4.4-apache
+    image: roundcube/roundcubemail@sha256:de8facfa45587614756327fb6e47e866a2faf9e111f6afa60568e51ab45357cc
+    container_name: pilot-roundcube-fixed
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      ROUNDCUBEMAIL_DB_TYPE: mysql
+      ROUNDCUBEMAIL_DB_HOST: db
+      ROUNDCUBEMAIL_DB_PORT: "3306"
+      ROUNDCUBEMAIL_DB_NAME: roundcube_fixed
+      ROUNDCUBEMAIL_DB_USER: labuser
+      ROUNDCUBEMAIL_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      ROUNDCUBEMAIL_DEFAULT_HOST: imap
+      ROUNDCUBEMAIL_DEFAULT_PORT: "3143"
+      ROUNDCUBEMAIL_SMTP_SERVER: imap
+      ROUNDCUBEMAIL_SMTP_PORT: "3025"
+    ports:
+      - "127.0.0.1:8086:80"
+    networks: [pilot-net]
+
+  # ------------------------------------------------- minimal IMAP/SMTP backend
+  imap:
+    # greenmail/standalone:2.1.3
+    image: greenmail/standalone@sha256:d6db42a4fc258fec0948b1ae7b579fd06947cc92087c162ec0597972a6c36850
+    container_name: pilot-imap
+    restart: unless-stopped
+    environment:
+      GREENMAIL_OPTS: >-
+        -Dgreenmail.setup.test.all
+        -Dgreenmail.hostname=0.0.0.0
+        -Dgreenmail.users=test:test@localhost,user1:pass1@localhost
+    ports:
+      - "127.0.0.1:3143:3143"   # IMAP
+      - "127.0.0.1:3025:3025"   # SMTP
+    networks: [pilot-net]

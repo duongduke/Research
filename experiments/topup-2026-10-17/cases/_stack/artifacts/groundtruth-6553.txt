@@ -1,0 +1,30 @@
+## host: <lab-user> / Ubuntu 24.04.5 LTS
+Docker version 29.8.2, build 7fc2dff
+
+## image
+/topup-wp image_sha256=sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b
+
+## WordPress core
+$wp_version = '6.7.1';
+
+## PHP (CLI; same php.ini as mod_php)
+PHP 8.2.27 (cli) (built: Feb  4 2025 04:37:35) (NTS)
+allow_url_include=0 short_open_tag=1 iconv=1 php_wrapper=1 filter_wrapper=1
+## loaded extensions
+[PHP Modules] bcmath Core ctype curl date dom exif fileinfo filter gd hash iconv imagick intl json libxml mbstring mysqli mysqlnd openssl pcre PDO pdo_sqlite Phar posix random readline Reflection session SimpleXML sodium SPL sqlite3 standard tokenizer xml xmlreader xmlwriter Zend OPcache zip zlib  [Zend Modules] Zend OPcache  
+
+## Apache
+Server version: Apache/2.4.62 (Debian)
+ php_module (shared)
+ rewrite_module (shared)
+
+## plugin state / version
+backup-backup	active	1.3.8
+
+## plugin files
+31379471e1fcf3d83c89e8f502aa6aafecfa863ebee7d839946e8dbddec70ae3  ~/topup-lab/wordpress/wp-content/plugins/backup-backup/includes/backup-heart.php
+   *     Version: 1.3.8
+
+## release zip hashes (on VM)
+bdd399bf6abdb27b35fdc2e3ebbf7eda044d9d03e7c9ebe829f9da4c51e48f0c  ~/topup-lab/bb-1.3.7.zip
+f8c98d4696e76a09a8cf7df873ca8017131a53b702bef915bbc2966568574e44  ~/topup-lab/bb-1.3.8.zip

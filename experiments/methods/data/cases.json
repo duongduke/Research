@@ -1,0 +1,2014 @@
+{
+ "generated_at_utc": "2026-10-17T15:41:16Z",
+ "generated_by": "experiments/methods/build_inputs.py (engineer, step 3 phase A)",
+ "sources": {
+  "mapping": {
+   "path": "notes/collector-mapping-30cve.md",
+   "sha256": "c186250ea27797c7203161aa113e6484cbab3bd877cdfe979ba0174d2500e42c",
+   "decision": "D-030 (freeze); amended by D-032 (probe_rest_root verified -> pending), D-033 (two probe request paths corrected), D-034 (4 V2 captures -> probe_rest_root / probe_two_fa_route / observe_plugin_readme_version / probe_um_register_form verified) and the 2026-10-17 top-up (D-035/D-036 + Review_mapping_topup_phanquyet_2026-10-17.md: 2 CVE blocks merged, 4 probes verified) -> 32 blocks; freeze of the 32-CVE version = D-037 (pending)"
+  },
+  "snapshot": {
+   "path": "data/public-snapshot",
+   "decision": "D-026",
+   "cohorts": [
+    {
+     "path": "data/public-snapshot",
+     "snapshot_date": "2026-10-11",
+     "decision": "D-026"
+    },
+    {
+     "path": "data/public-snapshot-2026-10-17",
+     "snapshot_date": "2026-10-17",
+     "decision": "D-035 (separate top-up cohort)"
+    }
+   ]
+  },
+  "labels": [
+   "experiments/26cve/registry.md",
+   "experiments/pilot-3cve/README.md",
+   "experiments/reproduce-cve-2021-41773/README.md",
+   "experiments/26cve/CVE-*/README.md",
+   "experiments/topup-2026-10-17/cases/*/README.md",
+   "context/CURRENT_STATE.md §22–§53",
+   "reviews/Review_buoc2_mapping_phanquyet_2026-10-14.md",
+   "reviews/Xac_nhan_ban_khoa_mapping_D030_2026-10-14.md"
+  ],
+  "decisions": [
+   "D-014",
+   "D-015",
+   "D-020",
+   "D-021",
+   "D-022",
+   "D-023",
+   "D-024",
+   "D-026",
+   "D-030",
+   "D-032",
+   "D-033",
+   "D-034",
+   "D-035",
+   "D-036"
+  ]
+ },
+ "counting_rules": {
+  "unit": "case = (product, build, config, CVE, access model)",
+  "config_gated_cves": [
+   "CVE-2020-13671",
+   "CVE-2020-12640",
+   "CVE-2020-12641"
+  ],
+  "note": "config-gated CVEs carry 3 cases each (config-off NA-b, config-on vuln Applicable, config-on fixed NA-a); CVE-2021-23017 is a single Not-Applicable(a) backport case; the 2 Unresolved CVEs carry 1 case each (single registry row, label Unresolved, excluded from the metric denominator); the top-up adds 2 Joomla cases (4.2.7 / 4.2.8) and 3 Backup Migration cases (1.3.7 active / 1.3.7 inactive / 1.3.8) per `experiments/26cve/registry.md` Appendix F (D-036).",
+  "n_unique_cves_vs_cases": "30 resolved CVE IDs, 32 CVE IDs present, 69 cases"
+ },
+ "counts": {
+  "n_unique_cves": 32,
+  "n_cases": 69,
+  "n_labels": {
+   "Applicable": 31,
+   "Not Applicable": 36,
+   "Unresolved": 2
+  },
+  "n_unresolved_cves": 2,
+  "unresolved_cves": [
+   "CVE-2019-6341",
+   "CVE-2023-5631"
+  ],
+  "n_cases_excluded_from_metrics": 2
+ },
+ "cases": [
+  {
+   "case_id": "CVE-2021-41773__weakened_249",
+   "cve_id": "CVE-2021-41773",
+   "product": "Apache HTTP Server 2.4.x",
+   "product_key": "Apache HTTP Server 2.4.x",
+   "cpe_vendor_product": [
+    "apache:http_server"
+   ],
+   "vuln_build": "2.4.49",
+   "fixed_build": "2.4.51",
+   "build": "2.4.49 (weakened <Directory /> 'Require all granted')",
+   "config_state": "misconfig_require_all_granted",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "apache"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "httpd2449_weakened_8083",
+   "label_source": "experiments/reproduce-cve-2021-41773/README.md §Results (marker read 200 on the weakened build; 403 default; 404/400 fixed)",
+   "config_gated": false,
+   "notes": "marker read out-of-docroot (200 + RQ-C1-LAB-MARKER) on 8083"
+  },
+  {
+   "case_id": "CVE-2021-41773__default_249",
+   "cve_id": "CVE-2021-41773",
+   "product": "Apache HTTP Server 2.4.x",
+   "product_key": "Apache HTTP Server 2.4.x",
+   "cpe_vendor_product": [
+    "apache:http_server"
+   ],
+   "vuln_build": "2.4.49",
+   "fixed_build": "2.4.51",
+   "build": "2.4.49 (default <Directory /> 'Require all denied')",
+   "config_state": "default_require_all_denied",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "b",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "apache"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "httpd2449_default_249_8081",
+   "label_source": "experiments/reproduce-cve-2021-41773/README.md §Results (marker read 200 on the weakened build; 403 default; 404/400 fixed)",
+   "config_gated": false,
+   "notes": "same affected image, default authorization: request traversed but denied (403) -> blocked path"
+  },
+  {
+   "case_id": "CVE-2021-41773__fixed_251",
+   "cve_id": "CVE-2021-41773",
+   "product": "Apache HTTP Server 2.4.x",
+   "product_key": "Apache HTTP Server 2.4.x",
+   "cpe_vendor_product": [
+    "apache:http_server"
+   ],
+   "vuln_build": "2.4.49",
+   "fixed_build": "2.4.51",
+   "build": "2.4.51",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "apache"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "httpd2451_8082",
+   "label_source": "experiments/reproduce-cve-2021-41773/README.md §Results (marker read 200 on the weakened build; 403 default; 404/400 fixed)",
+   "config_gated": false,
+   "notes": "fixed release rejects the encoded traversal (404 / 400)"
+  },
+  {
+   "case_id": "CVE-2019-6340__rest_on_869",
+   "cve_id": "CVE-2019-6340",
+   "product": "Drupal core 8.6.x",
+   "product_key": "Drupal core 8.6.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.6.9",
+   "fixed_build": "8.6.10",
+   "build": "8.6.9",
+   "config_state": "rest_module_on",
+   "access_model": "auth(content-creation; lab used HTTP basic auth admin per D-015)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal869_rest_on",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 4–7 (9 pilot states, 3 CVEs)",
+   "config_gated": false,
+   "notes": "REST vector active; marker created"
+  },
+  {
+   "case_id": "CVE-2019-6340__rest_off_jsonapi_on_869",
+   "cve_id": "CVE-2019-6340",
+   "product": "Drupal core 8.6.x",
+   "product_key": "Drupal core 8.6.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.6.9",
+   "fixed_build": "8.6.10",
+   "build": "8.6.9",
+   "config_state": "rest_off_jsonapi_on",
+   "access_model": "auth(content-creation; lab used HTTP basic auth admin per D-015)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal869_jsonapi_on",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 4–7 (9 pilot states, 3 CVEs)",
+   "config_gated": false,
+   "notes": "alternative vector (contrib jsonapi 8.x-1.24) survives"
+  },
+  {
+   "case_id": "CVE-2019-6340__both_off_869",
+   "cve_id": "CVE-2019-6340",
+   "product": "Drupal core 8.6.x",
+   "product_key": "Drupal core 8.6.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.6.9",
+   "fixed_build": "8.6.10",
+   "build": "8.6.9",
+   "config_state": "both_off",
+   "access_model": "auth(content-creation; lab used HTTP basic auth admin per D-015)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "b",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal869_both_off",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 4–7 (9 pilot states, 3 CVEs)",
+   "config_gated": false,
+   "notes": "REST 406 / JSON:API 404, no marker -> every path blocked"
+  },
+  {
+   "case_id": "CVE-2019-6340__rest_on_8610_fixed",
+   "cve_id": "CVE-2019-6340",
+   "product": "Drupal core 8.6.x",
+   "product_key": "Drupal core 8.6.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.6.9",
+   "fixed_build": "8.6.10",
+   "build": "8.6.10",
+   "config_state": "rest_module_on",
+   "access_model": "auth(content-creation; lab used HTTP basic auth admin per D-015)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal8610_rest_on",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 4–7 (9 pilot states, 3 CVEs)",
+   "config_gated": false,
+   "notes": "fixed: allowed_classes=FALSE, no marker"
+  },
+  {
+   "case_id": "CVE-2024-10924__9_1_1_1_2fa_on",
+   "cve_id": "CVE-2024-10924",
+   "product": "Really Simple Security (WordPress plugin)",
+   "product_key": "Really Simple Security (WordPress plugin)",
+   "cpe_vendor_product": [
+    "really-simple-plugins:really_simple_security"
+   ],
+   "vuln_build": "9.1.1.1",
+   "fixed_build": "9.1.2",
+   "build": "9.1.1.1",
+   "config_state": "2fa_on",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "really-simple"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rss_9111_2fa_on",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 1–3",
+   "config_gated": false,
+   "notes": "unauth skip_onboarding -> logged-in cookie"
+  },
+  {
+   "case_id": "CVE-2024-10924__9_1_1_1_2fa_off",
+   "cve_id": "CVE-2024-10924",
+   "product": "Really Simple Security (WordPress plugin)",
+   "product_key": "Really Simple Security (WordPress plugin)",
+   "cpe_vendor_product": [
+    "really-simple-plugins:really_simple_security"
+   ],
+   "vuln_build": "9.1.1.1",
+   "fixed_build": "9.1.2",
+   "build": "9.1.1.1",
+   "config_state": "2fa_off",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "b",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "really-simple"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rss_9111_2fa_off",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 1–3",
+   "config_gated": false,
+   "notes": "2FA is the gate; route absent (404 rest_no_route)"
+  },
+  {
+   "case_id": "CVE-2024-10924__9_1_2_2fa_on_fixed",
+   "cve_id": "CVE-2024-10924",
+   "product": "Really Simple Security (WordPress plugin)",
+   "product_key": "Really Simple Security (WordPress plugin)",
+   "cpe_vendor_product": [
+    "really-simple-plugins:really_simple_security"
+   ],
+   "vuln_build": "9.1.1.1",
+   "fixed_build": "9.1.2",
+   "build": "9.1.2",
+   "config_state": "2fa_on",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "really-simple"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rss_912_2fa_on",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 1–3",
+   "config_gated": false,
+   "notes": "patched build wp_die()s (HTTP 500, no cookie)"
+  },
+  {
+   "case_id": "CVE-2020-12625__1_4_3",
+   "cve_id": "CVE-2020-12625",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.3",
+   "config_state": "default",
+   "access_model": "auth(victim reads HTML mail)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "experiments/pilot-3cve/README.md §4.4 + mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc143",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 8–9",
+   "config_gated": false,
+   "notes": "CDATA emitted unescaped; script executed in the browser"
+  },
+  {
+   "case_id": "CVE-2020-12625__1_4_4_fixed",
+   "cve_id": "CVE-2020-12625",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.4",
+   "config_state": "default",
+   "access_model": "auth(victim reads HTML mail)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "experiments/pilot-3cve/README.md §4.4 + mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc144",
+   "label_source": "experiments/pilot-3cve/README.md §7 rows 8–9",
+   "config_gated": false,
+   "notes": "CDATA escaped; no execution"
+  },
+  {
+   "case_id": "CVE-2014-3704__vuln",
+   "cve_id": "CVE-2014-3704",
+   "product": "Drupal core 7.x",
+   "product_key": "Drupal core 7.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "7.31",
+   "fixed_build": "7.32",
+   "build": "7.31",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping p_core_version_lt_732 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "7",
+   "artifact_state_key": "drupal7_731",
+   "label_source": "experiments/26cve/CVE-2014-3704/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "SQL error leaked the DB version"
+  },
+  {
+   "case_id": "CVE-2014-3704__fixed",
+   "cve_id": "CVE-2014-3704",
+   "product": "Drupal core 7.x",
+   "product_key": "Drupal core 7.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "7.31",
+   "fixed_build": "7.32",
+   "build": "7.32",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping p_core_version_lt_732 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "7",
+   "artifact_state_key": "drupal7_732",
+   "label_source": "experiments/26cve/CVE-2014-3704/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "generic 1064 syntax error"
+  },
+  {
+   "case_id": "CVE-2015-3440__vuln",
+   "cve_id": "CVE-2015-3440",
+   "product": "WordPress core",
+   "product_key": "WordPress core",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "4.2-src",
+   "fixed_build": "4.2.1",
+   "build": "4.2-src (deployment labelled WP 4.2.0)",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp420_src",
+   "label_source": "experiments/26cve/CVE-2015-3440/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "generator token '4.2-src' (not a clean release)"
+  },
+  {
+   "case_id": "CVE-2015-3440__fixed",
+   "cve_id": "CVE-2015-3440",
+   "product": "WordPress core",
+   "product_key": "WordPress core",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "4.2-src",
+   "fixed_build": "4.2.1",
+   "build": "4.2.1",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp421",
+   "label_source": "experiments/26cve/CVE-2015-3440/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "long comment not stored; no execution"
+  },
+  {
+   "case_id": "CVE-2017-1001000__vuln",
+   "cve_id": "CVE-2017-1001000",
+   "product": "WordPress core",
+   "product_key": "WordPress core",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "4.7.1",
+   "fixed_build": "4.7.2",
+   "build": "4.7.1",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "CPE-sai"
+   ],
+   "scenario_tags_provenance": {
+    "CPE-sai": "reviews/Review_buoc2_mapping_phanquyet_2026-10-14.md B10 (CPE lists 4.7.2 as vulnerable; advisory states 4.7/4.7.1)"
+   },
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp471",
+   "label_source": "experiments/26cve/CVE-2017-1001000/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "unauth REST edit; post content became the marker"
+  },
+  {
+   "case_id": "CVE-2017-1001000__fixed",
+   "cve_id": "CVE-2017-1001000",
+   "product": "WordPress core",
+   "product_key": "WordPress core",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "4.7.1",
+   "fixed_build": "4.7.2",
+   "build": "4.7.2",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "CPE-sai"
+   ],
+   "scenario_tags_provenance": {
+    "CPE-sai": "reviews/Review_buoc2_mapping_phanquyet_2026-10-14.md B10 (CPE lists 4.7.2 as vulnerable; advisory states 4.7/4.7.1)"
+   },
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp472",
+   "label_source": "experiments/26cve/CVE-2017-1001000/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "400 rest_invalid_param; post unchanged"
+  },
+  {
+   "case_id": "CVE-2018-7600__vuln",
+   "cve_id": "CVE-2018-7600",
+   "product": "Drupal core 8.x",
+   "product_key": "Drupal core 8.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.5.0",
+   "fixed_build": "8.5.1",
+   "build": "8.5.0",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping p_core_version_in_affected_86 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal8_850",
+   "label_source": "experiments/26cve/CVE-2018-7600/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "AJAX response carried the command output"
+  },
+  {
+   "case_id": "CVE-2018-7600__fixed",
+   "cve_id": "CVE-2018-7600",
+   "product": "Drupal core 8.x",
+   "product_key": "Drupal core 8.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.5.0",
+   "fixed_build": "8.5.1",
+   "build": "8.5.1",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping p_core_version_in_affected_86 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal8_851",
+   "label_source": "experiments/26cve/CVE-2018-7600/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "no marker output"
+  },
+  {
+   "case_id": "CVE-2018-7602__vuln",
+   "cve_id": "CVE-2018-7602",
+   "product": "Drupal core 7.x",
+   "product_key": "Drupal core 7.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "7.58",
+   "fixed_build": "7.59",
+   "build": "7.58",
+   "config_state": "default",
+   "access_model": "auth(any authenticated user opening its own cancel confirm form; lab used uid 1)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping p_core_version_lt_759 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "7",
+   "artifact_state_key": "drupal7_758",
+   "label_source": "experiments/26cve/CVE-2018-7602/README.md §Ground-truth label (D-023: accepted on the D7 pair)",
+   "config_gated": false,
+   "notes": "marker created through the confirm-form chain"
+  },
+  {
+   "case_id": "CVE-2018-7602__fixed",
+   "cve_id": "CVE-2018-7602",
+   "product": "Drupal core 7.x",
+   "product_key": "Drupal core 7.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "7.58",
+   "fixed_build": "7.59",
+   "build": "7.59",
+   "config_state": "default",
+   "access_model": "auth(any authenticated user opening its own cancel confirm form; lab used uid 1)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping p_core_version_lt_759 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "7",
+   "artifact_state_key": "drupal7_759",
+   "label_source": "experiments/26cve/CVE-2018-7602/README.md §Ground-truth label (D-023: accepted on the D7 pair)",
+   "config_gated": false,
+   "notes": "marker absent"
+  },
+  {
+   "case_id": "CVE-2019-10692__vuln",
+   "cve_id": "CVE-2019-10692",
+   "product": "WP plugin WP Google Maps (codecabin)",
+   "product_key": "WP plugin WP Google Maps (codecabin)",
+   "cpe_vendor_product": [
+    "codecabin:wp_go_maps"
+   ],
+   "vuln_build": "7.11.17",
+   "fixed_build": "7.11.18",
+   "build": "7.11.17",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wp-google-maps"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wgm_71117",
+   "label_source": "experiments/26cve/CVE-2019-10692/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "injected fields returned the marker / user hashes"
+  },
+  {
+   "case_id": "CVE-2019-10692__fixed",
+   "cve_id": "CVE-2019-10692",
+   "product": "WP plugin WP Google Maps (codecabin)",
+   "product_key": "WP plugin WP Google Maps (codecabin)",
+   "cpe_vendor_product": [
+    "codecabin:wp_go_maps"
+   ],
+   "vuln_build": "7.11.17",
+   "fixed_build": "7.11.18",
+   "build": "7.11.18",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wp-google-maps"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wgm_71118",
+   "label_source": "experiments/26cve/CVE-2019-10692/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "injected fields ignored"
+  },
+  {
+   "case_id": "CVE-2019-6341__unresolved",
+   "cve_id": "CVE-2019-6341",
+   "product": "Drupal core 8.6.x",
+   "product_key": "Drupal core 8.6.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.6.12",
+   "fixed_build": "8.6.13",
+   "build": "8.6.12",
+   "config_state": "registration_open_user_picture",
+   "access_model": "unauth",
+   "ground_truth_label": "Unresolved",
+   "label_branch": "",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping p_core_version_lt_8613 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal8_8612",
+   "label_source": "experiments/26cve/CVE-2019-6341/README.md §Ground-truth label + D-024",
+   "config_gated": false,
+   "notes": "stored-file primitive reproduced (8.6.12 stores the extension-less _0 file, 8.6.13 rejects) but in-browser JS execution was not obtained -> no label (D-024, manual reproduction pending)"
+  },
+  {
+   "case_id": "CVE-2019-8942__vuln",
+   "cve_id": "CVE-2019-8942",
+   "product": "WordPress core",
+   "product_key": "WordPress core",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "5.0.0",
+   "fixed_build": "5.0.1",
+   "build": "5.0.0",
+   "config_state": "author_account_default_theme",
+   "access_model": "auth(author)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp500",
+   "label_source": "experiments/26cve/CVE-2019-8942/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "marker created + shell image planted in the theme dir"
+  },
+  {
+   "case_id": "CVE-2019-8942__fixed",
+   "cve_id": "CVE-2019-8942",
+   "product": "WordPress core",
+   "product_key": "WordPress core",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "5.0.0",
+   "fixed_build": "5.0.1",
+   "build": "5.0.1",
+   "config_state": "author_account_default_theme",
+   "access_model": "auth(author)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp501",
+   "label_source": "experiments/26cve/CVE-2019-8942/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "no marker, meta_input ignored"
+  },
+  {
+   "case_id": "CVE-2020-12640__config_off",
+   "cve_id": "CVE-2020-12640",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.3",
+   "config_state": "default_no_installer",
+   "access_model": "unauth (public installer needed to set the config option)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "b",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc143_default_config_off",
+   "label_source": "experiments/26cve/CVE-2020-12640/README.md §Ground-truth label (D-023: default NA-b + config-on rows)",
+   "config_gated": false,
+   "notes": "official image has no /installer/ -> config option cannot be set"
+  },
+  {
+   "case_id": "CVE-2020-12640__config_on_vuln",
+   "cve_id": "CVE-2020-12640",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.3",
+   "config_state": "config_on_installer_simulated",
+   "access_model": "unauth (public installer needed to set the config option)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc143_config_on",
+   "label_source": "experiments/26cve/CVE-2020-12640/README.md §Ground-truth label (D-023: default NA-b + config-on rows)",
+   "config_gated": false,
+   "notes": "simulated installer-set 'plugins' traversal -> marker (fixture: planted /tmp/rqp)"
+  },
+  {
+   "case_id": "CVE-2020-12640__config_on_fixed",
+   "cve_id": "CVE-2020-12640",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.4",
+   "config_state": "config_on_installer_simulated",
+   "access_model": "unauth (public installer needed to set the config option)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc144_config_on",
+   "label_source": "experiments/26cve/CVE-2020-12640/README.md §Ground-truth label (D-023: default NA-b + config-on rows)",
+   "config_gated": false,
+   "notes": "plugin name validated; no include"
+  },
+  {
+   "case_id": "CVE-2020-12641__config_off",
+   "cve_id": "CVE-2020-12641",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.3",
+   "config_state": "default_no_installer_no_convert",
+   "access_model": "unauth (public installer needed; trigger needs a mail session in the lab)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "b",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc143_default_config_off",
+   "label_source": "experiments/26cve/CVE-2020-12641/README.md §Ground-truth label (D-023)",
+   "config_gated": false,
+   "notes": "no installer and no convert path -> config option cannot be set"
+  },
+  {
+   "case_id": "CVE-2020-12641__config_on_vuln",
+   "cve_id": "CVE-2020-12641",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.3",
+   "config_state": "config_on_installer_simulated",
+   "access_model": "unauth (public installer needed; trigger needs a mail session in the lab)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc143_config_on",
+   "label_source": "experiments/26cve/CVE-2020-12641/README.md §Ground-truth label (D-023)",
+   "config_gated": false,
+   "notes": "im_convert_path metacharacters -> marker (fixture: >240px image thumbnail)"
+  },
+  {
+   "case_id": "CVE-2020-12641__config_on_fixed",
+   "cve_id": "CVE-2020-12641",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.4",
+   "config_state": "config_on_installer_simulated",
+   "access_model": "unauth (public installer needed; trigger needs a mail session in the lab)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc144_config_on",
+   "label_source": "experiments/26cve/CVE-2020-12641/README.md §Ground-truth label (D-023)",
+   "config_gated": false,
+   "notes": "escapeshellcmd neutralises the metacharacters"
+  },
+  {
+   "case_id": "CVE-2020-13671__config_off",
+   "cve_id": "CVE-2020-13671",
+   "product": "Drupal core 8.9.x",
+   "product_key": "Drupal core 8.9.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.9.8",
+   "fixed_build": "8.9.9",
+   "build": "8.9.8",
+   "config_state": "default_article_image_field_only",
+   "access_model": "auth(upload/content-creation; fixture field)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "b",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping p_core_version_lt_899 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal8_898",
+   "label_source": "experiments/26cve/CVE-2020-13671/README.md §Ground-truth label (D-023)",
+   "config_gated": false,
+   "notes": "no file field with an unsafe extension -> no reachable path"
+  },
+  {
+   "case_id": "CVE-2020-13671__config_on_vuln",
+   "cve_id": "CVE-2020-13671",
+   "product": "Drupal core 8.9.x",
+   "product_key": "Drupal core 8.9.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.9.8",
+   "fixed_build": "8.9.9",
+   "build": "8.9.8",
+   "config_state": "file_field_allows_png_php",
+   "access_model": "auth(upload/content-creation; fixture field)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping p_core_version_lt_899 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal8_898",
+   "label_source": "experiments/26cve/CVE-2020-13671/README.md §Ground-truth label (D-023)",
+   "config_gated": false,
+   "notes": "file_munge_filename kept poc.php.png (unsafe internal extension)"
+  },
+  {
+   "case_id": "CVE-2020-13671__config_on_fixed",
+   "cve_id": "CVE-2020-13671",
+   "product": "Drupal core 8.9.x",
+   "product_key": "Drupal core 8.9.x",
+   "cpe_vendor_product": [
+    "drupal:drupal"
+   ],
+   "vuln_build": "8.9.8",
+   "fixed_build": "8.9.9",
+   "build": "8.9.9",
+   "config_state": "file_field_allows_png_php",
+   "access_model": "auth(upload/content-creation; fixture field)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "config-tắt",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "config-tắt": "experiments/26cve/registry.md Appendix E scenario_tags",
+    "ẩn-version": "mapping p_core_version_lt_899 observable=false (family-only fingerprint)"
+   },
+   "identity_tokens": [
+    "drupal"
+   ],
+   "identity_family": "8",
+   "artifact_state_key": "drupal8_899",
+   "label_source": "experiments/26cve/CVE-2020-13671/README.md §Ground-truth label (D-023)",
+   "config_gated": false,
+   "notes": "munged to poc.php_.png; file_validate rejects"
+  },
+  {
+   "case_id": "CVE-2020-25213__vuln",
+   "cve_id": "CVE-2020-25213",
+   "product": "WP plugin File Manager (wp-file-manager)",
+   "product_key": "WP plugin File Manager (wp-file-manager)",
+   "cpe_vendor_product": [
+    "filemanagerpro:file_manager"
+   ],
+   "vuln_build": "6.0",
+   "fixed_build": "8.0.6 (advisory fix 6.9; 6.9 zip unavailable, D-021)",
+   "build": "6.0",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wp-file-manager",
+    "file manager"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wfm_60",
+   "label_source": "experiments/26cve/CVE-2020-25213/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "unauth connector upload -> GET executes -> marker"
+  },
+  {
+   "case_id": "CVE-2020-25213__fixed",
+   "cve_id": "CVE-2020-25213",
+   "product": "WP plugin File Manager (wp-file-manager)",
+   "product_key": "WP plugin File Manager (wp-file-manager)",
+   "cpe_vendor_product": [
+    "filemanagerpro:file_manager"
+   ],
+   "vuln_build": "6.0",
+   "fixed_build": "8.0.6 (advisory fix 6.9; 6.9 zip unavailable, D-021)",
+   "build": "8.0.6",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wp-file-manager",
+    "file manager"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wfm_806",
+   "label_source": "experiments/26cve/CVE-2020-25213/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "connector removed (301); no marker"
+  },
+  {
+   "case_id": "CVE-2021-23017__backport_na_a",
+   "cve_id": "CVE-2021-23017",
+   "product": "nginx (Ubuntu jammy package)",
+   "product_key": "nginx (Ubuntu jammy package)",
+   "cpe_vendor_product": [
+    "f5:nginx"
+   ],
+   "vuln_build": null,
+   "fixed_build": "1.20.1 upstream / 1.18.0-6ubuntu9 jammy backport",
+   "build": "1.18.0-6ubuntu14.21 (jammy backport, already patched)",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "backport",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "backport": "experiments/26cve/registry.md table row + scenario_tags",
+    "ẩn-version": "experiments/26cve/registry.md table row ('ẩn-version/build-identity limitation')"
+   },
+   "identity_tokens": [
+    "nginx"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "nginx_jammy_backport",
+   "label_source": "experiments/26cve/CVE-2021-23017/README.md §Ground-truth label (D-020.2)",
+   "config_gated": false,
+   "notes": "build identity + patch reference establish branch (a); no exploitation attempted"
+  },
+  {
+   "case_id": "CVE-2021-24917__vuln",
+   "cve_id": "CVE-2021-24917",
+   "product": "WP plugin WPS Hide Login",
+   "product_key": "WP plugin WPS Hide Login",
+   "cpe_vendor_product": [
+    "wpserveur:wps_hide_login"
+   ],
+   "vuln_build": "1.9",
+   "fixed_build": "1.9.1",
+   "build": "1.9",
+   "config_state": "secret_login_configured",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wps-hide-login"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "whl_19",
+   "label_source": "experiments/26cve/CVE-2021-24917/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "referer bypass disclosed the secret login slug"
+  },
+  {
+   "case_id": "CVE-2021-24917__fixed",
+   "cve_id": "CVE-2021-24917",
+   "product": "WP plugin WPS Hide Login",
+   "product_key": "WP plugin WPS Hide Login",
+   "cpe_vendor_product": [
+    "wpserveur:wps_hide_login"
+   ],
+   "vuln_build": "1.9",
+   "fixed_build": "1.9.1",
+   "build": "1.9.1",
+   "config_state": "secret_login_configured",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wps-hide-login"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "whl_191",
+   "label_source": "experiments/26cve/CVE-2021-24917/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "redirects to /?404; secret not revealed"
+  },
+  {
+   "case_id": "CVE-2021-29447__vuln",
+   "cve_id": "CVE-2021-29447",
+   "product": "WordPress core (PHP 8)",
+   "product_key": "WordPress core (PHP 8)",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "5.7.0",
+   "fixed_build": "5.7.1",
+   "build": "5.7.0 (PHP 8.0.3)",
+   "config_state": "php8_author_upload",
+   "access_model": "auth(author; upload_files)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp570_php803",
+   "label_source": "experiments/26cve/CVE-2021-29447/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "DTD fetched, marker exfiltrated out-of-band"
+  },
+  {
+   "case_id": "CVE-2021-29447__fixed",
+   "cve_id": "CVE-2021-29447",
+   "product": "WordPress core (PHP 8)",
+   "product_key": "WordPress core (PHP 8)",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "5.7.0",
+   "fixed_build": "5.7.1",
+   "build": "5.7.1 (PHP 8.0.6)",
+   "config_state": "php8_author_upload",
+   "access_model": "auth(author; upload_files)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp571_php806",
+   "label_source": "experiments/26cve/CVE-2021-29447/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "upload accepted, no DTD fetch"
+  },
+  {
+   "case_id": "CVE-2021-42013__vuln",
+   "cve_id": "CVE-2021-42013",
+   "product": "Apache HTTP Server 2.4.x",
+   "product_key": "Apache HTTP Server 2.4.x",
+   "cpe_vendor_product": [
+    "apache:http_server"
+   ],
+   "vuln_build": "2.4.50",
+   "fixed_build": "2.4.51",
+   "build": "2.4.50 (weakened <Directory /> 'Require all granted')",
+   "config_state": "misconfig_require_all_granted",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "apache"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "httpd2450_8860",
+   "label_source": "experiments/26cve/CVE-2021-42013/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "double-encoded traversal -> 200 + marker"
+  },
+  {
+   "case_id": "CVE-2021-42013__fixed",
+   "cve_id": "CVE-2021-42013",
+   "product": "Apache HTTP Server 2.4.x",
+   "product_key": "Apache HTTP Server 2.4.x",
+   "cpe_vendor_product": [
+    "apache:http_server"
+   ],
+   "vuln_build": "2.4.50",
+   "fixed_build": "2.4.51",
+   "build": "2.4.51",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "apache"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "httpd2451_8861",
+   "label_source": "experiments/26cve/CVE-2021-42013/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "same request -> 400"
+  },
+  {
+   "case_id": "CVE-2021-44026__vuln",
+   "cve_id": "CVE-2021-44026",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.11",
+   "fixed_build": "1.4.12",
+   "build": "1.4.11",
+   "config_state": "default_auth_session",
+   "access_model": "auth(test/test; mail session needed for the chain)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc1411",
+   "label_source": "experiments/26cve/CVE-2021-44026/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "injected SLEEP(6) executed (6.07 s vs 0.05 s)"
+  },
+  {
+   "case_id": "CVE-2021-44026__fixed",
+   "cve_id": "CVE-2021-44026",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.11",
+   "fixed_build": "1.4.12",
+   "build": "1.4.12",
+   "config_state": "default_auth_session",
+   "access_model": "auth(test/test; mail session needed for the chain)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc1412",
+   "label_source": "experiments/26cve/CVE-2021-44026/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "_sort filtered; export 0.05 s"
+  },
+  {
+   "case_id": "CVE-2022-21661__vuln",
+   "cve_id": "CVE-2022-21661",
+   "product": "WordPress core (+ fixture plugin)",
+   "product_key": "WordPress core (+ fixture plugin)",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "5.8.2",
+   "fixed_build": "5.8.3",
+   "build": "5.8.2",
+   "config_state": "fixture_ele_custom_skin_3_1_3",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp582",
+   "label_source": "experiments/26cve/CVE-2022-21661/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "time-based signal 5.03 s + MariaDB log"
+  },
+  {
+   "case_id": "CVE-2022-21661__fixed",
+   "cve_id": "CVE-2022-21661",
+   "product": "WordPress core (+ fixture plugin)",
+   "product_key": "WordPress core (+ fixture plugin)",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "5.8.2",
+   "fixed_build": "5.8.3",
+   "build": "5.8.3",
+   "config_state": "fixture_ele_custom_skin_3_1_3",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp583",
+   "label_source": "experiments/26cve/CVE-2022-21661/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "0.018 s, no injected SQL"
+  },
+  {
+   "case_id": "CVE-2023-2745__vuln",
+   "cve_id": "CVE-2023-2745",
+   "product": "WordPress core",
+   "product_key": "WordPress core",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "6.2.0",
+   "fixed_build": "6.2.1",
+   "build": "6.2.0",
+   "config_state": "default_planted_mo",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp620",
+   "label_source": "experiments/26cve/CVE-2023-2745/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "traversal loaded the planted .mo; translated marker shown"
+  },
+  {
+   "case_id": "CVE-2023-2745__fixed",
+   "cve_id": "CVE-2023-2745",
+   "product": "WordPress core",
+   "product_key": "WordPress core",
+   "cpe_vendor_product": [
+    "wordpress:wordpress"
+   ],
+   "vuln_build": "6.2.0",
+   "fixed_build": "6.2.1",
+   "build": "6.2.1",
+   "config_state": "default_planted_mo",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "wordpress"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wp621",
+   "label_source": "experiments/26cve/CVE-2023-2745/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "sanitize_locale_name strips './'; marker absent"
+  },
+  {
+   "case_id": "CVE-2023-28121__vuln",
+   "cve_id": "CVE-2023-28121",
+   "product": "WooCommerce Payments (WooPayments)",
+   "product_key": "WooCommerce Payments (WooPayments)",
+   "cpe_vendor_product": [
+    "automattic:woocommerce_payments",
+    "automattic:woopayments"
+   ],
+   "vuln_build": "5.6.1 (+ WooCommerce 7.5.1)",
+   "fixed_build": "5.6.2",
+   "build": "5.6.1",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "woocommerce-payments",
+    "woopayments"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wcpay_561",
+   "label_source": "experiments/26cve/CVE-2023-28121/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "forged platform-checkout header created an administrator (201)"
+  },
+  {
+   "case_id": "CVE-2023-28121__fixed",
+   "cve_id": "CVE-2023-28121",
+   "product": "WooCommerce Payments (WooPayments)",
+   "product_key": "WooCommerce Payments (WooPayments)",
+   "cpe_vendor_product": [
+    "automattic:woocommerce_payments",
+    "automattic:woopayments"
+   ],
+   "vuln_build": "5.6.1 (+ WooCommerce 7.5.1)",
+   "fixed_build": "5.6.2",
+   "build": "5.6.2",
+   "config_state": "default",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "woocommerce-payments",
+    "woopayments"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "wcpay_562",
+   "label_source": "experiments/26cve/CVE-2023-28121/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "401; no user created"
+  },
+  {
+   "case_id": "CVE-2023-32243__vuln",
+   "cve_id": "CVE-2023-32243",
+   "product": "WP plugin Essential Addons for Elementor",
+   "product_key": "WP plugin Essential Addons for Elementor",
+   "cpe_vendor_product": [
+    "wpdeveloper:essential_addons_for_elementor"
+   ],
+   "vuln_build": "5.7.1 (+ Elementor 3.5.6)",
+   "fixed_build": "5.7.2",
+   "build": "5.7.1",
+   "config_state": "default_elementor_active",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "essential-addons"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "ea_571",
+   "label_source": "experiments/26cve/CVE-2023-32243/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "password reset for admin via unauth nonce"
+  },
+  {
+   "case_id": "CVE-2023-32243__fixed",
+   "cve_id": "CVE-2023-32243",
+   "product": "WP plugin Essential Addons for Elementor",
+   "product_key": "WP plugin Essential Addons for Elementor",
+   "cpe_vendor_product": [
+    "wpdeveloper:essential_addons_for_elementor"
+   ],
+   "vuln_build": "5.7.1 (+ Elementor 3.5.6)",
+   "fixed_build": "5.7.2",
+   "build": "5.7.2",
+   "config_state": "default_elementor_active",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "essential-addons"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "ea_572",
+   "label_source": "experiments/26cve/CVE-2023-32243/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "reset key validated; password unchanged"
+  },
+  {
+   "case_id": "CVE-2023-3460__vuln",
+   "cve_id": "CVE-2023-3460",
+   "product": "WP plugin Ultimate Member",
+   "product_key": "WP plugin Ultimate Member",
+   "cpe_vendor_product": [
+    "ultimatemember:ultimate_member"
+   ],
+   "vuln_build": "2.6.6",
+   "fixed_build": "2.6.7",
+   "build": "2.6.6",
+   "config_state": "open_registration_form",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "ultimate-member"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "um_266",
+   "label_source": "experiments/26cve/CVE-2023-3460/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "accented metakey bypass created an administrator"
+  },
+  {
+   "case_id": "CVE-2023-3460__fixed",
+   "cve_id": "CVE-2023-3460",
+   "product": "WP plugin Ultimate Member",
+   "product_key": "WP plugin Ultimate Member",
+   "cpe_vendor_product": [
+    "ultimatemember:ultimate_member"
+   ],
+   "vuln_build": "2.6.6",
+   "fixed_build": "2.6.7",
+   "build": "2.6.7",
+   "config_state": "open_registration_form",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "ultimate-member"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "um_267",
+   "label_source": "experiments/26cve/CVE-2023-3460/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "no admin-capable user created"
+  },
+  {
+   "case_id": "CVE-2023-5631__unresolved",
+   "cve_id": "CVE-2023-5631",
+   "product": "Roundcube Webmail 1.4.x",
+   "product_key": "Roundcube Webmail 1.4.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.4.11",
+   "fixed_build": "1.5.5 (same commit as 1.4.15)",
+   "build": "1.4.11",
+   "config_state": "default_auth_mail",
+   "access_model": "auth(victim reads message; attacker delivers mail via SMTP)",
+   "ground_truth_label": "Unresolved",
+   "label_branch": "",
+   "scenario_tags": [
+    "CPE-sai",
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "CPE-sai": "reviews/Review_buoc2_mapping_phanquyet_2026-10-14.md B6 (NVD 1.6.3 vs CPE 1.6.4 range statements differ)",
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc1411",
+   "label_source": "experiments/26cve/CVE-2023-5631/README.md §Ground-truth label + D-024",
+   "config_gated": false,
+   "notes": "server-side injection difference confirmed (affected keeps the unsanitised SVG data-URI, fixed washes it) but chromium-1208 blocks <use href=\"data:\"> -> no execution -> no label (D-024)"
+  },
+  {
+   "case_id": "CVE-2023-5798__vuln",
+   "cve_id": "CVE-2023-5798",
+   "product": "WP plugin Assistant",
+   "product_key": "WP plugin Assistant",
+   "cpe_vendor_product": [
+    "fastlinemedia:assistant"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.3",
+   "config_state": "editor_account_default",
+   "access_model": "auth(Editor+)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "experiments/26cve/registry.md Appendix A scenario_tags ('plugin ver not unauth-observable')"
+   },
+   "identity_tokens": [
+    "assistant"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "asst_143",
+   "label_source": "experiments/26cve/CVE-2023-5798/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "attacker listener received GET /rq-c1-ssrf"
+  },
+  {
+   "case_id": "CVE-2023-5798__fixed",
+   "cve_id": "CVE-2023-5798",
+   "product": "WP plugin Assistant",
+   "product_key": "WP plugin Assistant",
+   "cpe_vendor_product": [
+    "fastlinemedia:assistant"
+   ],
+   "vuln_build": "1.4.3",
+   "fixed_build": "1.4.4",
+   "build": "1.4.4",
+   "config_state": "editor_account_default",
+   "access_model": "auth(Editor+)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "experiments/26cve/registry.md Appendix A scenario_tags ('plugin ver not unauth-observable')"
+   },
+   "identity_tokens": [
+    "assistant"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "asst_144",
+   "label_source": "experiments/26cve/CVE-2023-5798/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "wp_safe_remote_get blocked the private host"
+  },
+  {
+   "case_id": "CVE-2024-28000__vuln",
+   "cve_id": "CVE-2024-28000",
+   "product": "WP plugin LiteSpeed Cache",
+   "product_key": "WP plugin LiteSpeed Cache",
+   "cpe_vendor_product": [
+    "litespeedtech:litespeed_cache"
+   ],
+   "vuln_build": "6.3.0.1",
+   "fixed_build": "6.4",
+   "build": "6.3.0.1",
+   "config_state": "crawler_on",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "litespeed-cache"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "lsc_6301",
+   "label_source": "experiments/26cve/CVE-2024-28000/README.md §Ground-truth label (D-021.2 hash deviation)",
+   "config_gated": false,
+   "notes": "forged cookies operated as user 1 (201)"
+  },
+  {
+   "case_id": "CVE-2024-28000__fixed",
+   "cve_id": "CVE-2024-28000",
+   "product": "WP plugin LiteSpeed Cache",
+   "product_key": "WP plugin LiteSpeed Cache",
+   "cpe_vendor_product": [
+    "litespeedtech:litespeed_cache"
+   ],
+   "vuln_build": "6.3.0.1",
+   "fixed_build": "6.4",
+   "build": "6.4",
+   "config_state": "crawler_on",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "litespeed-cache"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "lsc_64",
+   "label_source": "experiments/26cve/CVE-2024-28000/README.md §Ground-truth label (D-021.2 hash deviation)",
+   "config_gated": false,
+   "notes": "no hash stored; 401"
+  },
+  {
+   "case_id": "CVE-2024-37383__vuln",
+   "cve_id": "CVE-2024-37383",
+   "product": "Roundcube Webmail 1.5.x",
+   "product_key": "Roundcube Webmail 1.5.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.5.6",
+   "fixed_build": "1.5.7",
+   "build": "1.5.6",
+   "config_state": "default_auth_mail",
+   "access_model": "auth(victim reads message; attacker delivers mail via SMTP)",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc156",
+   "label_source": "experiments/26cve/CVE-2024-37383/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "click on the animated link executed JS (window.__rq=1)"
+  },
+  {
+   "case_id": "CVE-2024-37383__fixed",
+   "cve_id": "CVE-2024-37383",
+   "product": "Roundcube Webmail 1.5.x",
+   "product_key": "Roundcube Webmail 1.5.x",
+   "cpe_vendor_product": [
+    "roundcube:webmail"
+   ],
+   "vuln_build": "1.5.6",
+   "fixed_build": "1.5.7",
+   "build": "1.5.7",
+   "config_state": "default_auth_mail",
+   "access_model": "auth(victim reads message; attacker delivers mail via SMTP)",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [
+    "ẩn-version"
+   ],
+   "scenario_tags_provenance": {
+    "ẩn-version": "mapping decision_inputs E5→Unknown"
+   },
+   "identity_tokens": [
+    "roundcube"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "rc157",
+   "label_source": "experiments/26cve/CVE-2024-37383/README.md §Ground-truth label",
+   "config_gated": false,
+   "notes": "<animate> blocked; no execution"
+  },
+  {
+   "case_id": "CVE-2023-23752__4_2_7_default",
+   "cve_id": "CVE-2023-23752",
+   "product": "Joomla! CMS (core)",
+   "product_key": "Joomla! CMS (core)",
+   "cpe_vendor_product": [
+    "joomla:joomla\\!"
+   ],
+   "vuln_build": "4.2.7",
+   "fixed_build": "4.2.8",
+   "build": "4.2.7",
+   "config_state": "default_webservices_enabled",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "joomla"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "jl427_default",
+   "label_source": "experiments/26cve/registry.md Appendix F (D-035/D-036 accepted 2026-10-17)",
+   "config_gated": false,
+   "notes": "unauth ?public=true -> 200 JSON:API + JConfig object incl. the planted canary password/secret"
+  },
+  {
+   "case_id": "CVE-2023-23752__4_2_8_default_fixed",
+   "cve_id": "CVE-2023-23752",
+   "product": "Joomla! CMS (core)",
+   "product_key": "Joomla! CMS (core)",
+   "cpe_vendor_product": [
+    "joomla:joomla\\!"
+   ],
+   "vuln_build": "4.2.7",
+   "fixed_build": "4.2.8",
+   "build": "4.2.8",
+   "config_state": "default_webservices_enabled",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "joomla"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "jl428_default",
+   "label_source": "experiments/26cve/registry.md Appendix F (D-035/D-036 accepted 2026-10-17)",
+   "config_gated": false,
+   "notes": "401 {\"errors\":[{\"title\":\"Forbidden\"}]}; canary absent (patched build)"
+  },
+  {
+   "case_id": "CVE-2023-6553__1_3_7_active",
+   "cve_id": "CVE-2023-6553",
+   "product": "WP plugin Backup Migration (backup-backup)",
+   "product_key": "WP plugin Backup Migration (backup-backup)",
+   "cpe_vendor_product": [
+    "backupbliss:backup_migration"
+   ],
+   "vuln_build": "1.3.7",
+   "fixed_build": "1.3.8",
+   "build": "1.3.7",
+   "config_state": "plugin_active",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "backup-backup"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "bb137_active",
+   "label_source": "experiments/26cve/registry.md Appendix F (D-035/D-036 accepted 2026-10-17)",
+   "config_gated": false,
+   "notes": "filter-chain POST -> marker written out-of-band (D-015)"
+  },
+  {
+   "case_id": "CVE-2023-6553__1_3_7_inactive",
+   "cve_id": "CVE-2023-6553",
+   "product": "WP plugin Backup Migration (backup-backup)",
+   "product_key": "WP plugin Backup Migration (backup-backup)",
+   "cpe_vendor_product": [
+    "backupbliss:backup_migration"
+   ],
+   "vuln_build": "1.3.7",
+   "fixed_build": "1.3.8",
+   "build": "1.3.7",
+   "config_state": "plugin_inactive_files_present",
+   "access_model": "unauth",
+   "ground_truth_label": "Applicable",
+   "label_branch": "",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "backup-backup"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "bb137_inactive",
+   "label_source": "experiments/26cve/registry.md Appendix F (D-035/D-036 accepted 2026-10-17)",
+   "config_gated": false,
+   "notes": "deactivated, files present -> marker written (installed is enough, D-036)"
+  },
+  {
+   "case_id": "CVE-2023-6553__1_3_8_active_fixed",
+   "cve_id": "CVE-2023-6553",
+   "product": "WP plugin Backup Migration (backup-backup)",
+   "product_key": "WP plugin Backup Migration (backup-backup)",
+   "cpe_vendor_product": [
+    "backupbliss:backup_migration"
+   ],
+   "vuln_build": "1.3.7",
+   "fixed_build": "1.3.8",
+   "build": "1.3.8",
+   "config_state": "plugin_active",
+   "access_model": "unauth",
+   "ground_truth_label": "Not Applicable",
+   "label_branch": "a",
+   "scenario_tags": [],
+   "scenario_tags_provenance": {},
+   "identity_tokens": [
+    "backup-backup"
+   ],
+   "identity_family": null,
+   "artifact_state_key": "bb138_active",
+   "label_source": "experiments/26cve/registry.md Appendix F (D-035/D-036 accepted 2026-10-17)",
+   "config_gated": false,
+   "notes": "filterChainFix() rejects the value; no marker (patched build)"
+  }
+ ]
+}

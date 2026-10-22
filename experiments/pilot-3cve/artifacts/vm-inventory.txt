@@ -1,0 +1,39 @@
+# Pilot 3-CVE deployment — VM inventory
+# host: <lab-user>  Ubuntu 24.04.5 LTS
+# timestamp: 2026-10-07T00:43:17Z
+
+## Drupal CHANGELOG.txt version lines
+:8083 -> Drupal 8 release cycle: https://www.drupal.org/core/release-cycle-overview
+:8084 -> Drupal 8 release cycle: https://www.drupal.org/core/release-cycle-overview
+
+## docker compose ps
+NAME                    IMAGE                                                                                             STATUS                    PORTS
+pilot-db                mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2                   Up 12 minutes (healthy)   127.0.0.1:13306->3306/tcp
+pilot-drupal-fixed      drupal@sha256:8eec19505eb7e210b60dd2186fdd5df221d152ad06bc8455bfa57c0e6f5f6eca                    Up 9 minutes              127.0.0.1:8084->80/tcp
+pilot-drupal-vuln       drupal@sha256:d6073e2f6c662a9406cbe0b00215276ca206ded5e170268a29faa104bf2b97f0                    Up 9 minutes              127.0.0.1:8083->80/tcp
+pilot-imap              greenmail/standalone@sha256:d6db42a4fc258fec0948b1ae7b579fd06947cc92087c162ec0597972a6c36850      Up 12 minutes             127.0.0.1:3025->3025/tcp, 3110/tcp, 3465/tcp, 3993/tcp, 3995/tcp, 127.0.0.1:3143->3143/tcp, 8080/tcp
+pilot-roundcube-fixed   roundcube/roundcubemail@sha256:de8facfa45587614756327fb6e47e866a2faf9e111f6afa60568e51ab45357cc   Up 12 minutes             127.0.0.1:8086->80/tcp
+pilot-roundcube-vuln    roundcube/roundcubemail@sha256:0ee2f1b7a008b719ec8e0a36020e9a4e773acc5ca9dde787742e180d7c78628c   Up 12 minutes             127.0.0.1:8085->80/tcp
+pilot-wp-fixed          wordpress@sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b                 Up 12 minutes             127.0.0.1:8082->80/tcp
+pilot-wp-vuln           wordpress@sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b                 Up 12 minutes             127.0.0.1:8081->80/tcp
+
+## image digests (RepoDigests)
+wordpress:6.7.1-apache                     wordpress@sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b
+drupal:8.6.9-apache                        drupal@sha256:d6073e2f6c662a9406cbe0b00215276ca206ded5e170268a29faa104bf2b97f0
+drupal:8.6.10-apache                       drupal@sha256:8eec19505eb7e210b60dd2186fdd5df221d152ad06bc8455bfa57c0e6f5f6eca
+roundcube/roundcubemail:1.4.3-apache       roundcube/roundcubemail@sha256:0ee2f1b7a008b719ec8e0a36020e9a4e773acc5ca9dde787742e180d7c78628c
+roundcube/roundcubemail:1.4.4-apache       roundcube/roundcubemail@sha256:de8facfa45587614756327fb6e47e866a2faf9e111f6afa60568e51ab45357cc
+mariadb:10.11                              mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+greenmail/standalone:2.1.3                 greenmail/standalone@sha256:d6db42a4fc258fec0948b1ae7b579fd06947cc92087c162ec0597972a6c36850
+wordpress:cli-php8.2                       wordpress@sha256:b99fac444f68b8d41b23c6496c7c036082d86a2f6a2b669217d0987a06ef775f
+drush/drush:9                              drush/drush@sha256:2b2894d3edf31ced061a86f5dc0c0b220d607c3b7272f52fe58c2bc3a46888cc
+
+## disk / mem
+/dev/mapper/ubuntu--vg-ubuntu--lv   57G   14G   41G  26% /
+               total        used        free      shared  buff/cache   available
+Mem:           7.7Gi       1.4Gi       133Mi       101Mi       6.6Gi       6.3Gi
+
+## external release artifacts (sha256 on VM)
+141bcabf80c9084699f1dc7b23a6303ee53042f0abcf42c46e2aac279a116e30  ~/pilot-lab/releases/jsonapi-8.x-1.24.tar.gz
+c61c21ba0d63ee9f3eeda891e6e7c5758925875a3be729717c77d42acbfdc994  ~/pilot-lab/releases/really-simple-ssl.9.1.1.1.zip
+d972aa178d2be4b248d3a8f665ddaeb7466894355f5c14f2262d5ce1d8155f7e  ~/pilot-lab/releases/really-simple-ssl.9.1.2.zip

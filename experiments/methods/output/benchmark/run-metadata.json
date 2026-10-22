@@ -1,0 +1,49 @@
+{
+ "mode": "benchmark",
+ "generated_at_utc": "2026-10-15T00:09:29Z",
+ "mapping": {
+  "path": "notes/collector-mapping-30cve.md",
+  "sha256": "130d12895c73e5e75efaaa104c34a5ef518491bbbffc52de7620b4664508fec1",
+  "expected_sha256": "130d12895c73e5e75efaaa104c34a5ef518491bbbffc52de7620b4664508fec1"
+ },
+ "snapshot": {
+  "manifest_sha256": "854853ec2ca083a1f779da22debc4413131fe3695aa32e2fff01649f1d227bf7",
+  "snapshot_date": "2026-10-11",
+  "verification": {
+   "command": "python3 experiments/public-snapshot/verify_snapshot.py --dir data/public-snapshot",
+   "returncode": 0,
+   "output": "artifacts checked : 92\nhash mismatches   : 0\nmissing files     : 0\nunlisted files    : 0\n\nOK — snapshot matches manifest.json",
+   "stderr": ""
+  }
+ },
+ "method_inputs": {
+  "cases": {
+   "path": "experiments/methods/data/cases.json",
+   "sha256": "f9790f7b63dd3bb376fa4b9f4456b45a5b9c2675b3d31eba75f6120b9633feee"
+  },
+  "observations": {
+   "path": "experiments/methods/data/observations.json",
+   "sha256": "98a9b0ab52c85937cbd595b1e09bfe5b7ad1b69623eb8c5fba47247c3fa5241e"
+  },
+  "advisory_ranges": {
+   "path": "experiments/methods/data/advisory_ranges.json",
+   "sha256": "c55de8be4255055050f04a10ce4c460b9040921a90a521cad1693229ac4917df"
+  }
+ },
+ "counts": {
+  "n_unique_cves": 30,
+  "n_cases": 64,
+  "n_labels": {
+   "Applicable": 28,
+   "Not Applicable": 34,
+   "Unresolved": 2
+  },
+  "n_unresolved_cves": 2,
+  "unresolved_cves": [
+   "CVE-2019-6341",
+   "CVE-2023-5631"
+  ],
+  "n_cases_excluded_from_metrics": 2
+ },
+ "labels_visible_to_methods": false
+}

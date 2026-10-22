@@ -1,0 +1,93 @@
+# Lab VM inventory — V2 evidence session (2026-10-15)
+# host: <lab-user>@<lab-ip> (Ubuntu 24.04, Docker)
+# collected (UTC): 2026-10-15T01:17:28Z
+
+## docker ps (published ports)
+b1-d7-759|Up 14 minutes|127.0.0.1:8912->80/tcp
+b1-d7-758|Up 14 minutes|127.0.0.1:8911->80/tcp
+b1-d8-852|Up 14 minutes|127.0.0.1:8905->80/tcp
+b1-d8-8612|Up 14 minutes|127.0.0.1:8909->80/tcp
+b1-d8-853|Up 14 minutes|127.0.0.1:8906->80/tcp
+b1-d7-731|Up 14 minutes|127.0.0.1:8901->80/tcp
+b1-d8-899|Up 14 minutes|127.0.0.1:8908->80/tcp
+b1-d7-732|Up 14 minutes|127.0.0.1:8902->80/tcp
+b1-d8-851|Up 14 minutes|127.0.0.1:8904->80/tcp
+b1-d8-898|Up 14 minutes|127.0.0.1:8907->80/tcp
+b1-d8-850|Up 14 minutes|127.0.0.1:8903->80/tcp
+b1-d8-8613|Up 14 minutes|127.0.0.1:8910->80/tcp
+b1-db|Up 14 minutes (healthy)|127.0.0.1:13312->3306/tcp
+b4-rc-157|Up 14 minutes|127.0.0.1:8848->80/tcp
+b4-rc-1443|Up 14 minutes|127.0.0.1:8841->80/tcp
+b4-rc-155|Up 14 minutes|127.0.0.1:8846->80/tcp
+b4-rc-1444|Up 14 minutes|127.0.0.1:8842->80/tcp
+b4-rc-1411|Up 14 minutes|127.0.0.1:8843->80/tcp
+b4-rc-1412|Up 14 minutes|127.0.0.1:8844->80/tcp
+b4-rc-156|Up 14 minutes|127.0.0.1:8847->80/tcp
+b4-rc-153|Up 14 minutes|127.0.0.1:8845->80/tcp
+b4-db|Up 14 minutes (healthy)|127.0.0.1:13311->3306/tcp
+b4-imap|Up 14 minutes|3110/tcp, 3465/tcp, 3993/tcp, 3995/tcp, 8080/tcp, 127.0.0.1:3026->3025/tcp, 127.0.0.1:3144->3143/tcp
+b2-wp-f|Up 8 minutes|127.0.0.1:8831->80/tcp
+b2-wp-v|Up 8 minutes|127.0.0.1:8830->80/tcp
+b2-db|Up 8 minutes (healthy)|127.0.0.1:13310->3306/tcp
+b3-wp-1701-vuln|Up 8 minutes|127.0.0.1:8711->80/tcp
+b3-wp-1701-fixed|Up 8 minutes|127.0.0.1:8712->80/tcp
+b3-db|Up 8 minutes (healthy)|127.0.0.1:13309->3306/tcp
+b0-nginx-jammy|Up 14 minutes|127.0.0.1:8190->80/tcp
+pilot-drupal-fixed|Up 14 minutes|127.0.0.1:8084->80/tcp
+pilot-drupal-vuln|Up 14 minutes|127.0.0.1:8083->80/tcp
+pilot-wp-fixed|Up 14 minutes|127.0.0.1:8082->80/tcp
+pilot-wp-vuln|Up 14 minutes|127.0.0.1:8081->80/tcp
+pilot-roundcube-vuln|Up 14 minutes|127.0.0.1:8085->80/tcp
+pilot-roundcube-fixed|Up 14 minutes|127.0.0.1:8086->80/tcp
+pilot-db|Up 14 minutes (healthy)|127.0.0.1:13306->3306/tcp
+pilot-imap|Up 14 minutes|127.0.0.1:3025->3025/tcp, 3110/tcp, 3465/tcp, 3993/tcp, 3995/tcp, 127.0.0.1:3143->3143/tcp, 8080/tcp
+
+## ss -tln (listening sockets)
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess
+LISTEN 0      4096       127.0.0.1:13311      0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:13310      0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:13309      0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:13306      0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8847       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8846       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8845       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8844       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8843       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8842       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8841       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8848       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8911       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8910       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8909       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8908       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8907       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8906       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8905       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8904       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8903       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8902       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8901       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8912       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8712       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8711       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8831       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8830       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:13312      0.0.0.0:*          
+LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:3026       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:3025       0.0.0.0:*          
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*          
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:3144       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:3143       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8086       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8085       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8084       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8083       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8082       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8081       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8190       0.0.0.0:*          
+LISTEN 0      4096            [::]:22            [::]:*          
+
+## git-style check: any non-loopback published container port?
+(none)

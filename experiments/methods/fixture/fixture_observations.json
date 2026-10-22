@@ -1,0 +1,122 @@
+{
+ "_comment": "Synthetic fixture observations (step 3 phase C). Same shape as data/observations.json (M1). Verified probe -> accepted value; pending/needs_control -> G7 gate. One entry deliberately carries a bogus predicate_value on a pending/needs_control probe to prove the gate ignores it.",
+ "cases": {
+  "CVE-9000-0001__f_below": {
+   "cve_id": "CVE-9000-0001",
+   "observations": [
+    {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.9.9", "version": "1.9.9", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_below", "artifact_line": "banner: Widget Web 1.9.9", "extraction_rule": "fixture", "value_kind": "version"},
+    {"probe_id": "probe_plugins", "condition_id": "p_plugins_enabled", "kind": "precondition", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_below", "artifact_line": "plugin list rendered", "extraction_rule": "fixture", "value_kind": "bool"}
+   ],
+   "unobserved": []
+  },
+  "CVE-9000-0001__f_in": {
+   "cve_id": "CVE-9000-0001",
+   "observations": [
+    {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 2.5.0", "version": "2.5.0", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_in", "artifact_line": "banner: Widget Web 2.5.0", "extraction_rule": "fixture", "value_kind": "version"},
+    {"probe_id": "probe_plugins", "condition_id": "p_plugins_enabled", "kind": "precondition", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_in", "artifact_line": "plugin list rendered", "extraction_rule": "fixture", "value_kind": "bool"}
+   ],
+   "unobserved": []
+  },
+  "CVE-9000-0001__f_start": {
+   "cve_id": "CVE-9000-0001",
+   "observations": [
+    {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 2.0", "version": "2.0", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_start", "artifact_line": "banner: Widget Web 2.0", "extraction_rule": "fixture", "value_kind": "version"},
+    {"probe_id": "probe_plugins", "condition_id": "p_plugins_enabled", "kind": "precondition", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_start", "artifact_line": "plugin list rendered", "extraction_rule": "fixture", "value_kind": "bool"}
+   ],
+   "unobserved": []
+  },
+  "CVE-9000-0001__f_end": {
+   "cve_id": "CVE-9000-0001",
+   "observations": [
+    {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 3.0", "version": "3.0", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_end", "artifact_line": "banner: Widget Web 3.0", "extraction_rule": "fixture", "value_kind": "version"},
+    {"probe_id": "probe_plugins", "condition_id": "p_plugins_enabled", "kind": "precondition", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_end", "artifact_line": "plugin list rendered", "extraction_rule": "fixture", "value_kind": "bool"}
+   ],
+   "unobserved": []
+  },
+  "CVE-9000-0001__f_noversion": {"cve_id": "CVE-9000-0001", "observations": [], "unobserved": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "pending", "observed": null, "reason": "G7 gate: no accepted version capture for this deployment"},
+   {"probe_id": "probe_plugins", "condition_id": "p_plugins_enabled", "kind": "precondition", "validation_status": "verified", "observed": null, "reason": "G7 gate: no accepted capture for this deployment state"}
+  ]},
+  "CVE-9000-0002__f_exact": {"cve_id": "CVE-9000-0002", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.4", "version": "1.4", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_exact", "artifact_line": "banner: Widget Web 1.4", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0002__f_decoy": {"cve_id": "CVE-9000-0002", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Other Thing 9.9", "version": "9.9", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_decoy", "artifact_line": "banner: Other Thing 9.9", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0002__f_unknown_product": {"cve_id": "CVE-9000-0002", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.4", "version": "1.4", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_unknown", "artifact_line": "banner: Widget Web 1.4", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0003__f_blocked": {"cve_id": "CVE-9000-0003", "observations": [
+   {"probe_id": "probe_family", "condition_id": "p_product_widget", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web", "version": null, "version_status": "family_only", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_blocked", "artifact_line": "family banner: Widget Web", "extraction_rule": "fixture", "value_kind": "family"},
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.5", "version": "1.5", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_blocked", "artifact_line": "banner: Widget Web 1.5", "extraction_rule": "fixture", "value_kind": "version"},
+   {"probe_id": "probe_feature", "condition_id": "p_feature_on", "kind": "precondition", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": false, "predicate_reason": "feature explicitly disabled banner (positive absence signal)", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_blocked", "artifact_line": "feature disabled banner", "extraction_rule": "fixture", "value_kind": "bool"}
+  ], "unobserved": [
+   {"probe_id": "probe_role", "condition_id": "p_role_ok", "kind": "precondition", "validation_status": "needs_control", "observed": null, "reason": "G7 gate: role is not exposed by HTTP"}
+  ]},
+  "CVE-9000-0003__f_blocked_noversion": {"cve_id": "CVE-9000-0003", "observations": [
+   {"probe_id": "probe_family", "condition_id": "p_product_widget", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web", "version": null, "version_status": "family_only", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_blocked_noversion", "artifact_line": "family banner: Widget Web", "extraction_rule": "fixture", "value_kind": "family"},
+   {"probe_id": "probe_feature", "condition_id": "p_feature_on", "kind": "precondition", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": false, "predicate_reason": "feature explicitly disabled banner", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_blocked_noversion", "artifact_line": "feature disabled banner", "extraction_rule": "fixture", "value_kind": "bool"}
+  ], "unobserved": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": null, "reason": "G7 gate: no accepted version capture for this deployment state"}
+  ]},
+  "CVE-9000-0003__f_ok": {"cve_id": "CVE-9000-0003", "observations": [
+   {"probe_id": "probe_family", "condition_id": "p_product_widget", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web", "version": null, "version_status": "family_only", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_ok", "artifact_line": "family banner: Widget Web", "extraction_rule": "fixture", "value_kind": "family"},
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.5", "version": "1.5", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_ok", "artifact_line": "banner: Widget Web 1.5", "extraction_rule": "fixture", "value_kind": "version"},
+   {"probe_id": "probe_feature", "condition_id": "p_feature_on", "kind": "precondition", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "feature form rendered", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_ok", "artifact_line": "feature form rendered", "extraction_rule": "fixture", "value_kind": "bool"}
+  ], "unobserved": [
+   {"probe_id": "probe_role", "condition_id": "p_role_ok", "kind": "precondition", "validation_status": "needs_control", "observed": null, "reason": "G7 gate: role is not exposed by HTTP"}
+  ]},
+  "CVE-9000-0003__f_needs_control_bogus": {"cve_id": "CVE-9000-0003", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.5", "version": "1.5", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_bogus", "artifact_line": "banner: Widget Web 1.5", "extraction_rule": "fixture", "value_kind": "version"},
+   {"probe_id": "probe_feature", "condition_id": "p_feature_on", "kind": "precondition", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "feature form rendered", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_bogus", "artifact_line": "feature form rendered", "extraction_rule": "fixture", "value_kind": "bool"},
+   {"probe_id": "probe_role", "condition_id": "p_role_ok", "kind": "precondition", "validation_status": "needs_control", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "BOGUS: an unaccepted capture claims the role is fine", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_bogus", "artifact_line": "claimed role ok", "extraction_rule": "fixture", "value_kind": "bool"}
+  ], "unobserved": []},
+  "CVE-9000-0004__f_precedence": {"cve_id": "CVE-9000-0004", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.2", "version": "1.2", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_precedence", "artifact_line": "banner: Widget Web 1.2", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0005__f_tier_conflict": {"cve_id": "CVE-9000-0005", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.2", "version": "1.2", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_tier_conflict", "artifact_line": "banner: Widget Web 1.2", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0006__f_no_range": {"cve_id": "CVE-9000-0006", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.5", "version": "1.5", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_no_range", "artifact_line": "banner: Widget Web 1.5", "extraction_rule": "fixture", "value_kind": "version"},
+   {"probe_id": "probe_patch_link", "condition_id": "p_build_patched_backport", "kind": "build", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "the served build is the patched revision of this deployment", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_no_range", "artifact_line": "served revision = patched build", "extraction_rule": "fixture", "value_kind": "bool"}
+  ], "unobserved": []},
+  "CVE-9000-0007__f_empty_path": {"cve_id": "CVE-9000-0007", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.5", "version": "1.5", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_empty_path", "artifact_line": "banner: Widget Web 1.5", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0008__f_pending_bogus": {"cve_id": "CVE-9000-0008", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.5", "version": "1.5", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_pending", "artifact_line": "banner: Widget Web 1.5", "extraction_rule": "fixture", "value_kind": "version"},
+   {"probe_id": "probe_feature", "condition_id": "p_feature_on", "kind": "precondition", "validation_status": "pending", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "BOGUS: an unaccepted single-polarity capture must not decide the predicate", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_pending", "artifact_line": "feature form rendered", "extraction_rule": "fixture", "value_kind": "bool"}
+  ], "unobserved": []},
+  "CVE-9000-0010__f_empty_ranges": {"cve_id": "CVE-9000-0010", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 1.5", "version": "1.5", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_empty_ranges", "artifact_line": "banner: Widget Web 1.5", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0011__f_e4_linked": {"cve_id": "CVE-9000-0011", "observations": [
+   {"probe_id": "probe_family", "condition_id": "p_product_widget", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web", "version": null, "version_status": "family_only", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_e4_linked", "artifact_line": "family banner: Widget Web", "extraction_rule": "fixture", "value_kind": "family"},
+   {"probe_id": "probe_patch_link", "condition_id": "p_build_patched_backport", "kind": "build", "validation_status": "verified", "observed": true, "version": null, "version_status": "not_observed", "predicate_value": true, "predicate_reason": "the served build is the patched revision of this deployment", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_e4_linked", "artifact_line": "served revision = patched build", "extraction_rule": "fixture", "value_kind": "bool"}
+  ], "unobserved": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": null, "reason": "G7 gate: no accepted version capture for this deployment state (version hidden)"}
+  ]},
+  "CVE-9000-0011__f_e4_unlinked": {"cve_id": "CVE-9000-0011", "observations": [
+   {"probe_id": "probe_family", "condition_id": "p_product_widget", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web", "version": null, "version_status": "family_only", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_e4_unlinked", "artifact_line": "family banner: Widget Web", "extraction_rule": "fixture", "value_kind": "family"}
+  ], "unobserved": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": null, "reason": "G7 gate: no accepted version capture for this deployment state (version hidden)"},
+   {"probe_id": "probe_patch_link", "condition_id": "p_build_patched_backport", "kind": "build", "validation_status": "verified", "observed": null, "reason": "G7 gate: no accepted capture of the served build revision -> E4 not linked"}
+  ]},
+  "CVE-9000-0012__f_branch_vuln": {"cve_id": "CVE-9000-0012", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 5.5.1", "version": "5.5.1", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_branch_vuln", "artifact_line": "banner: Widget Web 5.5.1", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0012__f_branch_patched": {"cve_id": "CVE-9000-0012", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 5.5.2", "version": "5.5.2", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_branch_patched", "artifact_line": "banner: Widget Web 5.5.2", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0013__f_out_of_line": {"cve_id": "CVE-9000-0013", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 4.1.37", "version": "4.1.37", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_out_of_line", "artifact_line": "banner: Widget Web 4.1.37", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0013__f_in_line": {"cve_id": "CVE-9000-0013", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 6.2.0", "version": "6.2.0", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_in_line", "artifact_line": "banner: Widget Web 6.2.0", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []},
+  "CVE-9000-0013__f_line_patched": {"cve_id": "CVE-9000-0013", "observations": [
+   {"probe_id": "probe_version", "condition_id": "p_version_observed", "kind": "build", "validation_status": "verified", "observed": true, "identity_text": "Widget Web 6.2.1", "version": "6.2.1", "version_status": "observed", "predicate_value": true, "predicate_reason": "fixture capture", "artifact_ref": "fixture/artifacts/captures.txt", "artifact_section": "f_line_patched", "artifact_line": "banner: Widget Web 6.2.1", "extraction_rule": "fixture", "value_kind": "version"}
+  ], "unobserved": []}
+ }
+}

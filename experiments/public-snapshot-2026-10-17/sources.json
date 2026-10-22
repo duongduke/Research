@@ -1,0 +1,89 @@
+{
+  "_comment": "Advisory/NVD source registry for the TOP-UP snapshot cohort (2026-10-17), the 2 CVE IDs added by D-035. This cohort is SEPARATE from the frozen 30-CVE snapshot in data/public-snapshot/ (2026-10-11, D-026); nothing here backdates into that manifest.",
+  "_provenance": "All bytes listed below were already fetched in the step-1 verification session of 2026-10-17 and are persisted in experiments/topup-2026-10-17/sources/ (see experiments/topup-2026-10-17/manifest.md). This build step copies them VERBATIM (sha256 re-checked before and after the copy) and derives cpe.json from the saved nvd.json. No new network fetch was needed; the fetch timestamps below are the step-1 fetch timestamps (file mtime, UTC), not new fetch times.",
+  "_step1_fetch_reference": "notes/cve-verification-topup-2026-10-17.md (sections 1.1 and 2.1) + experiments/topup-2026-10-17/manifest.md (sections 2 and 3)",
+  "cohort": "2026-10-17",
+  "cves": [
+    {
+      "cve_id": "CVE-2023-23752",
+      "product": "Joomla! CMS",
+      "nvd": {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-23752",
+        "local_source": "experiments/topup-2026-10-17/sources/CVE-2023-23752.nvd.json",
+        "http_status": 200,
+        "fetched_at_utc": "2026-10-17T13:48:31Z",
+        "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:31 +07:00 = 13:48:31Z); same mtime convention that reproduces the step-1 download timestamps exactly",
+        "sha256_expected": "290310c5f4e5ea8e650efd98b1442baac1baaeb926f1555acafa1796d95608a2",
+        "bytes_expected": 3518,
+        "provenance": "step-1 fetch 2026-10-17; NVD 2.0 API envelope (resultsPerPage/startIndex/totalResults/format/version/timestamp/vulnerabilities) — verified structurally in this build step"
+      },
+      "advisory": {
+        "role": "primary",
+        "url": "https://developer.joomla.org/security-centre/894-20230201-core-improper-access-check-in-webservice-endpoints.html",
+        "local_source": "experiments/topup-2026-10-17/sources/joomla-advisory.html",
+        "http_status": 200,
+        "fetched_at_utc": "2026-10-17T13:48:38Z",
+        "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:38 +07:00 = 13:48:38Z)",
+        "sha256_expected": "41b8014857705f46ac51f74f63224bec6194285cedb65708fb197130b116877d",
+        "bytes_expected": 34126,
+        "provenance": "vendor advisory (Joomla! Security Centre); recorded in notes/cve-verification-topup-2026-10-17.md §1.1 and experiments/topup-2026-10-17/manifest.md §2"
+      },
+      "advisory_fallback": null,
+      "blocked": [],
+      "notes": "CVE.org CNA record (https://cveawg.mitre.org/api/cve/CVE-2023-23752, HTTP 200, sha256 6c7b1d35…) was also fetched in step 1 but is NOT one of the three snapshot artifacts; kept in experiments/topup-2026-10-17/sources/cveorg-23752.json. CISA KEV feed returned HTTP 403 in step 1 → KEV membership unconfirmed (recorded, not fabricated)."
+    },
+    {
+      "cve_id": "CVE-2023-6553",
+      "product": "WordPress plugin Backup Migration (backup-backup)",
+      "nvd": {
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-6553",
+        "local_source": "experiments/topup-2026-10-17/sources/CVE-2023-6553.nvd.json",
+        "http_status": 200,
+        "fetched_at_utc": "2026-10-17T13:48:32Z",
+        "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:32 +07:00 = 13:48:32Z)",
+        "sha256_expected": "9ba740dd5e4851308af18a4347a73bce79723cb74c5f7eb5134ea5c3547bb744",
+        "bytes_expected": 5843,
+        "provenance": "step-1 fetch 2026-10-17; NVD 2.0 API envelope (vulnStatus: Modified) — verified structurally in this build step"
+      },
+      "advisory": {
+        "role": "primary",
+        "url": "https://wpscan.com/vulnerability/6a4d0af9-e1cd-4a69-a56c-3c009e207eca",
+        "local_source": "experiments/topup-2026-10-17/sources/wpscan-6553.html",
+        "http_status": 403,
+        "fetched_at_utc": "2026-10-17T13:48:51Z",
+        "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:51 +07:00 = 13:48:51Z)",
+        "sha256_expected": "b4b94e6496f82953c3c9d3d25bb482409d0204bf741e0db198b944bfe1409172",
+        "bytes_expected": 7355,
+        "provenance": "step-1 attempt; BLOCKED (HTTP 403 JS bot-challenge page). The file contains no advisory text; it is kept as the failed-primary audit body (advisory-primary.error.txt), NOT as an advisory source."
+      },
+      "advisory_fallback": {
+        "role": "fallback",
+        "url": "https://cveawg.mitre.org/api/cve/CVE-2023-6553",
+        "local_source": "experiments/topup-2026-10-17/sources/cveorg-6553.json",
+        "http_status": 200,
+        "fetched_at_utc": "2026-10-17T13:48:49Z",
+        "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:49 +07:00 = 13:48:49Z)",
+        "sha256_expected": "b4b39c29adec6d9034aa55c2bdfd4f9233ee88792e8ba50b131a947520ddbea2",
+        "bytes_expected": 4227,
+        "provenance": "CVE.org 5.x CNA record (assigner Wordfence, state=PUBLISHED) — the AUTHORITATIVE range source for this CVE in this cohort, per D-035 / notes/cve-verification-topup-2026-10-17.md §3.2 item 6 (WPScan + Wordfence bot-blocked). Used as the documented fallback, the same convention as the frozen cohort's CVE-2020-25213 (403) and CVE-2024-10924 (202)."
+      },
+      "blocked": [
+        {
+          "source": "advisory (primary, WPScan)",
+          "url": "https://wpscan.com/vulnerability/6a4d0af9-e1cd-4a69-a56c-3c009e207eca",
+          "http_status": 403,
+          "reason": "primary advisory HTTP 403 (JS bot-challenge)",
+          "persisted_as": "advisory-primary.error.txt"
+        },
+        {
+          "source": "advisory (coordinator page, Wordfence Threat Intel)",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/3511ba64-56a3-43d7-8ab8-c6e40e3b686e",
+          "http_status": 202,
+          "reason": "Cloudflare challenge, 0-byte body (nothing to preserve beyond the 0-byte fact)",
+          "persisted_as": null
+        }
+      ],
+      "notes": "There is no WPScan/Wordfence advisory text in this cohort because both hosts bot-block (403 / 202). Range provenance therefore rests on NVD + CVE.org (which agree: <= 1.3.7 affected) plus the package diff in experiments/topup-2026-10-17/fix-diff.md (fixed 1.3.8, filterChainFix). The NVD record itself only states 'up to, and including, 1.3.7'; the fixed version 1.3.8 comes from the 1.3.8 package (readme changelog + code diff), not from an advisory sentence. Recorded, not repaired."
+    }
+  ]
+}

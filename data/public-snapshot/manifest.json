@@ -1,0 +1,1289 @@
+{
+  "snapshot_date": "2026-10-11",
+  "snapshot_date_source": "D-026 (freeze public CVE data snapshot at 2026-10-11)",
+  "manifest_generated_at_utc": "2026-10-11T10:01:45.970Z",
+  "generator": "experiments/public-snapshot/fetch_public_snapshot.py",
+  "sources_config": "/mnt/d/ADMIN/Documents/do_an_tot_nghiep/experiments/public-snapshot/sources.json",
+  "nvd_api": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+  "nvd_rate_limit_note": "no API key; ~5 requests / 30 s (sleep=7.0s between NVD calls)",
+  "n_benchmark_cves": 30,
+  "n_fetched_this_run": 3,
+  "artifacts": {
+    "CVE-2021-41773": {
+      "cve_id": "CVE-2021-41773",
+      "advisory_declared_url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #1",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-41773",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-41773",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:52:39.572Z",
+          "content_type": "application/json",
+          "path": "CVE-2021-41773/nvd.json",
+          "bytes": 15563,
+          "sha256": "cee6258f250d29696dbc5534d45e5924430d1711494f61f6f7e3d85aabed954f"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-41773",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:52:39.584Z",
+          "http_status": null,
+          "n_cpe_match_entries": 7,
+          "bytes": 5768,
+          "sha256": "22bd1460c44c73ed3e19349701ae443aeb18f8e861cbe7eff07469db4c69d9c9",
+          "path": "CVE-2021-41773/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+          "final_url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:52:39.809Z",
+          "content_type": "text/html",
+          "path": "CVE-2021-41773/advisory.html",
+          "bytes": 205075,
+          "sha256": "3edeb2dde2f2207cede2f2994dd55fcf8697638275671c4bd113d1ab88175cfd",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2021-42013": {
+      "cve_id": "CVE-2021-42013",
+      "advisory_declared_url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #2",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-42013",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-42013",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:52:47.650Z",
+          "content_type": "application/json",
+          "path": "CVE-2021-42013/nvd.json",
+          "bytes": 16059,
+          "sha256": "d581959590c39c567ea685aeb768fcb7a732dab660e5694a674d79d3d492f362"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-42013",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:52:47.659Z",
+          "http_status": null,
+          "n_cpe_match_entries": 10,
+          "bytes": 7941,
+          "sha256": "288b7a348b8a3dcdd4983041aaea75668b7b65122f12e06f8870a1cd88f41a62",
+          "path": "CVE-2021-42013/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+          "final_url": "https://httpd.apache.org/security/vulnerabilities_24.html",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:52:47.867Z",
+          "content_type": "text/html",
+          "path": "CVE-2021-42013/advisory.html",
+          "bytes": 205075,
+          "sha256": "3edeb2dde2f2207cede2f2994dd55fcf8697638275671c4bd113d1ab88175cfd",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2014-3704": {
+      "cve_id": "CVE-2014-3704",
+      "advisory_declared_url": "https://www.drupal.org/sa-core-2014-005",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #3",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2014-3704",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2014-3704",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:52:55.624Z",
+          "content_type": "application/json",
+          "path": "CVE-2014-3704/nvd.json",
+          "bytes": 7364,
+          "sha256": "5a0ed7e6acf8a0d846d86258d2dae87c2887fe6612c6174cbb6437839c043089"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2014-3704",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:52:55.633Z",
+          "http_status": null,
+          "n_cpe_match_entries": 2,
+          "bytes": 2402,
+          "sha256": "73f928968e2d57d3c7205d5aa358a127a69751c9bec5bc23a9e9d98dbf285179",
+          "path": "CVE-2014-3704/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://www.drupal.org/sa-core-2014-005",
+          "final_url": "https://www.drupal.org/forum/newsletters/security-advisories-for-drupal-core/2014-10-15/sa-core-2014-005-drupal-core-sql",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:52:57.839Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2014-3704/advisory.html",
+          "bytes": 35372,
+          "sha256": "039fef342cd0ef94814ace4af0a556d5e8d33056b66c7eba5590e1b4fbd2ed0e",
+          "redirected": true
+        }
+      },
+      "failures": []
+    },
+    "CVE-2018-7600": {
+      "cve_id": "CVE-2018-7600",
+      "advisory_declared_url": "https://www.drupal.org/sa-core-2018-002",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #4",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2018-7600",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2018-7600",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:05.671Z",
+          "content_type": "application/json",
+          "path": "CVE-2018-7600/nvd.json",
+          "bytes": 10657,
+          "sha256": "80e03cdc6da47bd714d1e3230aa5493919c82818aba3a47a0384bf60c1289d60"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2018-7600",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:53:05.680Z",
+          "http_status": null,
+          "n_cpe_match_entries": 7,
+          "bytes": 6008,
+          "sha256": "fcf7d473a15b7be9be231d0e569c2202ada2e5246bfb5eee8d5456259a9bd6f6",
+          "path": "CVE-2018-7600/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://www.drupal.org/sa-core-2018-002",
+          "final_url": "https://www.drupal.org/sa-core-2018-002",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:07.366Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2018-7600/advisory.html",
+          "bytes": 36022,
+          "sha256": "b2652b7ad11f576f4b4c2536bdd956a3c63c7636f6bf2cd8d6d763f9029f6687",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2018-7602": {
+      "cve_id": "CVE-2018-7602",
+      "advisory_declared_url": "https://www.drupal.org/sa-core-2018-004",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #5",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2018-7602",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2018-7602",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:15.158Z",
+          "content_type": "application/json",
+          "path": "CVE-2018-7602/nvd.json",
+          "bytes": 7120,
+          "sha256": "2749c24a65bdedf69df696d66b5c76f6a00cdc2bbe4591dcb99e019338a5c215"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2018-7602",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:53:15.170Z",
+          "http_status": null,
+          "n_cpe_match_entries": 6,
+          "bytes": 5650,
+          "sha256": "1b3f1354b5a94df48c620123d35d54e427a1e04ea62d0861d45b246e84609392",
+          "path": "CVE-2018-7602/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://www.drupal.org/sa-core-2018-004",
+          "final_url": "https://www.drupal.org/sa-core-2018-004",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:16.937Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2018-7602/advisory.html",
+          "bytes": 35323,
+          "sha256": "0e972279e9accf486e329b38c8feec7b0d56b400e4b926fec3953ca49af3c509",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2019-6340": {
+      "cve_id": "CVE-2019-6340",
+      "advisory_declared_url": "https://www.drupal.org/sa-core-2019-003",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #6",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-6340",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-6340",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:24.798Z",
+          "content_type": "application/json",
+          "path": "CVE-2019-6340/nvd.json",
+          "bytes": 6652,
+          "sha256": "9acb64dd70791ed59664c1a84308ca1e81f4b4a9cd916a30baae7355de6a1dfc"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-6340",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:53:24.808Z",
+          "http_status": null,
+          "n_cpe_match_entries": 2,
+          "bytes": 2675,
+          "sha256": "b3ab7e156686674ec55c24496fd23e64f08701314a5955a0f05954bc278bd4ef",
+          "path": "CVE-2019-6340/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://www.drupal.org/sa-core-2019-003",
+          "final_url": "https://www.drupal.org/sa-core-2019-003",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:26.249Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2019-6340/advisory.html",
+          "bytes": 36736,
+          "sha256": "303017746fac3bb42ce193a158f0531c5801a7b0e486c5eb8da14eed3e9d883b",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2020-25213": {
+      "cve_id": "CVE-2020-25213",
+      "advisory_declared_url": "https://plugins.trac.wordpress.org/changeset/2373068",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #7",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-25213",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-25213",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T10:00:08.334Z",
+          "content_type": "application/json",
+          "path": "CVE-2020-25213/nvd.json",
+          "bytes": 7152,
+          "sha256": "b62d3ce68977c4f639d277b426e9dae712ef9b906cc1358b5007147f11c3afae"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-25213",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T10:00:08.347Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "path": "CVE-2020-25213/cpe.json",
+          "bytes": 1600,
+          "sha256": "99684aa869c7b34e05171343b0df3dfe245a3572233e658069f0dc8e65d21a38"
+        },
+        "advisory": {
+          "role": "primary",
+          "declared_url": "https://plugins.trac.wordpress.org/changeset/2373068",
+          "provenance": "notes/cve-verification-2026-10-07.md row #7",
+          "final_url": "https://plugins.trac.wordpress.org/changeset/2373068",
+          "http_status": 403,
+          "fetched_at_utc": "2026-10-11T10:00:09.144Z",
+          "content_type": "text/html",
+          "redirected": false,
+          "note": "primary advisory HTTP 403",
+          "error_body": "CVE-2020-25213/advisory-primary.error.txt",
+          "error_body_bytes": 6869,
+          "error_body_sha256": "cc5ff6e40496f5709a92b2c9cae269288956b06c348f49c1a140023dd04543c0"
+        },
+        "advisory_fallback": {
+          "role": "fallback",
+          "declared_url": "https://wordpress.org/plugins/wp-file-manager/",
+          "provenance": "FALLBACK ONLY. The recorded plugins.trac.wordpress.org changeset URL returns an HTTP 403 JS bot-challenge page to non-browser clients (recorded in manifest failure list). Fallback = the vendor-hosted File Manager plugin page/changelog on wordpress.org, taken from the NVD 2.0 record references (tags: Product, Release Notes).",
+          "final_url": "https://wordpress.org/plugins/wp-file-manager/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T10:00:10.590Z",
+          "content_type": "text/html; charset=UTF-8",
+          "redirected": false,
+          "path": "CVE-2020-25213/advisory-fallback.html",
+          "bytes": 250723,
+          "sha256": "5a9a35f531c969a8edc0dc501e239a001752af83cb12afb017942a2c02e13b9f"
+        }
+      },
+      "failures": [
+        {
+          "source": "advisory",
+          "url": "https://plugins.trac.wordpress.org/changeset/2373068",
+          "http_status": 403,
+          "reason": "primary advisory HTTP 403"
+        }
+      ]
+    },
+    "CVE-2024-28000": {
+      "cve_id": "CVE-2024-28000",
+      "advisory_declared_url": "https://patchstack.com/database/Wordpress/Plugin/litespeed-cache/vulnerability/wordpress-litespeed-cache-plugin-6-3-0-1-unauthenticated-privilege-escalation-vulnerability",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #8 recorded a Patchstack URL truncated with an ellipsis; the full URL was resolved from the NVD 2.0 record references (patchstack.com database entry) during snapshot setup on 2026-10-11.",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-28000",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-28000",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:42.836Z",
+          "content_type": "application/json",
+          "path": "CVE-2024-28000/nvd.json",
+          "bytes": 3730,
+          "sha256": "d482f9413a13a23e55b64e61d788def20faee415841ca116c30f923258e53f48"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-28000",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:53:42.846Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "bytes": 2654,
+          "sha256": "b76d03a15d2723578cc1db7df63b314382674dcc64afb799a2c302b6bb760b60",
+          "path": "CVE-2024-28000/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://patchstack.com/database/Wordpress/Plugin/litespeed-cache/vulnerability/wordpress-litespeed-cache-plugin-6-3-0-1-unauthenticated-privilege-escalation-vulnerability",
+          "final_url": "https://patchstack.com/database/Wordpress/Plugin/litespeed-cache/vulnerability/wordpress-litespeed-cache-plugin-6-3-0-1-unauthenticated-privilege-escalation-vulnerability",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:43.850Z",
+          "content_type": "text/html;charset=utf-8",
+          "path": "CVE-2024-28000/advisory.html",
+          "bytes": 88901,
+          "sha256": "b477bf708115b380bef04f05f95aae7e1fae537c98db0146d8bab50b62da4c16",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2024-10924": {
+      "cve_id": "CVE-2024-10924",
+      "advisory_declared_url": "https://www.wordfence.com/blog/2024/11/really-simple-security-vulnerability/",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #9",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-10924",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-10924",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T10:00:19.942Z",
+          "content_type": "application/json",
+          "path": "CVE-2024-10924/nvd.json",
+          "bytes": 5970,
+          "sha256": "2ae68b3dffb6ef5fb1c3a9fbe6999d8506a721b35b82b1044e6d85143578d6b2"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-10924",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T10:00:19.952Z",
+          "http_status": null,
+          "n_cpe_match_entries": 3,
+          "path": "CVE-2024-10924/cpe.json",
+          "bytes": 5020,
+          "sha256": "f8fd7b8a9250ce5b1cf4f4ca332e259bfffc63e39bb127b99206c5d9d2cd3742"
+        },
+        "advisory": {
+          "role": "primary",
+          "declared_url": "https://www.wordfence.com/blog/2024/11/really-simple-security-vulnerability/",
+          "provenance": "notes/cve-verification-2026-10-07.md row #9",
+          "final_url": "https://www.wordfence.com/blog/2024/11/really-simple-security-vulnerability/",
+          "http_status": 202,
+          "fetched_at_utc": "2026-10-11T10:00:20.075Z",
+          "content_type": "text/html; charset=UTF-8",
+          "redirected": false,
+          "note": "primary advisory HTTP 202",
+          "error_body": "CVE-2024-10924/advisory-primary.error.txt",
+          "error_body_bytes": 2280,
+          "error_body_sha256": "23a415aeb4324ea809f38d6f7a7d8cbb67c966615224464f034a7fbff19127cb"
+        },
+        "advisory_fallback": {
+          "role": "fallback",
+          "declared_url": "https://wordpress.org/plugins/really-simple-ssl/",
+          "provenance": "FALLBACK ONLY. The recorded wordfence.com blog URL is served through a Cloudflare bot challenge (HTTP 202, empty body) to non-browser clients (recorded in manifest failure list). Fallback = the vendor-hosted Really Simple Security plugin page/changelog on wordpress.org.",
+          "final_url": "https://wordpress.org/plugins/really-simple-ssl/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T10:00:21.618Z",
+          "content_type": "text/html; charset=UTF-8",
+          "redirected": false,
+          "path": "CVE-2024-10924/advisory-fallback.html",
+          "bytes": 257276,
+          "sha256": "fc902c1048926731a23a7037b19dcbc650e8af2d8884147305de0e5bdff16be0"
+        }
+      },
+      "failures": [
+        {
+          "source": "advisory",
+          "url": "https://www.wordfence.com/blog/2024/11/really-simple-security-vulnerability/",
+          "http_status": 202,
+          "reason": "primary advisory HTTP 202"
+        }
+      ]
+    },
+    "CVE-2023-32243": {
+      "cve_id": "CVE-2023-32243",
+      "advisory_declared_url": "https://patchstack.com/articles/critical-privilege-escalation-in-essential-addons-for-elementor-plugin-affecting-1-million-sites/",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #10",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-32243",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-32243",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:59.593Z",
+          "content_type": "application/json",
+          "path": "CVE-2023-32243/nvd.json",
+          "bytes": 4121,
+          "sha256": "4fbf41807ae60591bfc88a3bcf0bc4b4e9ea9eac0564941dad3cbaa55bb4c574"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-32243",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:53:59.604Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "bytes": 2160,
+          "sha256": "1a8af4c3011fe54a285a98b83bae49347df3a43c1c5ba1ce05e7c353c0cf232e",
+          "path": "CVE-2023-32243/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://patchstack.com/articles/critical-privilege-escalation-in-essential-addons-for-elementor-plugin-affecting-1-million-sites/",
+          "final_url": "https://patchstack.com/articles/critical-privilege-escalation-in-essential-addons-for-elementor-plugin-affecting-1-million-sites/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:53:59.753Z",
+          "content_type": "text/html",
+          "path": "CVE-2023-32243/advisory.html",
+          "bytes": 154410,
+          "sha256": "39becd1d42467140f499f5833509f7f39e18da5c68c282443e695836cb11551b",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2021-44026": {
+      "cve_id": "CVE-2021-44026",
+      "advisory_declared_url": "https://github.com/roundcube/roundcubemail/commit/c8947ecb762d9e89c2091bda28d49002817263f1",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #11 recorded the Roundcube commit with a truncated hash; the full commit URL was resolved from the NVD 2.0 record references (Patch) during snapshot setup on 2026-10-11.",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-44026",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-44026",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:07.509Z",
+          "content_type": "application/json",
+          "path": "CVE-2021-44026/nvd.json",
+          "bytes": 6658,
+          "sha256": "3114b6d3ca2ebb3c210f189f9bdd50ba2d801c3c5d3c63c23d62ad3d291c8011"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-44026",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:54:07.520Z",
+          "http_status": null,
+          "n_cpe_match_entries": 7,
+          "bytes": 5714,
+          "sha256": "a4f0ac306e41fed00c7e38e46e4d6f036c9106979eaa08117e1810360aa3bdc9",
+          "path": "CVE-2021-44026/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://github.com/roundcube/roundcubemail/commit/c8947ecb762d9e89c2091bda28d49002817263f1",
+          "final_url": "https://github.com/roundcube/roundcubemail/commit/c8947ecb762d9e89c2091bda28d49002817263f1",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:08.322Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2021-44026/advisory.html",
+          "bytes": 482310,
+          "sha256": "b37e8641b28b2827df64c2c29c4fae05fdd75f2a2d28feb3d241728c4555b35e",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2023-5631": {
+      "cve_id": "CVE-2023-5631",
+      "advisory_declared_url": "https://roundcube.net/news/2023/10/16/security-update-1.6.4-released",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #12",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-5631",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-5631",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:16.107Z",
+          "content_type": "application/json",
+          "path": "CVE-2023-5631/nvd.json",
+          "bytes": 9115,
+          "sha256": "c9c60478c762a13ad2f757c973dd8b2c4924deedb13701081331ab1d32a777ce"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-5631",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:54:16.116Z",
+          "http_status": null,
+          "n_cpe_match_entries": 7,
+          "bytes": 6575,
+          "sha256": "0fab77174624363a61817762f5e81967df2b47f266decc16c08bffa168b00f57",
+          "path": "CVE-2023-5631/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://roundcube.net/news/2023/10/16/security-update-1.6.4-released",
+          "final_url": "https://roundcube.net/news/2023/10/16/security-update-1.6.4-released",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:17.240Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2023-5631/advisory.html",
+          "bytes": 15232,
+          "sha256": "b592d9ccb42bf7dc70f430d0046c160c4bac9ac602bb0dd2be1aa89034f9b584",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2024-37383": {
+      "cve_id": "CVE-2024-37383",
+      "advisory_declared_url": "https://github.com/roundcube/roundcubemail/releases/tag/1.5.7",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #13",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-37383",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-37383",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:24.984Z",
+          "content_type": "application/json",
+          "path": "CVE-2024-37383/nvd.json",
+          "bytes": 5063,
+          "sha256": "e03427db611a48a87c566c1b203f75caf1f355f00b9ddce5fdc15ae29c053dfe"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-37383",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:54:24.996Z",
+          "http_status": null,
+          "n_cpe_match_entries": 3,
+          "bytes": 4384,
+          "sha256": "f3c805e7dd527c37c4b99f09432ae10b52ee86b9d4afb6c42ec7f709fa795f9c",
+          "path": "CVE-2024-37383/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://github.com/roundcube/roundcubemail/releases/tag/1.5.7",
+          "final_url": "https://github.com/roundcube/roundcubemail/releases/tag/1.5.7",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:25.699Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2024-37383/advisory.html",
+          "bytes": 201882,
+          "sha256": "600f366fdbd5ab035c2adb3a2ca2e42b7007daabb1802b2c3ef1bb12fdf475ec",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2020-12625": {
+      "cve_id": "CVE-2020-12625",
+      "advisory_declared_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #14",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12625",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12625",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:33.495Z",
+          "content_type": "application/json",
+          "path": "CVE-2020-12625/nvd.json",
+          "bytes": 5462,
+          "sha256": "87501d72036153b66a3735319fe431e10470270c7b990e8fc005d023533c6981"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12625",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:54:33.504Z",
+          "http_status": null,
+          "n_cpe_match_entries": 7,
+          "bytes": 5548,
+          "sha256": "e07c005bc4439315c252a2ff1b2d2f2efdfa28294d150b2750000ce04b466b49",
+          "path": "CVE-2020-12625/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+          "final_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:34.561Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2020-12625/advisory.html",
+          "bytes": 16513,
+          "sha256": "211dd65434f5b824c2a6a8dca76c7419fae8f2e6eb9143ab0ba27f5123b09861",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2020-12640": {
+      "cve_id": "CVE-2020-12640",
+      "advisory_declared_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #15",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12640",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12640",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:42.330Z",
+          "content_type": "application/json",
+          "path": "CVE-2020-12640/nvd.json",
+          "bytes": 5557,
+          "sha256": "63facc40131907e7d1d28d8fe3a5e97046e7c7167910fec77c85156ef39368dd"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12640",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:54:42.339Z",
+          "http_status": null,
+          "n_cpe_match_entries": 7,
+          "bytes": 5818,
+          "sha256": "4bdbc33df4ea5a1f4a4158d294938c8268ec44d1f592ce5b144e6fa962493aca",
+          "path": "CVE-2020-12640/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+          "final_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:43.328Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2020-12640/advisory.html",
+          "bytes": 16513,
+          "sha256": "211dd65434f5b824c2a6a8dca76c7419fae8f2e6eb9143ab0ba27f5123b09861",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2017-1001000": {
+      "cve_id": "CVE-2017-1001000",
+      "advisory_declared_url": "https://make.wordpress.org/core/2017/02/01/disclosure-of-additional-security-fix-in-wordpress-4-7-2/",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #16",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2017-1001000",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2017-1001000",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:51.108Z",
+          "content_type": "application/json",
+          "path": "CVE-2017-1001000/nvd.json",
+          "bytes": 5325,
+          "sha256": "2f02c0af7471c952bd1989feeba65526e6c8348837ca25a74649246fb77d02ce"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2017-1001000",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:54:51.116Z",
+          "http_status": null,
+          "n_cpe_match_entries": 3,
+          "bytes": 2749,
+          "sha256": "ffadfe4ba4787c0e829e643f054875264031e55402f2e800f1e74cecb56b0cd3",
+          "path": "CVE-2017-1001000/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://make.wordpress.org/core/2017/02/01/disclosure-of-additional-security-fix-in-wordpress-4-7-2/",
+          "final_url": "https://make.wordpress.org/core/2017/02/01/disclosure-of-additional-security-fix-in-wordpress-4-7-2/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:54:53.667Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2017-1001000/advisory.html",
+          "bytes": 644036,
+          "sha256": "f6eeb96e391e999a2c879fa27ec175ef42f7106d81de926e3a000ba086c1b44d",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2019-8942": {
+      "cve_id": "CVE-2019-8942",
+      "advisory_declared_url": "https://blog.ripstech.com/2019/wordpress-image-remote-code-execution/",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #17",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-8942",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-8942",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:01.418Z",
+          "content_type": "application/json",
+          "path": "CVE-2019-8942/nvd.json",
+          "bytes": 6841,
+          "sha256": "7f1704cf7e9427bc7b858ebfd743b654f6340dfa0ecb7501ccc816bd5dab1e0d"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-8942",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:55:01.428Z",
+          "http_status": null,
+          "n_cpe_match_entries": 11,
+          "bytes": 7905,
+          "sha256": "c4593d05f1c5278d16a81bd593d530b7a271c3d773ca5bab48194abd252e23d6",
+          "path": "CVE-2019-8942/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://blog.ripstech.com/2019/wordpress-image-remote-code-execution/",
+          "final_url": "https://www.sonarsource.com/blog/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:03.156Z",
+          "content_type": "text/html",
+          "path": "CVE-2019-8942/advisory.html",
+          "bytes": 666472,
+          "sha256": "304f7469313074dc44dd01fa7fb45700f51e955af041e50f05eefebdd121393a",
+          "redirected": true
+        }
+      },
+      "failures": []
+    },
+    "CVE-2021-29447": {
+      "cve_id": "CVE-2021-29447",
+      "advisory_declared_url": "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-rv47-pc52-qrhh",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #18",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-29447",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-29447",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:10.951Z",
+          "content_type": "application/json",
+          "path": "CVE-2021-29447/nvd.json",
+          "bytes": 6270,
+          "sha256": "1d0f3109292c4f9904c76eaa88a447b2adbe7e521eb455cc831a599fe5d255b4"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-29447",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:55:10.962Z",
+          "http_status": null,
+          "n_cpe_match_entries": 3,
+          "bytes": 3083,
+          "sha256": "7ca1a02a84ec33d6b8b7aee65c0322a499b45bf0da76019c64eae76a72498273",
+          "path": "CVE-2021-29447/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-rv47-pc52-qrhh",
+          "final_url": "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-rv47-pc52-qrhh",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:11.755Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2021-29447/advisory.html",
+          "bytes": 177898,
+          "sha256": "578d1ffd5d2112e250e3bb2a102b7f2aa8aadbbcb80e7d8265ae2163fb05b9bb",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2022-21661": {
+      "cve_id": "CVE-2022-21661",
+      "advisory_declared_url": "https://wordpress.org/news/2022/01/wordpress-5-8-3-security-release/",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #19",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2022-21661",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2022-21661",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:19.532Z",
+          "content_type": "application/json",
+          "path": "CVE-2022-21661/nvd.json",
+          "bytes": 12642,
+          "sha256": "8dd8e2f02947f80a83c1ec05c3efa25b93164c3bf06f58ee6503a17cc5256533"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2022-21661",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:55:19.541Z",
+          "http_status": null,
+          "n_cpe_match_entries": 27,
+          "bytes": 21434,
+          "sha256": "918af949482593a2c152e053fa0cf9e7b852658b10554c6d5cfcc54396588ba2",
+          "path": "CVE-2022-21661/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://wordpress.org/news/2022/01/wordpress-5-8-3-security-release/",
+          "final_url": "https://wordpress.org/news/2022/01/wordpress-5-8-3-security-release/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:20.891Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2022-21661/advisory.html",
+          "bytes": 161784,
+          "sha256": "af8d6b10fec0256a616c3b17e9767b0d8fbeff06113cbc06c8f7852ed163d1d0",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2015-3440": {
+      "cve_id": "CVE-2015-3440",
+      "advisory_declared_url": "https://wordpress.org/news/2015/04/wordpress-4-2-1/",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #20",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2015-3440",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2015-3440",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:28.686Z",
+          "content_type": "application/json",
+          "path": "CVE-2015-3440/nvd.json",
+          "bytes": 5617,
+          "sha256": "b0f4ea66c7ae005b9481196aba96e9016ab81fcace5cafa87f41aefa0267124d"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2015-3440",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:55:28.695Z",
+          "http_status": null,
+          "n_cpe_match_entries": 3,
+          "bytes": 2942,
+          "sha256": "bd436945b64cc894b60bb86ec6c66d4a344f390d904592dcef63a1e0ea97c42e",
+          "path": "CVE-2015-3440/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://wordpress.org/news/2015/04/wordpress-4-2-1/",
+          "final_url": "https://wordpress.org/news/2015/04/wordpress-4-2-1/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:30.052Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2015-3440/advisory.html",
+          "bytes": 158507,
+          "sha256": "9f4428be2a7e109e05d0d23afe1f8533d53fae7510977d144b2f3604f14a5240",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2023-2745": {
+      "cve_id": "CVE-2023-2745",
+      "advisory_declared_url": "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #21",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-2745",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-2745",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:37.828Z",
+          "content_type": "application/json",
+          "path": "CVE-2023-2745/nvd.json",
+          "bytes": 10072,
+          "sha256": "96b4f5436944391ed7c06290052a77d209778b6e14630f8f6614f8693c53989e"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-2745",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:55:37.838Z",
+          "http_status": null,
+          "n_cpe_match_entries": 22,
+          "bytes": 21502,
+          "sha256": "566725f431bd25fa95818aa5d2a6670ad9e5aa834dea78241425b13e9ab6f899",
+          "path": "CVE-2023-2745/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/",
+          "final_url": "https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:39.090Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2023-2745/advisory.html",
+          "bytes": 165953,
+          "sha256": "c4fc1a3057e5f025b53169f6a7dc6a8c6ca286764ecb52be5e9f911d7c34d65d",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2023-3460": {
+      "cve_id": "CVE-2023-3460",
+      "advisory_declared_url": "https://wpscan.com/vulnerability/694235c7-4469-4ffd-a722-9225b19e98d7",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #22",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-3460",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-3460",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:46.847Z",
+          "content_type": "application/json",
+          "path": "CVE-2023-3460/nvd.json",
+          "bytes": 2530,
+          "sha256": "536169e97d2d294971d6e502e3259a10bfc5a45aa0fe3ca94fb8813a38155151"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-3460",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:55:46.856Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "bytes": 1796,
+          "sha256": "c50b5aa6bfdcf34cceb30d7b2424c4b89a21ebee2b047051b1b53ff5db9ce3d5",
+          "path": "CVE-2023-3460/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://wpscan.com/vulnerability/694235c7-4469-4ffd-a722-9225b19e98d7",
+          "final_url": "https://wpscan.com/vulnerability/694235c7-4469-4ffd-a722-9225b19e98d7/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:48.829Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2023-3460/advisory.html",
+          "bytes": 146481,
+          "sha256": "8bfb14d74ece4b1ecdc3fe8b1bc97c0c46261ee3cb9216ebaf7936807eb05748",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2019-10692": {
+      "cve_id": "CVE-2019-10692",
+      "advisory_declared_url": "https://wordpress.org/plugins/wp-google-maps/#developers",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #24",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-10692",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-10692",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:56.627Z",
+          "content_type": "application/json",
+          "path": "CVE-2019-10692/nvd.json",
+          "bytes": 3689,
+          "sha256": "14f1888752fea8a5c12d2c4740da8711de9f33690c381ea21fb4e0215ca7dbd4"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-10692",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:55:56.637Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "bytes": 1588,
+          "sha256": "c2d953cf7961ef168cd69d35169b41de74867281e3f91fd962e313ac44a3ca2c",
+          "path": "CVE-2019-10692/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://wordpress.org/plugins/wp-google-maps/#developers",
+          "final_url": "https://wordpress.org/plugins/wp-google-maps/#developers",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:55:58.113Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2019-10692/advisory.html",
+          "bytes": 276776,
+          "sha256": "d69292627fbb24286b211c708620f0f686a4ce11907ab7aedc04ef61b236d78f",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2021-23017": {
+      "cve_id": "CVE-2021-23017",
+      "advisory_declared_url": "https://ubuntu.com/security/CVE-2021-23017",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #27",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-23017",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-23017",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T10:00:29.374Z",
+          "content_type": "application/json",
+          "path": "CVE-2021-23017/nvd.json",
+          "bytes": 11312,
+          "sha256": "2d67e00c97d41284483e83ba1cdbc41155f07333f8b81a7b220ffc73ad58cffb"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-23017",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T10:00:29.385Z",
+          "http_status": null,
+          "n_cpe_match_entries": 25,
+          "path": "CVE-2021-23017/cpe.json",
+          "bytes": 18435,
+          "sha256": "a6091fe24850067e88162012566427d3b66b7f992d86b9cd107e260fb72d14b7"
+        },
+        "advisory": {
+          "role": "primary",
+          "declared_url": "https://ubuntu.com/security/CVE-2021-23017",
+          "provenance": "notes/cve-verification-2026-10-07.md row #27",
+          "final_url": "https://ubuntu.com/security/CVE-2021-23017",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T10:01:16.214Z",
+          "content_type": null,
+          "redirected": false,
+          "path": "CVE-2021-23017/advisory.html",
+          "bytes": 88964,
+          "sha256": "c4775a1af300b3a1057540e2f5fc7a7e30417d6a4cb5906f7b8cb26525412c40"
+        }
+      },
+      "failures": []
+    },
+    "CVE-2020-12641": {
+      "cve_id": "CVE-2020-12641",
+      "advisory_declared_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #28",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12641",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12641",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:00.263Z",
+          "content_type": "application/json",
+          "path": "CVE-2020-12641/nvd.json",
+          "bytes": 6710,
+          "sha256": "78906b5c04ad1cd8327f3d36043a6c4041685840d0cd38e3548024d5a37919fe"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-12641",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:57:00.273Z",
+          "http_status": null,
+          "n_cpe_match_entries": 7,
+          "bytes": 5818,
+          "sha256": "9d233eeb628fbfc304d269a2e500053209466b03063048a6ef4dc59bd8bd1aa7",
+          "path": "CVE-2020-12641/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+          "final_url": "https://roundcube.net/news/2020/04/29/security-updates-1.4.4-1.3.11-and-1.2.10",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:01.292Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2020-12641/advisory.html",
+          "bytes": 16513,
+          "sha256": "211dd65434f5b824c2a6a8dca76c7419fae8f2e6eb9143ab0ba27f5123b09861",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2020-13671": {
+      "cve_id": "CVE-2020-13671",
+      "advisory_declared_url": "https://www.drupal.org/sa-core-2020-012",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #29",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-13671",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-13671",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:09.053Z",
+          "content_type": "application/json",
+          "path": "CVE-2020-13671/nvd.json",
+          "bytes": 6211,
+          "sha256": "0651432ab614d04fc681cf8f5a08456758486fc4acdda17ccdb88f791e905236"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2020-13671",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:57:09.067Z",
+          "http_status": null,
+          "n_cpe_match_entries": 6,
+          "bytes": 5721,
+          "sha256": "d574396f44759baadb1e8ee6fd9c3f0166b0f95ea0531df4885a664998e1e68c",
+          "path": "CVE-2020-13671/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://www.drupal.org/sa-core-2020-012",
+          "final_url": "https://www.drupal.org/sa-core-2020-012",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:12.681Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2020-13671/advisory.html",
+          "bytes": 36986,
+          "sha256": "5ae156e6de1d90159cb055b151288422ba28497998e4471203ac6ff1b7499a4b",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2019-6341": {
+      "cve_id": "CVE-2019-6341",
+      "advisory_declared_url": "https://www.drupal.org/sa-core-2019-004",
+      "advisory_url_provenance": "notes/cve-verification-2026-10-07.md row #30",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-6341",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-6341",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:20.472Z",
+          "content_type": "application/json",
+          "path": "CVE-2019-6341/nvd.json",
+          "bytes": 5854,
+          "sha256": "2fe49b4ef482ac8de22e609675de6c8d1274c5da677781352fb14c8cb86f60ec"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2019-6341",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:57:20.480Z",
+          "http_status": null,
+          "n_cpe_match_entries": 6,
+          "bytes": 5765,
+          "sha256": "85effb1e714161c335ec627af9df6313024f66d436bbcd09fe1ba916c788aa96",
+          "path": "CVE-2019-6341/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://www.drupal.org/sa-core-2019-004",
+          "final_url": "https://www.drupal.org/sa-core-2019-004",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:22.706Z",
+          "content_type": "text/html; charset=utf-8",
+          "path": "CVE-2019-6341/advisory.html",
+          "bytes": 33370,
+          "sha256": "668998e6571e7b7bf6d355a2b499f79c42bbcdbbc0ce7aca82e27505b0263b4e",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2023-5798": {
+      "cve_id": "CVE-2023-5798",
+      "advisory_declared_url": "https://wpscan.com/vulnerability/bbb4c98c-4dd7-421e-9666-98f15acde761",
+      "advisory_url_provenance": "replacement for CVE-2021-24284; experiments/26cve/CVE-2023-5798/README.md 'Advisory refs'",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-5798",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-5798",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:30.504Z",
+          "content_type": "application/json",
+          "path": "CVE-2023-5798/nvd.json",
+          "bytes": 2867,
+          "sha256": "23c1e4e1961ae00641351dab3f5263d2028ac62498714a3739c8b71627bb8b21"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-5798",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:57:30.519Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "bytes": 1776,
+          "sha256": "af2cea8f67ad29a1c47b268fc533b57410b1c4090124e3d981ceca6a138c9a71",
+          "path": "CVE-2023-5798/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://wpscan.com/vulnerability/bbb4c98c-4dd7-421e-9666-98f15acde761",
+          "final_url": "https://wpscan.com/vulnerability/bbb4c98c-4dd7-421e-9666-98f15acde761/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:32.232Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2023-5798/advisory.html",
+          "bytes": 145196,
+          "sha256": "f29264eb9609681ae1dcc6a57d031b1c6f5d825270e7ba6d4a690d16ec1d546c",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2021-24917": {
+      "cve_id": "CVE-2021-24917",
+      "advisory_declared_url": "https://wpscan.com/vulnerability/15bb711a-7d70-4891-b7a2-c473e3e8b375",
+      "advisory_url_provenance": "replacement for CVE-2024-27956; no advisory URL was recorded in the registry/selection-log, so the vendor/advisory reference was resolved from the NVD 2.0 record references (WPScan, tagged Exploit/Third Party Advisory) on 2026-10-11.",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-24917",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-24917",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:40.016Z",
+          "content_type": "application/json",
+          "path": "CVE-2021-24917/nvd.json",
+          "bytes": 3134,
+          "sha256": "69cf203772a0bc095bbc0f8e58030deca03cf636ac03bafd3dd5dd2f829cfe08"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2021-24917",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:57:40.026Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "bytes": 1688,
+          "sha256": "03cc53f9533e60d2e1a67e7c5b35b39a901b127dfcd9161b0a921b51f0cced49",
+          "path": "CVE-2021-24917/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://wpscan.com/vulnerability/15bb711a-7d70-4891-b7a2-c473e3e8b375",
+          "final_url": "https://wpscan.com/vulnerability/15bb711a-7d70-4891-b7a2-c473e3e8b375/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:41.493Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2021-24917/advisory.html",
+          "bytes": 146072,
+          "sha256": "2a960479fb5650843f5f9c1f70a0d3a71e7fbff122f9ef31f5bacbbc98627668",
+          "redirected": false
+        }
+      },
+      "failures": []
+    },
+    "CVE-2023-28121": {
+      "cve_id": "CVE-2023-28121",
+      "advisory_declared_url": "https://developer.woocommerce.com/2023/03/23/critical-vulnerability-detected-in-woocommerce-payments-what-you-need-to-know/",
+      "advisory_url_provenance": "replacement for CVE-2020-35489; resolved from the NVD 2.0 record references (tagged Vendor Advisory) on 2026-10-11.",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-28121",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-28121",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:49.262Z",
+          "content_type": "application/json",
+          "path": "CVE-2023-28121/nvd.json",
+          "bytes": 4094,
+          "sha256": "acbcb0ffddc67e285dd4b5b8abdc000b53ff326fada7326f9dbe00b89fc28c96"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-28121",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-11T09:57:49.271Z",
+          "http_status": null,
+          "n_cpe_match_entries": 9,
+          "bytes": 7764,
+          "sha256": "ff967c85a00f154ccceb81a6ad8b7aaa9f3af073ddb395766455aad86f5bee0d",
+          "path": "CVE-2023-28121/cpe.json"
+        },
+        "advisory": {
+          "declared_url": "https://developer.woocommerce.com/2023/03/23/critical-vulnerability-detected-in-woocommerce-payments-what-you-need-to-know/",
+          "final_url": "https://developer.woocommerce.com/2023/03/23/critical-vulnerability-detected-in-woocommerce-payments-what-you-need-to-know/",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-11T09:57:49.975Z",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "CVE-2023-28121/advisory.html",
+          "bytes": 208921,
+          "sha256": "58437f304bdd5daad4d4f56e4fa57d43795681a057378bacffded3b3583b7034",
+          "redirected": false
+        }
+      },
+      "failures": []
+    }
+  },
+  "failures": [
+    {
+      "cve_id": "CVE-2020-25213",
+      "source": "advisory",
+      "url": "https://plugins.trac.wordpress.org/changeset/2373068",
+      "http_status": 403,
+      "reason": "primary advisory HTTP 403"
+    },
+    {
+      "cve_id": "CVE-2024-10924",
+      "source": "advisory",
+      "url": "https://www.wordfence.com/blog/2024/11/really-simple-security-vulnerability/",
+      "http_status": 202,
+      "reason": "primary advisory HTTP 202"
+    }
+  ],
+  "summary": {
+    "n_cves": 30,
+    "n_complete_nvd_cpe_advisory": 30,
+    "complete": [
+      "CVE-2021-41773",
+      "CVE-2021-42013",
+      "CVE-2014-3704",
+      "CVE-2018-7600",
+      "CVE-2018-7602",
+      "CVE-2019-6340",
+      "CVE-2020-25213",
+      "CVE-2024-28000",
+      "CVE-2024-10924",
+      "CVE-2023-32243",
+      "CVE-2021-44026",
+      "CVE-2023-5631",
+      "CVE-2024-37383",
+      "CVE-2020-12625",
+      "CVE-2020-12640",
+      "CVE-2017-1001000",
+      "CVE-2019-8942",
+      "CVE-2021-29447",
+      "CVE-2022-21661",
+      "CVE-2015-3440",
+      "CVE-2023-2745",
+      "CVE-2023-3460",
+      "CVE-2019-10692",
+      "CVE-2021-23017",
+      "CVE-2020-12641",
+      "CVE-2020-13671",
+      "CVE-2019-6341",
+      "CVE-2023-5798",
+      "CVE-2021-24917",
+      "CVE-2023-28121"
+    ],
+    "n_partial_or_failed": 0,
+    "partial_or_failed": [],
+    "n_unique_cves_with_nvd": 30,
+    "n_unique_cves_with_cpe": 30,
+    "n_unique_cves_with_primary_advisory": 28,
+    "n_unique_cves_with_fallback_advisory": 2
+  }
+}

@@ -1,0 +1,65 @@
+{
+ "_comment": "Synthetic fixture snapshot (step 3 phase C). Same shape as harness.load_snapshot(): {cve_id: {cpe: <cpe.json dict>, nvd: <nvd.json dict>}}. Not a real snapshot; no real CVE data.",
+ "CVE-9000-0001": {
+  "cpe": {"cve_id": "CVE-9000-0001", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "vulnerable": true, "versionStartIncluding": "2.0", "versionEndExcluding": "3.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0001", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "versionStartIncluding": "2.0", "versionEndExcluding": "3.0"}]}]}]}}]}
+ },
+ "CVE-9000-0002": {
+  "cpe": {"cve_id": "CVE-9000-0002", "n_cpe_match_entries": 2,
+   "cpe_match": [
+    {"cpeName": "cpe:2.3:a:widget:web:1.4:*:*:*:*:*:*:*", "vulnerable": true},
+    {"cpeName": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "vulnerable": false, "versionEndExcluding": "99.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0002", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:widget:web:1.4:*:*:*:*:*:*:*"}]}]}]}}]}
+ },
+ "CVE-9000-0003": {
+  "cpe": {"cve_id": "CVE-9000-0003", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "vulnerable": true, "versionStartIncluding": "1.0", "versionEndExcluding": "2.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0003", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "versionStartIncluding": "1.0", "versionEndExcluding": "2.0"}]}]}]}}]}
+ },
+ "CVE-9000-0004": {
+  "cpe": {"cve_id": "CVE-9000-0004", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "vulnerable": true, "versionStartIncluding": "1.0", "versionEndExcluding": "3.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0004", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "versionStartIncluding": "1.0", "versionEndExcluding": "3.0"}]}]}]}}]}
+ },
+ "CVE-9000-0005": {
+  "cpe": {"cve_id": "CVE-9000-0005", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "vulnerable": true, "versionStartIncluding": "1.0", "versionEndExcluding": "3.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0005", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "versionEndExcluding": "1.0"}]}]}]}}]}
+ },
+ "CVE-9000-0006": {
+  "cpe": {"cve_id": "CVE-9000-0006", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "vulnerable": true, "versionEndExcluding": "9.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0006", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "versionEndExcluding": "9.0"}]}]}]}}]}
+ },
+ "CVE-9000-0007": {
+  "cpe": {"cve_id": "CVE-9000-0007", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "vulnerable": true, "versionStartIncluding": "1.0", "versionEndExcluding": "2.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0007", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "versionStartIncluding": "1.0", "versionEndExcluding": "2.0"}]}]}]}}]}
+ },
+ "CVE-9000-0008": {
+  "cpe": {"cve_id": "CVE-9000-0008", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "vulnerable": true, "versionStartIncluding": "1.0", "versionEndExcluding": "2.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0008", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "versionStartIncluding": "1.0", "versionEndExcluding": "2.0"}]}]}]}}]}
+ },
+ "CVE-9000-0010": {
+  "cpe": {"cve_id": "CVE-9000-0010", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "vulnerable": true, "versionEndExcluding": "9.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0010", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "versionEndExcluding": "9.0"}]}]}]}}]}
+ },
+ "CVE-9000-0011": {
+  "cpe": {"cve_id": "CVE-9000-0011", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "vulnerable": true, "versionEndExcluding": "9.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0011", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "versionEndExcluding": "9.0"}]}]}]}}]}
+ },
+ "CVE-9000-0012": {
+  "cpe": {"cve_id": "CVE-9000-0012", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "vulnerable": true, "versionEndExcluding": "9.0"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0012", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:other:thing:*:*:*:*:*:*:*:*", "versionEndExcluding": "9.0"}]}]}]}}]}
+ },
+ "CVE-9000-0013": {
+  "cpe": {"cve_id": "CVE-9000-0013", "n_cpe_match_entries": 1,
+   "cpe_match": [{"cpeName": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "vulnerable": true, "versionEndExcluding": "4.1.38"}]},
+  "nvd": {"vulnerabilities": [{"cve": {"id": "CVE-9000-0013", "configurations": [{"nodes": [{"operator": "OR", "cpeMatch": [{"vulnerable": true, "criteria": "cpe:2.3:a:widget:web:*:*:*:*:*:*:*:*", "versionEndExcluding": "4.1.38"}]}]}]}}]}
+ }
+}

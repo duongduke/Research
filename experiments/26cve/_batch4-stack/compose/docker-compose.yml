@@ -1,0 +1,107 @@
+# Batch 4 stack — Roundcube cases
+#   CVE-2020-12640  path traversal/LFI   1.4.3 / 1.4.4
+#   CVE-2020-12641  RCE (im_convert_path) 1.4.3 / 1.4.4
+#   CVE-2021-44026  SQLi (search)        1.4.11 / 1.4.12
+#   CVE-2023-5631   stored XSS (SVG)     1.5.3 / 1.5.5
+#   CVE-2024-37383  stored XSS (SVG animate) 1.5.6 / 1.5.7
+# Loopback only. No CGI. RCE = marker only.
+name: batch4-lab
+networks:
+  b4-net: {name: b4-net, driver: bridge}
+volumes:
+  mariadb-data:
+x-rc-env: &rcenv
+  ROUNDCUBEMAIL_DB_TYPE: mysql
+  ROUNDCUBEMAIL_DB_HOST: db
+  ROUNDCUBEMAIL_DB_PORT: "3306"
+  ROUNDCUBEMAIL_DB_USER: labuser
+  ROUNDCUBEMAIL_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+  ROUNDCUBEMAIL_DEFAULT_HOST: imap
+  ROUNDCUBEMAIL_DEFAULT_PORT: "3143"
+  ROUNDCUBEMAIL_SMTP_SERVER: imap
+  ROUNDCUBEMAIL_SMTP_PORT: "3025"
+services:
+  db:
+    image: mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+    container_name: b4-db
+    restart: unless-stopped
+    environment: {MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD:-changeme}"}
+    ports: ["127.0.0.1:13311:3306"]
+    volumes: [mariadb-data:/var/lib/mysql, ./db-init:/docker-entrypoint-initdb.d:ro]
+    networks: [b4-net]
+    healthcheck: {test: ["CMD","healthcheck.sh","--connect","--innodb_initialized"], interval: 5s, timeout: 5s, retries: 30}
+  imap:
+    image: greenmail/standalone@sha256:d6db42a4fc258fec0948b1ae7b579fd06947cc92087c162ec0597972a6c36850
+    container_name: b4-imap
+    restart: unless-stopped
+    environment:
+      GREENMAIL_OPTS: >-
+        -Dgreenmail.setup.test.all -Dgreenmail.hostname=0.0.0.0
+        -Dgreenmail.users=test:test@localhost
+    ports: ["127.0.0.1:3144:3143","127.0.0.1:3026:3025"]
+    networks: [b4-net]
+
+  rc-1443:
+    image: roundcube/roundcubemail@sha256:0ee2f1b7a008b719ec8e0a36020e9a4e773acc5ca9dde787742e180d7c78628c
+    container_name: b4-rc-1443
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {ROUNDCUBEMAIL_DB_NAME: rc_1443, <<: *rcenv}
+    ports: ["127.0.0.1:8841:80"]
+    networks: [b4-net]
+  rc-1444:
+    image: roundcube/roundcubemail@sha256:de8facfa45587614756327fb6e47e866a2faf9e111f6afa60568e51ab45357cc
+    container_name: b4-rc-1444
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {ROUNDCUBEMAIL_DB_NAME: rc_1444, <<: *rcenv}
+    ports: ["127.0.0.1:8842:80"]
+    networks: [b4-net]
+  rc-1411:
+    image: roundcube/roundcubemail@sha256:72d1ace3b200d0682805b6c34ca13524c6791f57cff869722eee387344377c1c
+    container_name: b4-rc-1411
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {ROUNDCUBEMAIL_DB_NAME: rc_1411, <<: *rcenv}
+    ports: ["127.0.0.1:8843:80"]
+    networks: [b4-net]
+  rc-1412:
+    image: roundcube/roundcubemail@sha256:8fbf7251c54a4f1cd74e1158c6b5f17c1198f07e6fa36a1bb9f8addf9db4e37b
+    container_name: b4-rc-1412
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {ROUNDCUBEMAIL_DB_NAME: rc_1412, <<: *rcenv}
+    ports: ["127.0.0.1:8844:80"]
+    networks: [b4-net]
+  rc-153:
+    image: roundcube/roundcubemail@sha256:a8ea6fd751dcdfb7d437d11937a9e9342c763531c1fbbf8cae295806267d5abd
+    container_name: b4-rc-153
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {ROUNDCUBEMAIL_DB_NAME: rc_153, <<: *rcenv}
+    ports: ["127.0.0.1:8845:80"]
+    networks: [b4-net]
+  rc-155:
+    image: roundcube/roundcubemail@sha256:323c25b9bc28fd098e800458f259a7868baac286db4fb111d35080777a0b5cd0
+    container_name: b4-rc-155
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {ROUNDCUBEMAIL_DB_NAME: rc_155, <<: *rcenv}
+    ports: ["127.0.0.1:8846:80"]
+    networks: [b4-net]
+  rc-156:
+    image: roundcube/roundcubemail@sha256:2a0da9d91765c514ddbab699887db882880f33c1c514a41dac8284f3a51a90ac
+    container_name: b4-rc-156
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {ROUNDCUBEMAIL_DB_NAME: rc_156, <<: *rcenv}
+    ports: ["127.0.0.1:8847:80"]
+    networks: [b4-net]
+  rc-157:
+    image: roundcube/roundcubemail@sha256:5b4d3f1979e618e44eb56cf3afb1f6fd827f8c64a453cf0058b129c93325acfa
+    container_name: b4-rc-157
+    restart: unless-stopped
+    depends_on: {db: {condition: service_healthy}}
+    environment: {ROUNDCUBEMAIL_DB_NAME: rc_157, <<: *rcenv}
+    ports: ["127.0.0.1:8848:80"]
+    networks: [b4-net]

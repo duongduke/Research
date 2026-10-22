@@ -1,0 +1,76 @@
+# Replacement case stack — CVE-2023-5798 (Assistant < 1.4.4, Editor+ SSRF)
+# Loopback only. SSRF target = the attacker listener on the same docker network.
+name: brepl-lab
+
+networks:
+  brepl-net:
+    name: brepl-net
+    driver: bridge
+
+volumes:
+  mariadb-data:
+
+services:
+  db:
+    image: mariadb@sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+    container_name: brepl-db
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-changeme}
+    ports: ["127.0.0.1:13308:3306"]
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d:ro
+    networks: [brepl-net]
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  wp-vuln:
+    # wordpress:6.7.1-apache ; assistant 1.4.3
+    image: wordpress@sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b
+    container_name: brepl-wp-vuln
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_assist_vuln
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_AUTO_UPDATE_CORE', false);
+    ports: ["127.0.0.1:8611:80"]
+    volumes: [./wordpress/vuln:/var/www/html]
+    networks: [brepl-net]
+
+  wp-fixed:
+    # wordpress:6.7.1-apache ; assistant 1.4.4
+    image: wordpress@sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b
+    container_name: brepl-wp-fixed
+    restart: unless-stopped
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: wp_assist_fixed
+      WORDPRESS_DB_USER: labuser
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_AUTO_UPDATE_CORE', false);
+    ports: ["127.0.0.1:8612:80"]
+    volumes: [./wordpress/fixed:/var/www/html]
+    networks: [brepl-net]
+
+  attacker:
+    image: python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+    container_name: brepl-attacker
+    restart: unless-stopped
+    command: ["python3", "-m", "http.server", "8000", "--directory", "/srv"]
+    ports: ["127.0.0.1:8619:8000"]
+    volumes: [./attacker:/srv:ro]
+    networks: [brepl-net]

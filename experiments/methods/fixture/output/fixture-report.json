@@ -1,0 +1,1324 @@
+{
+ "summary": {
+  "n_checks": 193,
+  "n_pass": 193,
+  "n_fail": 0
+ },
+ "checks": [
+  {
+   "check": "expectation CVE-9000-0001__f_below / cpe_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (1.9.9 < inclusive start 2.0)"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_in / cpe_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (inside the range)"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_start / cpe_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (inclusive start boundary)"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_end / cpe_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (exclusive end boundary)"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_noversion / cpe_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (no accepted version -> missing data is not 'outside the range')"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_noversion / advisory_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (same)"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_noversion / fusion",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (same)"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_in / advisory_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (in range but advisory-only has no E6 for the named precondition)"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_in / fusion",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (B=True and P_i=True)"
+  },
+  {
+   "check": "expectation CVE-9000-0001__f_end / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (branch a (B=False))"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_exact / cpe_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (exact CPE version match)"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_exact / advisory_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (in range and no precondition in scope (§3.3 step 5))"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_exact / fusion",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (empty impact path = True)"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_decoy / cpe_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (product filter drops the non-vulnerable decoy entry -> no range record)"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_decoy / advisory_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (9.9 outside the advisory range)"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_decoy / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (advisory precedence -> B=False)"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_unknown_product / cpe_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (product identity not matched from accepted evidence)"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_unknown_product / advisory_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (same)"
+  },
+  {
+   "check": "expectation CVE-9000-0002__f_unknown_product / fusion",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (same)"
+  },
+  {
+   "check": "expectation CVE-9000-0003__f_blocked / cpe_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (level 1 only sees the version)"
+  },
+  {
+   "check": "expectation CVE-9000-0003__f_blocked / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (branch b: every impact path has a precondition False)"
+  },
+  {
+   "check": "expectation CVE-9000-0003__f_blocked_noversion / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (branch b does NOT require B=True)"
+  },
+  {
+   "check": "expectation CVE-9000-0003__f_blocked_noversion / cpe_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (no accepted version)"
+  },
+  {
+   "check": "expectation CVE-9000-0003__f_ok / fusion",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (role precondition undecidable -> P_i Unknown)"
+  },
+  {
+   "check": "expectation CVE-9000-0003__f_needs_control_bogus / fusion",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (G7 gate: a needs_control observation must not decide the predicate)"
+  },
+  {
+   "check": "expectation CVE-9000-0004__f_precedence / cpe_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (CPE range is wider)"
+  },
+  {
+   "check": "expectation CVE-9000-0004__f_precedence / advisory_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (1.2 outside the advisory range)"
+  },
+  {
+   "check": "expectation CVE-9000-0004__f_precedence / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (precedence resolves the source disagreement (advisory wins))"
+  },
+  {
+   "check": "expectation CVE-9000-0005__f_tier_conflict / cpe_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (CPE says inside)"
+  },
+  {
+   "check": "expectation CVE-9000-0005__f_tier_conflict / nvd_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (NVD says outside)"
+  },
+  {
+   "check": "expectation CVE-9000-0005__f_tier_conflict / advisory_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (no advisory range)"
+  },
+  {
+   "check": "expectation CVE-9000-0005__f_tier_conflict / fusion",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (same-tier NVD/CPE conflict, no advisory to break the tie)"
+  },
+  {
+   "check": "expectation CVE-9000-0006__f_no_range / cpe_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (no range record for the case product)"
+  },
+  {
+   "check": "expectation CVE-9000-0006__f_no_range / advisory_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (E4 patch linkage wins (branch a))"
+  },
+  {
+   "check": "expectation CVE-9000-0006__f_no_range / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (E4 patch linkage sets B=False)"
+  },
+  {
+   "check": "expectation CVE-9000-0007__f_empty_path / advisory_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (in range, no precondition in scope)"
+  },
+  {
+   "check": "expectation CVE-9000-0007__f_empty_path / fusion",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (B=True and empty path = True)"
+  },
+  {
+   "check": "expectation CVE-9000-0008__f_pending_bogus / cpe_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (level 1 only sees the version)"
+  },
+  {
+   "check": "expectation CVE-9000-0008__f_pending_bogus / fusion",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (G7 gate: a pending probe must not yield True)"
+  },
+  {
+   "check": "expectation CVE-9000-0008__f_pending_bogus / advisory_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (in range, precondition named but unobservable)"
+  },
+  {
+   "check": "expectation CVE-9000-0010__f_empty_ranges / cpe_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (product filter empties the CPE range list -> no data for this product)"
+  },
+  {
+   "check": "expectation CVE-9000-0010__f_empty_ranges / nvd_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (same for the NVD configurations range list)"
+  },
+  {
+   "check": "expectation CVE-9000-0010__f_empty_ranges / http_version_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (same lookup table, empty for this product)"
+  },
+  {
+   "check": "expectation CVE-9000-0010__f_empty_ranges / advisory_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (no machine-readable advisory range)"
+  },
+  {
+   "check": "expectation CVE-9000-0010__f_empty_ranges / fusion",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (empty range list is missing data, not 'out of range' -> B Unknown (review finding 2))"
+  },
+  {
+   "check": "expectation CVE-9000-0011__f_e4_linked / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (E4 patch linkage alone establishes B=False (branch a) with no version and no range (review finding 3))"
+  },
+  {
+   "check": "expectation CVE-9000-0011__f_e4_linked / advisory_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (advisory E4-first rule already behaved this way)"
+  },
+  {
+   "check": "expectation CVE-9000-0011__f_e4_linked / cpe_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (level 1 has no version and no range)"
+  },
+  {
+   "check": "expectation CVE-9000-0011__f_e4_unlinked / fusion",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (identical input without the patch linkage: E4 cannot fire -> B Unknown)"
+  },
+  {
+   "check": "expectation CVE-9000-0011__f_e4_unlinked / advisory_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (no linkage and no advisory range)"
+  },
+  {
+   "check": "expectation CVE-9000-0012__f_branch_vuln / advisory_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (5.5.1 is inside the 5.5.0<=v<5.5.2 branch, no precondition in scope)"
+  },
+  {
+   "check": "expectation CVE-9000-0012__f_branch_vuln / fusion",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (advisory precedence -> B=True, empty path True)"
+  },
+  {
+   "check": "expectation CVE-9000-0012__f_branch_patched / advisory_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (5.5.2 is the patched release of that branch -> outside the affected union)"
+  },
+  {
+   "check": "expectation CVE-9000-0012__f_branch_patched / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (B=False from the advisory per-branch union (a single span 4.8.0<v<5.6.2 would have said Applicable))"
+  },
+  {
+   "check": "expectation CVE-9000-0012__f_branch_patched / cpe_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (no CPE range for the product)"
+  },
+  {
+   "check": "expectation CVE-9000-0013__f_out_of_line / advisory_only",
+   "pass": true,
+   "detail": "expected Unknown, got Unknown (the advisory only determines the 6.2 line; 4.1.37 is on another line -> the source does not determine it -> Unknown (NOT 'Not Applicable'))"
+  },
+  {
+   "check": "expectation CVE-9000-0013__f_out_of_line / cpe_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (4.1.37 < 4.1.38 in the CPE range (the CPE source does cover this line))"
+  },
+  {
+   "check": "expectation CVE-9000-0013__f_out_of_line / nvd_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (same range from the NVD configurations entry)"
+  },
+  {
+   "check": "expectation CVE-9000-0013__f_out_of_line / fusion",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (the advisory verdict is Unknown (None) and must not be inherited: NVD/CPE decide B=True, empty path = True)"
+  },
+  {
+   "check": "expectation CVE-9000-0013__f_in_line / advisory_only",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (6.2.0 is inside the determined 6.2 line and no precondition is in scope)"
+  },
+  {
+   "check": "expectation CVE-9000-0013__f_in_line / fusion",
+   "pass": true,
+   "detail": "expected Applicable, got Applicable (advisory precedence -> B=True and empty path True)"
+  },
+  {
+   "check": "expectation CVE-9000-0013__f_line_patched / advisory_only",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (6.2.1 is the stated fixed release of the determined line -> outside the affected line)"
+  },
+  {
+   "check": "expectation CVE-9000-0013__f_line_patched / fusion",
+   "pass": true,
+   "detail": "expected Not Applicable, got Not Applicable (advisory verdict False -> branch a (B=False); out_of_scope only applies off the named line)"
+  },
+  {
+   "check": "branch b without B=True",
+   "pass": true,
+   "detail": "B=Unknown, P_i=['False'], pred=Not Applicable"
+  },
+  {
+   "check": "G7 gate: pending probe yields Unknown",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "G7 gate: needs_control probe yields Unknown (bogus value ignored)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "precedence resolves source disagreement (advisory wins, reported)",
+   "pass": true,
+   "detail": "verdicts={'advisory': False, 'nvd': True, 'cpe': True, 'chosen': 'advisory', 'disagreement': True}"
+  },
+  {
+   "check": "same-tier conflict -> Unknown",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "E4 patch linkage sets B=False without a readable range",
+   "pass": true,
+   "detail": "B=False, pred=Not Applicable"
+  },
+  {
+   "check": "empty impact path = True (vacuously), no precondition invented",
+   "pass": true,
+   "detail": "pred=Applicable"
+  },
+  {
+   "check": "fusion: empty CPE+NVD range list -> B Unknown, not Not Applicable",
+   "pass": true,
+   "detail": "B=Unknown, pred=Unknown, verdicts={'advisory': None, 'nvd': None, 'cpe': None, 'chosen': None, 'disagreement': False}"
+  },
+  {
+   "check": "E4 pair (A): verified patch linkage -> B=False / Not Applicable with no version and no range",
+   "pass": true,
+   "detail": "B=False, pred=Not Applicable, tier3={'linked': True, 'condition': 'p_build_patched_backport', 'why': 'the served build is the patched revision of this deployment'}"
+  },
+  {
+   "check": "E4 pair (B): identical input without the linkage -> Unknown (E4, not the empty range, drove (A))",
+   "pass": true,
+   "detail": "B=Unknown, pred=Unknown, tier3={'linked': False, 'why': 'no accepted target<->patched-build linkage (E4)'}"
+  },
+  {
+   "check": "advisory per-branch union: mid-branch patched release (5.5.2) is out of range, 5.5.1 is in range",
+   "pass": true,
+   "detail": "5.5.1 -> Applicable, 5.5.2 -> Not Applicable"
+  },
+  {
+   "check": "partial-scope advisory: an out-of-line version is Unknown for advisory-only, never 'Not Applicable'",
+   "pass": true,
+   "detail": "pred='Unknown', reasons=[\"observed 4.1.37 not comparable to advisory range: ['observed 4.1.37 is outside the advisory-defined line 6.2 (source does not determine it -> Unknown)']\"]"
+  },
+  {
+   "check": "partial-scope advisory: fusion does not inherit the advisory Unknown — NVD/CPE still decide",
+   "pass": true,
+   "detail": "pred=Applicable, verdicts={'advisory': None, 'nvd': True, 'cpe': True, 'chosen': 'nvd_configurations', 'disagreement': False}"
+  },
+  {
+   "check": "partial-scope advisory: the determined 6.2 line still decides in-range and patched releases",
+   "pass": true,
+   "detail": "6.2.0 -> Applicable, 6.2.1 -> Not Applicable"
+  },
+  {
+   "check": "advisory per-branch union: a single span would have mis-classified 5.5.2",
+   "pass": true,
+   "detail": "single span 4.8.0<=v<5.6.2 matches 5.5.2; the per-branch union does not"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0001__f_noversion/cpe_only)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0001__f_noversion/nvd_only)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0001__f_noversion/http_version_only)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0001__f_noversion/advisory_only)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0001__f_noversion/fusion)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0006__f_no_range/cpe_only)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0006__f_no_range/nvd_only)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0006__f_no_range/http_version_only)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0005__f_tier_conflict/http_version_only)",
+   "pass": true,
+   "detail": "pred=Applicable"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0005__f_tier_conflict/advisory_only)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "missing/undecidable data is not a negative (CVE-9000-0005__f_tier_conflict/fusion)",
+   "pass": true,
+   "detail": "pred=Unknown"
+  },
+  {
+   "check": "label isolation: predictions are invariant under label swap",
+   "pass": true,
+   "detail": "prediction vectors differ when labels change"
+  },
+  {
+   "check": "label isolation: runtime guard rejects a labelled case view",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "metrics confusion [mixed]",
+   "pass": true,
+   "detail": "got {'TP': 1, 'FP': 1, 'TN': 0, 'FN_def': 1, 'U_A': 1, 'U_N': 1}"
+  },
+  {
+   "check": "metrics score mixed.N",
+   "pass": true,
+   "detail": "expected 5, got 5"
+  },
+  {
+   "check": "metrics score mixed.precision",
+   "pass": true,
+   "detail": "expected 0.5, got 0.5"
+  },
+  {
+   "check": "metrics score mixed.recall",
+   "pass": true,
+   "detail": "expected 0.3333333333333333, got 0.3333333333333333"
+  },
+  {
+   "check": "metrics score mixed.F1",
+   "pass": true,
+   "detail": "expected 0.4, got 0.4"
+  },
+  {
+   "check": "metrics score mixed.coverage",
+   "pass": true,
+   "detail": "expected 0.6, got 0.6"
+  },
+  {
+   "check": "metrics score mixed.unknown_rate",
+   "pass": true,
+   "detail": "expected 0.4, got 0.4"
+  },
+  {
+   "check": "metrics: Unresolved excluded from N [mixed]",
+   "pass": true,
+   "detail": "N=5, excluded=[{'case_id': 'm6_unresolved', 'cve_id': 'CVE-9000-0013', 'ground_truth_label': 'Unresolved', 'reason': 'label outside the metric denominator (Unresolved)'}]"
+  },
+  {
+   "check": "metrics confusion [all_unknown]",
+   "pass": true,
+   "detail": "got {'TP': 0, 'FP': 0, 'TN': 0, 'FN_def': 0, 'U_A': 3, 'U_N': 2}"
+  },
+  {
+   "check": "metrics score all_unknown.N",
+   "pass": true,
+   "detail": "expected 5, got 5"
+  },
+  {
+   "check": "metrics score all_unknown.precision",
+   "pass": true,
+   "detail": "expected N/A, got N/A"
+  },
+  {
+   "check": "metrics score all_unknown.recall",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics score all_unknown.F1",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics score all_unknown.coverage",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics score all_unknown.unknown_rate",
+   "pass": true,
+   "detail": "expected 1.0, got 1.0"
+  },
+  {
+   "check": "metrics: Unresolved excluded from N [all_unknown]",
+   "pass": true,
+   "detail": "N=5, excluded=[{'case_id': 'm6_unresolved', 'cve_id': 'CVE-9000-0013', 'ground_truth_label': 'Unresolved', 'reason': 'label outside the metric denominator (Unresolved)'}]"
+  },
+  {
+   "check": "metrics confusion [all_negative]",
+   "pass": true,
+   "detail": "got {'TP': 0, 'FP': 0, 'TN': 2, 'FN_def': 3, 'U_A': 0, 'U_N': 0}"
+  },
+  {
+   "check": "metrics score all_negative.N",
+   "pass": true,
+   "detail": "expected 5, got 5"
+  },
+  {
+   "check": "metrics score all_negative.precision",
+   "pass": true,
+   "detail": "expected N/A, got N/A"
+  },
+  {
+   "check": "metrics score all_negative.recall",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics score all_negative.F1",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics score all_negative.coverage",
+   "pass": true,
+   "detail": "expected 1.0, got 1.0"
+  },
+  {
+   "check": "metrics score all_negative.unknown_rate",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics: Unresolved excluded from N [all_negative]",
+   "pass": true,
+   "detail": "N=5, excluded=[{'case_id': 'm6_unresolved', 'cve_id': 'CVE-9000-0013', 'ground_truth_label': 'Unresolved', 'reason': 'label outside the metric denominator (Unresolved)'}]"
+  },
+  {
+   "check": "metrics confusion [all_unknown_copy]",
+   "pass": true,
+   "detail": "got {'TP': 0, 'FP': 0, 'TN': 0, 'FN_def': 0, 'U_A': 3, 'U_N': 2}"
+  },
+  {
+   "check": "metrics score all_unknown_copy.N",
+   "pass": true,
+   "detail": "expected 5, got 5"
+  },
+  {
+   "check": "metrics score all_unknown_copy.precision",
+   "pass": true,
+   "detail": "expected N/A, got N/A"
+  },
+  {
+   "check": "metrics score all_unknown_copy.recall",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics score all_unknown_copy.F1",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics score all_unknown_copy.coverage",
+   "pass": true,
+   "detail": "expected 0.0, got 0.0"
+  },
+  {
+   "check": "metrics score all_unknown_copy.unknown_rate",
+   "pass": true,
+   "detail": "expected 1.0, got 1.0"
+  },
+  {
+   "check": "metrics: Unresolved excluded from N [all_unknown_copy]",
+   "pass": true,
+   "detail": "N=5, excluded=[{'case_id': 'm6_unresolved', 'cve_id': 'CVE-9000-0013', 'ground_truth_label': 'Unresolved', 'reason': 'label outside the metric denominator (Unresolved)'}]"
+  },
+  {
+   "check": "metrics: duplicate prediction vectors reported",
+   "pass": true,
+   "detail": "[['all_unknown', 'all_unknown_copy']]"
+  },
+  {
+   "check": "metrics: U_A kept in the recall denominator (mixed)",
+   "pass": true,
+   "detail": "recall must be < 1 when a positive case abstains"
+  },
+  {
+   "check": "hash check: frozen mapping loads with the recorded sha256",
+   "pass": true,
+   "detail": "c186250ea27797c7203161aa113e6484cbab3bd877cdfe979ba0174d2500e42c"
+  },
+  {
+   "check": "hash check: matching mapping hash loads",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "hash check: tampered mapping fails hard",
+   "pass": true,
+   "detail": "mapping sha256 mismatch: expected c186250ea27797c7203161aa113e6484cbab3bd877cdfe979ba0174d2500e42c, actual 8f8ce5352d28f"
+  },
+  {
+   "check": "hash check: wrong block count fails hard",
+   "pass": true,
+   "detail": "expected 32 CVE blocks, parsed 1"
+  },
+  {
+   "check": "same parser used for the fixture mapping",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "hash check: clean snapshot slice verifies",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "hash check: tampered snapshot fails hard",
+   "pass": true,
+   "detail": "snapshot verification failed (/tmp/rqc1-fixture-17hlj7pj/public-snapshot, rc=1):\nartifacts checked : 3\nhash mismatches   : 1\nmissing files     : 0\nunlisted file"
+  },
+  {
+   "check": "versioncmp: inclusive start matched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: exclusive end rejected",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: inclusive end matched",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: exclusive start rejected",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: exact match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: exact non-match",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: semver vs lexicographic",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: prerelease sorts before release",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: distro revision scope mismatch -> not comparable",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: line-scoped range",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: line mismatch without out_of_scope stays False (complete enumeration)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: line mismatch with out_of_scope=unknown is None, not False (partial-scope advisory)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: out_of_scope=unknown reason states the line and the Unknown outcome",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: out_of_scope=unknown still matches a version on the named line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: out_of_scope=unknown still rejects the patched release of the named line",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: out_of_scope=unknown inside a union does not make the union True",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: zero padding equality",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "versioncmp: an empty range list reports False (the reason for the fusion guard)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "status200 extractor: status-only capture -> predicate Unknown (finding 1)",
+   "pass": true,
+   "detail": "predicate_value=None, reason=\"HTTP status 200 captured, but the mapping true_when also requires body JSON 'rou\""
+  },
+  {
+   "check": "status200 extractor: 404 is also Unknown (never a decision from the status alone)",
+   "pass": true,
+   "detail": "predicate_value=None"
+  },
+  {
+   "check": "regenerated advisory: CVE-2023-28121 is a 9-branch union (not one span)",
+   "pass": true,
+   "detail": "[{'start_including': '4.8.0', 'end_excluding': '4.8.2'}, {'start_including': '4.9.0', 'end_excluding': '4.9.1'}, {'start_including': '5.0.0', 'end_excluding': '5.0.4'}, {'start_including': '5.1.0', 'end_excluding': '5.1.3'}, {'start_including': '5.2.0', 'end_excluding': '5.2.2'}, {'start_including': '5.3.0', 'end_excluding': '5.3.1'}, {'start_including': '5.4.0', 'end_excluding': '5.4.1'}, {'start_including': '5.5.0', 'end_excluding': '5.5.2'}, {'start_including': '5.6.0', 'end_excluding': '5.6.2'}]"
+  },
+  {
+   "check": "regenerated advisory: CVE-2023-28121 — 5.5.1 in range, 5.5.2 (patched mid-branch) out",
+   "pass": true,
+   "detail": "5.5.1=True, 5.5.2=False"
+  },
+  {
+   "check": "regenerated advisory: CVE-2023-28121 — 5.6.1 in range, 5.6.2 out, 4.8.1 in range, 4.8.2 out",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "regenerated advisory: CVE-2023-2745 keeps only the 6.2 line, flagged out_of_scope=unknown (no borrowed 4.1.38 threshold)",
+   "pass": true,
+   "detail": "[{'line': '6.2', 'end_excluding': '6.2.1', 'out_of_scope': 'unknown'}]"
+  },
+  {
+   "check": "regenerated advisory: CVE-2023-2745 — 6.2.0 in range, 6.2.1 out, 4.1.37 exactly Unknown (not False / not claimed affected)",
+   "pass": true,
+   "detail": "6.2.0=True, 6.2.1=False, 4.1.37=None"
+  },
+  {
+   "check": "regenerated observations: CVE-2017-1001000__vuln route probe is an accepted 200+routes observation (D-034)",
+   "pass": true,
+   "detail": "accepted={'condition_id': 'p_rest_reachable', 'predicate_value': True, 'value_kind': 'rest_routes'}, unobserved=None"
+  },
+  {
+   "check": "regenerated observations: CVE-2017-1001000__fixed route probe is an accepted 200+routes observation (D-034)",
+   "pass": true,
+   "detail": "accepted={'condition_id': 'p_rest_reachable', 'predicate_value': True, 'value_kind': 'rest_routes'}, unobserved=None"
+  },
+  {
+   "check": "regenerated observations: CVE-2024-10924__9_1_1_1_2fa_on one probe_two_fa_route response emits BOTH p_2fa_enabled and p_skip_onboarding_route = True (R4: 1 request)",
+   "pass": true,
+   "detail": "records=[('p_2fa_enabled', True), ('p_skip_onboarding_route', True)], unobserved=[]"
+  },
+  {
+   "check": "regenerated observations: CVE-2024-10924__9_1_1_1_2fa_off one probe_two_fa_route response emits BOTH p_2fa_enabled and p_skip_onboarding_route = False (R4: 1 request)",
+   "pass": true,
+   "detail": "records=[('p_2fa_enabled', False), ('p_skip_onboarding_route', False)], unobserved=[]"
+  },
+  {
+   "check": "regenerated observations: CVE-2024-10924__9_1_2_2fa_on_fixed one probe_two_fa_route response emits BOTH p_2fa_enabled and p_skip_onboarding_route = True (R4: 1 request)",
+   "pass": true,
+   "detail": "records=[('p_2fa_enabled', True), ('p_skip_onboarding_route', True)], unobserved=[]"
+  },
+  {
+   "check": "regenerated observations: CVE-2023-3460__vuln readme Stable tag -> E5 version 2.6.6 (D-034)",
+   "pass": true,
+   "detail": "readme={'version': '2.6.6', 'predicate_value': True, 'artifact_line': 'Stable tag: 2.6.6'}"
+  },
+  {
+   "check": "regenerated observations: CVE-2023-3460__vuln registration form -> p_open_registration_form True (D-034)",
+   "pass": true,
+   "detail": "form={'predicate_value': True, 'form_markers': {'um-form': True, 'user_login-7': True, '_wpnonce': True}}"
+  },
+  {
+   "check": "regenerated observations: CVE-2023-3460__fixed readme Stable tag -> E5 version 2.6.7 (D-034)",
+   "pass": true,
+   "detail": "readme={'version': '2.6.7', 'predicate_value': True, 'artifact_line': 'Stable tag: 2.6.7'}"
+  },
+  {
+   "check": "regenerated observations: CVE-2023-3460__fixed registration form -> p_open_registration_form True (D-034)",
+   "pass": true,
+   "detail": "form={'predicate_value': True, 'form_markers': {'um-form': True, 'user_login-7': True, '_wpnonce': True}}"
+  },
+  {
+   "check": "regenerated observations: 3460 fixed state uses the aligned page_id6 re-capture (not the STALE page_id12 file)",
+   "pass": true,
+   "detail": "experiments/methods/captures-v2/CVE-2023-3460/8831-um267-GET-page_id6-AS-SPECIFIED.txt"
+  },
+  {
+   "check": "regenerated observations: build counts (top-up 2026-10-17: 56 requests -> 59 records, 3 shared-response extractions, 77 G7)",
+   "pass": true,
+   "detail": "{'verified_probe_requests': 56, 'accepted_observations': 59, 'extra_condition_extractions': 3, 'unobserved_entries': 77}"
+  },
+  {
+   "check": "V2 extractor: rest_routes — 200+routes True; 200 without routes False; 404 Unknown",
+   "pass": true,
+   "detail": "200+routes=True, 200-plain=False, 404=None"
+  },
+  {
+   "check": "V2 extractor: rest_route_presence — 400 rest_missing_callback_param True; 404 rest_no_route False; 200 Unknown",
+   "pass": true,
+   "detail": "400=True, 404=False, 200=None"
+  },
+  {
+   "check": "V2 extractor: form_markers — 200 + um-form + user_login-7 + _wpnonce True; wrong form id False; 404 Unknown",
+   "pass": true,
+   "detail": "aligned=True, page_id12=False, 404=None"
+  },
+  {
+   "check": "V2 extractor: _shared_extraction copies artifact provenance, retargets the condition (R4)",
+   "pass": true,
+   "detail": "{'condition_id': 'p_skip_onboarding_route', 'predicate_value': True, 'shared_response_with': 'probe_x'}"
+  },
+  {
+   "check": "regenerated observations: the three V2 probes are `verified` in the frozen mapping with the D-033 requests",
+   "pass": true,
+   "detail": "probe statuses/requests read from the frozen mapping"
+  },
+  {
+   "check": "top-up mapping: CVE-2023-23752 path = [p_config_object_readable] only (subsumed conditions out)",
+   "pass": true,
+   "detail": "[{'id': 'path_unauth_config_disclosure', 'all_of': ['p_config_object_readable'], 'scope_ref': 'Joomla Security Centre [20230201] (CVE-2023-23752)'}]"
+  },
+  {
+   "check": "top-up mapping: CVE-2023-6553 path = [p_plugin_files_present]; activation/filter wrapper documented only",
+   "pass": true,
+   "detail": "[{'id': 'path_direct_file_filter_chain', 'all_of': ['p_plugin_files_present'], 'scope_ref': 'CVE.org CNA record (Wordfence) / NVD CVE-2023-6553'}]"
+  },
+  {
+   "check": "top-up mapping: 6553 reachability probe is one-sided (no false_when) and benign (no filter chain)",
+   "pass": true,
+   "detail": "dict_keys(['true_when', 'ambiguity_when', 'otherwise'])"
+  },
+  {
+   "check": "top-up snapshot: both cohorts verified (rc 0), merged n_cves=32, cohort tagged per CVE",
+   "pass": true,
+   "detail": "n_cves=32, cohorts=['2026-10-11', '2026-10-17']"
+  },
+  {
+   "check": "top-up advisory: CVE-2023-23752 = 4.0.0-4.2.7 from the vendor page (4.2.7 in, 4.2.8 out)",
+   "pass": true,
+   "detail": "[{'start_including': '4.0.0', 'end_including': '4.2.7'}]"
+  },
+  {
+   "check": "top-up advisory: CVE-2023-6553 parsed from the CVE.org CNA JSON (<=1.3.7; 1.3.8 out) + fixed-version provenance",
+   "pass": true,
+   "detail": "[{'start_including': '0', 'end_including': '1.3.7'}], kind=cna_affected_versions_json"
+  },
+  {
+   "check": "cna_affected_from_json: lessThanOrEqual -> inclusive upper bound; unaffected entries ignored",
+   "pass": true,
+   "detail": "[{'start_including': '0', 'end_including': '1.3.7'}]"
+  },
+  {
+   "check": "cna_affected_from_json: no affected range -> hard failure (never a guessed range)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "top-up observations: Joomla 4.2.7 -> E5 4.2.7 + disclosure True (JConfig keys; secret keys recorded, not required)",
+   "pass": true,
+   "detail": "v=4.2.7, c=True, keys={'dbprefix': True, 'sitename': True, 'host': True, 'user': True}"
+  },
+  {
+   "check": "top-up observations: Joomla 4.2.8 -> E5 4.2.8 + disclosure False (401 application-level envelope)",
+   "pass": true,
+   "detail": "v=4.2.8, c=False"
+  },
+  {
+   "check": "top-up observations: CVE-2023-6553__1_3_7_active -> readme Stable tag 1.3.7 + reachability True (HTTP 200, 0-byte body)",
+   "pass": true,
+   "detail": "readme=1.3.7, reachable=True, bytes=0"
+  },
+  {
+   "check": "top-up observations: CVE-2023-6553__1_3_7_inactive -> readme Stable tag 1.3.7 + reachability True (HTTP 200, 0-byte body)",
+   "pass": true,
+   "detail": "readme=1.3.7, reachable=True, bytes=0"
+  },
+  {
+   "check": "top-up observations: CVE-2023-6553__1_3_8_active_fixed -> readme Stable tag 1.3.8 + reachability True (HTTP 200, 0-byte body)",
+   "pass": true,
+   "detail": "readme=1.3.8, reachable=True, bytes=0"
+  },
+  {
+   "check": "top-up observations: the 1.3.7 inactive readme reuse is declared (artifact_state_note), not a second capture",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "top-up predictions: CVE-2023-23752__4_2_7_default fusion=Applicable, level-1=Applicable, advisory_only=Unknown",
+   "pass": true,
+   "detail": "{'cpe_only': 'Applicable', 'nvd_only': 'Applicable', 'advisory_only': 'Unknown', 'http_version_only': 'Applicable', 'fusion': 'Applicable'}"
+  },
+  {
+   "check": "top-up predictions: CVE-2023-23752__4_2_8_default_fixed fusion=Not Applicable, level-1=Not Applicable, advisory_only=Not Applicable",
+   "pass": true,
+   "detail": "{'cpe_only': 'Not Applicable', 'nvd_only': 'Not Applicable', 'advisory_only': 'Not Applicable', 'http_version_only': 'Not Applicable', 'fusion': 'Not Applicable'}"
+  },
+  {
+   "check": "top-up predictions: CVE-2023-6553__1_3_7_active fusion=Applicable, level-1=Applicable, advisory_only=Unknown",
+   "pass": true,
+   "detail": "{'cpe_only': 'Applicable', 'nvd_only': 'Applicable', 'advisory_only': 'Unknown', 'http_version_only': 'Applicable', 'fusion': 'Applicable'}"
+  },
+  {
+   "check": "top-up predictions: CVE-2023-6553__1_3_7_inactive fusion=Applicable, level-1=Applicable, advisory_only=Unknown",
+   "pass": true,
+   "detail": "{'cpe_only': 'Applicable', 'nvd_only': 'Applicable', 'advisory_only': 'Unknown', 'http_version_only': 'Applicable', 'fusion': 'Applicable'}"
+  },
+  {
+   "check": "top-up predictions: CVE-2023-6553__1_3_8_active_fixed fusion=Not Applicable, level-1=Not Applicable, advisory_only=Not Applicable",
+   "pass": true,
+   "detail": "{'cpe_only': 'Not Applicable', 'nvd_only': 'Not Applicable', 'advisory_only': 'Not Applicable', 'http_version_only': 'Not Applicable', 'fusion': 'Not Applicable'}"
+  },
+  {
+   "check": "harness.mode_check: no benchmark result written and no metric computed (finding 5)",
+   "pass": true,
+   "detail": "{\"benchmark_result_written\": false, \"metrics_computed\": false, \"metric_code_invoked\": false}"
+  }
+ ],
+ "metrics_on_fixture": {
+  "unit": "case",
+  "labels_attached_after_prediction": true,
+  "n_unique_cves": 13,
+  "n_cases": 26,
+  "n_labels": {
+   "Not Applicable": 11,
+   "Applicable": 14,
+   "Unresolved": 1
+  },
+  "duplicate_prediction_vectors": [
+   [
+    "cpe_only",
+    "http_version_only"
+   ]
+  ],
+  "methods": {
+   "cpe_only": {
+    "confusion": {
+     "TP": 8,
+     "FP": 3,
+     "TN": 3,
+     "FN_def": 1,
+     "U_A": 5,
+     "U_N": 5
+    },
+    "scores": {
+     "N": 25,
+     "n_determined": 15,
+     "n_abstained": 10,
+     "precision": 0.7272727272727273,
+     "recall": 0.5714285714285714,
+     "F1": 0.64,
+     "coverage": 0.6,
+     "unknown_rate": 0.4
+    },
+    "excluded_unresolved": [
+     {
+      "case_id": "CVE-9000-0009__f_unresolved",
+      "cve_id": "CVE-9000-0009",
+      "ground_truth_label": "Unresolved",
+      "reason": "label outside the metric denominator (Unresolved)"
+     }
+    ],
+    "case_ids": {
+     "TP": [
+      "CVE-9000-0001__f_in",
+      "CVE-9000-0001__f_start",
+      "CVE-9000-0002__f_exact",
+      "CVE-9000-0003__f_ok",
+      "CVE-9000-0003__f_needs_control_bogus",
+      "CVE-9000-0007__f_empty_path",
+      "CVE-9000-0008__f_pending_bogus",
+      "CVE-9000-0013__f_out_of_line"
+     ],
+     "FP": [
+      "CVE-9000-0003__f_blocked",
+      "CVE-9000-0004__f_precedence",
+      "CVE-9000-0005__f_tier_conflict"
+     ],
+     "TN": [
+      "CVE-9000-0001__f_below",
+      "CVE-9000-0001__f_end",
+      "CVE-9000-0013__f_line_patched"
+     ],
+     "FN_def": [
+      "CVE-9000-0013__f_in_line"
+     ],
+     "U_A": [
+      "CVE-9000-0001__f_noversion",
+      "CVE-9000-0002__f_unknown_product",
+      "CVE-9000-0010__f_empty_ranges",
+      "CVE-9000-0011__f_e4_unlinked",
+      "CVE-9000-0012__f_branch_vuln"
+     ],
+     "U_N": [
+      "CVE-9000-0002__f_decoy",
+      "CVE-9000-0003__f_blocked_noversion",
+      "CVE-9000-0006__f_no_range",
+      "CVE-9000-0011__f_e4_linked",
+      "CVE-9000-0012__f_branch_patched"
+     ]
+    }
+   },
+   "nvd_only": {
+    "confusion": {
+     "TP": 8,
+     "FP": 2,
+     "TN": 4,
+     "FN_def": 1,
+     "U_A": 5,
+     "U_N": 5
+    },
+    "scores": {
+     "N": 25,
+     "n_determined": 15,
+     "n_abstained": 10,
+     "precision": 0.8,
+     "recall": 0.5714285714285714,
+     "F1": 0.6666666666666666,
+     "coverage": 0.6,
+     "unknown_rate": 0.4
+    },
+    "excluded_unresolved": [
+     {
+      "case_id": "CVE-9000-0009__f_unresolved",
+      "cve_id": "CVE-9000-0009",
+      "ground_truth_label": "Unresolved",
+      "reason": "label outside the metric denominator (Unresolved)"
+     }
+    ],
+    "case_ids": {
+     "TP": [
+      "CVE-9000-0001__f_in",
+      "CVE-9000-0001__f_start",
+      "CVE-9000-0002__f_exact",
+      "CVE-9000-0003__f_ok",
+      "CVE-9000-0003__f_needs_control_bogus",
+      "CVE-9000-0007__f_empty_path",
+      "CVE-9000-0008__f_pending_bogus",
+      "CVE-9000-0013__f_out_of_line"
+     ],
+     "FP": [
+      "CVE-9000-0003__f_blocked",
+      "CVE-9000-0004__f_precedence"
+     ],
+     "TN": [
+      "CVE-9000-0001__f_below",
+      "CVE-9000-0001__f_end",
+      "CVE-9000-0005__f_tier_conflict",
+      "CVE-9000-0013__f_line_patched"
+     ],
+     "FN_def": [
+      "CVE-9000-0013__f_in_line"
+     ],
+     "U_A": [
+      "CVE-9000-0001__f_noversion",
+      "CVE-9000-0002__f_unknown_product",
+      "CVE-9000-0010__f_empty_ranges",
+      "CVE-9000-0011__f_e4_unlinked",
+      "CVE-9000-0012__f_branch_vuln"
+     ],
+     "U_N": [
+      "CVE-9000-0002__f_decoy",
+      "CVE-9000-0003__f_blocked_noversion",
+      "CVE-9000-0006__f_no_range",
+      "CVE-9000-0011__f_e4_linked",
+      "CVE-9000-0012__f_branch_patched"
+     ]
+    }
+   },
+   "advisory_only": {
+    "confusion": {
+     "TP": 4,
+     "FP": 0,
+     "TN": 8,
+     "FN_def": 0,
+     "U_A": 10,
+     "U_N": 3
+    },
+    "scores": {
+     "N": 25,
+     "n_determined": 12,
+     "n_abstained": 13,
+     "precision": 1.0,
+     "recall": 0.2857142857142857,
+     "F1": 0.4444444444444444,
+     "coverage": 0.48,
+     "unknown_rate": 0.52
+    },
+    "excluded_unresolved": [
+     {
+      "case_id": "CVE-9000-0009__f_unresolved",
+      "cve_id": "CVE-9000-0009",
+      "ground_truth_label": "Unresolved",
+      "reason": "label outside the metric denominator (Unresolved)"
+     }
+    ],
+    "case_ids": {
+     "TP": [
+      "CVE-9000-0002__f_exact",
+      "CVE-9000-0007__f_empty_path",
+      "CVE-9000-0012__f_branch_vuln",
+      "CVE-9000-0013__f_in_line"
+     ],
+     "FP": [],
+     "TN": [
+      "CVE-9000-0001__f_below",
+      "CVE-9000-0001__f_end",
+      "CVE-9000-0002__f_decoy",
+      "CVE-9000-0004__f_precedence",
+      "CVE-9000-0006__f_no_range",
+      "CVE-9000-0011__f_e4_linked",
+      "CVE-9000-0012__f_branch_patched",
+      "CVE-9000-0013__f_line_patched"
+     ],
+     "FN_def": [],
+     "U_A": [
+      "CVE-9000-0001__f_in",
+      "CVE-9000-0001__f_start",
+      "CVE-9000-0001__f_noversion",
+      "CVE-9000-0002__f_unknown_product",
+      "CVE-9000-0003__f_ok",
+      "CVE-9000-0003__f_needs_control_bogus",
+      "CVE-9000-0008__f_pending_bogus",
+      "CVE-9000-0010__f_empty_ranges",
+      "CVE-9000-0011__f_e4_unlinked",
+      "CVE-9000-0013__f_out_of_line"
+     ],
+     "U_N": [
+      "CVE-9000-0003__f_blocked",
+      "CVE-9000-0003__f_blocked_noversion",
+      "CVE-9000-0005__f_tier_conflict"
+     ]
+    }
+   },
+   "http_version_only": {
+    "confusion": {
+     "TP": 8,
+     "FP": 3,
+     "TN": 3,
+     "FN_def": 1,
+     "U_A": 5,
+     "U_N": 5
+    },
+    "scores": {
+     "N": 25,
+     "n_determined": 15,
+     "n_abstained": 10,
+     "precision": 0.7272727272727273,
+     "recall": 0.5714285714285714,
+     "F1": 0.64,
+     "coverage": 0.6,
+     "unknown_rate": 0.4
+    },
+    "excluded_unresolved": [
+     {
+      "case_id": "CVE-9000-0009__f_unresolved",
+      "cve_id": "CVE-9000-0009",
+      "ground_truth_label": "Unresolved",
+      "reason": "label outside the metric denominator (Unresolved)"
+     }
+    ],
+    "case_ids": {
+     "TP": [
+      "CVE-9000-0001__f_in",
+      "CVE-9000-0001__f_start",
+      "CVE-9000-0002__f_exact",
+      "CVE-9000-0003__f_ok",
+      "CVE-9000-0003__f_needs_control_bogus",
+      "CVE-9000-0007__f_empty_path",
+      "CVE-9000-0008__f_pending_bogus",
+      "CVE-9000-0013__f_out_of_line"
+     ],
+     "FP": [
+      "CVE-9000-0003__f_blocked",
+      "CVE-9000-0004__f_precedence",
+      "CVE-9000-0005__f_tier_conflict"
+     ],
+     "TN": [
+      "CVE-9000-0001__f_below",
+      "CVE-9000-0001__f_end",
+      "CVE-9000-0013__f_line_patched"
+     ],
+     "FN_def": [
+      "CVE-9000-0013__f_in_line"
+     ],
+     "U_A": [
+      "CVE-9000-0001__f_noversion",
+      "CVE-9000-0002__f_unknown_product",
+      "CVE-9000-0010__f_empty_ranges",
+      "CVE-9000-0011__f_e4_unlinked",
+      "CVE-9000-0012__f_branch_vuln"
+     ],
+     "U_N": [
+      "CVE-9000-0002__f_decoy",
+      "CVE-9000-0003__f_blocked_noversion",
+      "CVE-9000-0006__f_no_range",
+      "CVE-9000-0011__f_e4_linked",
+      "CVE-9000-0012__f_branch_patched"
+     ]
+    }
+   },
+   "fusion": {
+    "confusion": {
+     "TP": 7,
+     "FP": 0,
+     "TN": 10,
+     "FN_def": 0,
+     "U_A": 7,
+     "U_N": 1
+    },
+    "scores": {
+     "N": 25,
+     "n_determined": 17,
+     "n_abstained": 8,
+     "precision": 1.0,
+     "recall": 0.5,
+     "F1": 0.6666666666666666,
+     "coverage": 0.68,
+     "unknown_rate": 0.32
+    },
+    "excluded_unresolved": [
+     {
+      "case_id": "CVE-9000-0009__f_unresolved",
+      "cve_id": "CVE-9000-0009",
+      "ground_truth_label": "Unresolved",
+      "reason": "label outside the metric denominator (Unresolved)"
+     }
+    ],
+    "case_ids": {
+     "TP": [
+      "CVE-9000-0001__f_in",
+      "CVE-9000-0001__f_start",
+      "CVE-9000-0002__f_exact",
+      "CVE-9000-0007__f_empty_path",
+      "CVE-9000-0012__f_branch_vuln",
+      "CVE-9000-0013__f_out_of_line",
+      "CVE-9000-0013__f_in_line"
+     ],
+     "FP": [],
+     "TN": [
+      "CVE-9000-0001__f_below",
+      "CVE-9000-0001__f_end",
+      "CVE-9000-0002__f_decoy",
+      "CVE-9000-0003__f_blocked",
+      "CVE-9000-0003__f_blocked_noversion",
+      "CVE-9000-0004__f_precedence",
+      "CVE-9000-0006__f_no_range",
+      "CVE-9000-0011__f_e4_linked",
+      "CVE-9000-0012__f_branch_patched",
+      "CVE-9000-0013__f_line_patched"
+     ],
+     "FN_def": [],
+     "U_A": [
+      "CVE-9000-0001__f_noversion",
+      "CVE-9000-0002__f_unknown_product",
+      "CVE-9000-0003__f_ok",
+      "CVE-9000-0003__f_needs_control_bogus",
+      "CVE-9000-0008__f_pending_bogus",
+      "CVE-9000-0010__f_empty_ranges",
+      "CVE-9000-0011__f_e4_unlinked"
+     ],
+     "U_N": [
+      "CVE-9000-0005__f_tier_conflict"
+     ]
+    }
+   }
+  }
+ }
+}

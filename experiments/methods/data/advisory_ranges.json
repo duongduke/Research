@@ -1,0 +1,704 @@
+{
+ "generated_at_utc": "2026-10-17T15:41:17Z",
+ "generated_by": "experiments/methods/build_inputs.py (engineer, step 3 phase A)",
+ "policy": {
+  "source": "parsed from the frozen advisory artifact bytes only (D-026 cohort data/public-snapshot/ + D-035 cohort data/public-snapshot-2026-10-17/); no live re-fetch",
+  "null": "advisory has no machine-readable range -> advisory-only returns Unknown at level 1 (spec §4.3)",
+  "no_borrowing": "CPE/NVD ranges are never substituted for an advisory range",
+  "quote_check": "every recorded quote is verified verbatim (whitespace-tolerant) against the frozen artifact at build time",
+  "json_branch": "CVE-2023-6553's advisory artifact is a CVE.org 5.x CNA JSON record (ruling #8): the range is read from containers.cna.affected[].versions[] (status=affected) and the record id is asserted; the artifact sha256 is checked against the cohort manifest",
+  "spec_null_list": [
+   "CVE-2019-8942",
+   "CVE-2019-10692",
+   "CVE-2021-44026",
+   "CVE-2020-25213",
+   "CVE-2024-10924"
+  ]
+ },
+ "cves": {
+  "CVE-2014-3704": {
+   "artifact": "data/public-snapshot/CVE-2014-3704/advisory.html",
+   "artifact_sha256": "039fef342cd0ef94814ace4af0a556d5e8d33056b66c7eba5590e1b4fbd2ed0e",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "line": "7",
+     "end_excluding": "7.32"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    "Drupal core 7.x versions prior to 7.32.",
+    "If you use Drupal 7.x, upgrade to Drupal core 7.32 ."
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2015-3440": {
+   "artifact": "data/public-snapshot/CVE-2015-3440/advisory.html",
+   "artifact_sha256": "9f4428be2a7e109e05d0d23afe1f8533d53fae7510977d144b2f3604f14a5240",
+   "extraction_kind": "fixed_release_statement",
+   "ranges": [
+    {
+     "end_excluding": "4.2.1"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "advisory names the fixed release and 'all previous versions'; open lower bound",
+   "quotes": [
+    "WordPress 4.2.1 is now available. This is a critical security release for all previous versions"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2017-1001000": {
+   "artifact": "data/public-snapshot/CVE-2017-1001000/advisory.html",
+   "artifact_sha256": "f6eeb96e391e999a2c879fa27ec175ef42f7106d81de926e3a000ba086c1b44d",
+   "extraction_kind": "body_sentence",
+   "ranges": [
+    {
+     "eq": "4.7"
+    },
+    {
+     "eq": "4.7.1"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "the post has no 'Affected versions' block; the body sentence names the two affected releases explicitly",
+   "quotes": [
+    "WordPress 4.7 and 4.7.1 had one additional vulnerability for which disclosure was delayed."
+   ],
+   "negative_checks": [],
+   "extraction": "body sentence naming the affected releases (no formatted block)"
+  },
+  "CVE-2018-7600": {
+   "artifact": "data/public-snapshot/CVE-2018-7600/advisory.html",
+   "artifact_sha256": "b2652b7ad11f576f4b4c2536bdd956a3c63c7636f6bf2cd8d6d763f9029f6687",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "line": "7",
+     "end_excluding": "7.58"
+    },
+    {
+     "start_including": "8.0.0",
+     "end_excluding": "8.3.9"
+    },
+    {
+     "start_including": "8.4.0",
+     "end_excluding": "8.4.6"
+    },
+    {
+     "start_including": "8.5.0",
+     "end_excluding": "8.5.1"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    ">=7.0 <7.58 || >= 8.0.0 <8.3.9 || >=8.4.0 <8.4.6 || >=8.5.0 <8.5.1"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2018-7602": {
+   "artifact": "data/public-snapshot/CVE-2018-7602/advisory.html",
+   "artifact_sha256": "0e972279e9accf486e329b38c8feec7b0d56b400e4b926fec3953ca49af3c509",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "line": "7",
+     "end_excluding": "7.59"
+    },
+    {
+     "start_including": "8.0.0",
+     "end_excluding": "8.4.8"
+    },
+    {
+     "start_including": "8.5.0",
+     "end_excluding": "8.5.3"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    ">=7.0 <7.59 || >= 8.0.0 <8.4.8 || >=8.5.0 <8.5.3"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2019-6340": {
+   "artifact": "data/public-snapshot/CVE-2019-6340/advisory.html",
+   "artifact_sha256": "303017746fac3bb42ce193a158f0531c5801a7b0e486c5eb8da14eed3e9d883b",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "start_including": "8.0.0",
+     "end_excluding": "8.5.11"
+    },
+    {
+     "start_including": "8.6.0",
+     "end_excluding": "8.6.10"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    ">= 8.0.0 <8.5.11 || >=8.6.0 <8.6.10"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2019-6341": {
+   "artifact": "data/public-snapshot/CVE-2019-6341/advisory.html",
+   "artifact_sha256": "668998e6571e7b7bf6d355a2b499f79c42bbcdbbc0ce7aca82e27505b0263b4e",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "line": "7",
+     "end_excluding": "7.65"
+    },
+    {
+     "start_including": "8.0.0",
+     "end_excluding": "8.5.14"
+    },
+    {
+     "start_including": "8.6.0",
+     "end_excluding": "8.6.13"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    ">=7.0 <7.65 || >= 8.0.0 <8.5.14 || >=8.6.0 <8.6.13"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2019-8942": {
+   "artifact": "data/public-snapshot/CVE-2019-8942/advisory.html",
+   "artifact_sha256": "304f7469313074dc44dd01fa7fb45700f51e955af041e50f05eefebdd121393a",
+   "extraction_kind": "none",
+   "ranges": null,
+   "null_reason": "saved artifact is the Sonar blog shell of the redirected RIPSTECH page; it does not reference the CVE ID and carries no affected/fixed range in the frozen bytes",
+   "scope_note": "spec §4.3 null list",
+   "quotes": [],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2019-10692": {
+   "artifact": "data/public-snapshot/CVE-2019-10692/advisory.html",
+   "artifact_sha256": "d69292627fbb24286b211c708620f0f686a4ce11907ab7aedc04ef61b236d78f",
+   "extraction_kind": "none",
+   "ranges": null,
+   "null_reason": "saved artifact is the wordpress.org plugin page/changelog, which lists only recent 10.x/2026 releases; the advisory release numbers 7.11.17 / 7.11.18 do not occur in the frozen bytes",
+   "scope_note": "mapping open item B7 + spec §4.3 null list",
+   "quotes": [],
+   "negative_checks": [
+    "7.11.17",
+    "7.11.18"
+   ],
+   "extraction": "negative check: the strings 7.11.17 and 7.11.18 are asserted absent from the frozen artifact"
+  },
+  "CVE-2020-12625": {
+   "artifact": "data/public-snapshot/CVE-2020-12625/advisory.html",
+   "artifact_sha256": "211dd65434f5b824c2a6a8dca76c7419fae8f2e6eb9143ab0ba27f5123b09861",
+   "extraction_kind": "fixed_version_list",
+   "ranges": [
+    {
+     "line": "1.4",
+     "end_excluding": "1.4.4"
+    },
+    {
+     "line": "1.3",
+     "end_excluding": "1.3.11"
+    },
+    {
+     "line": "1.2",
+     "end_excluding": "1.2.10"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "news post lists the fixed releases per line (1.4.4 / 1.3.11 / 1.2.10) without an affected-version block; each branch is encoded as a line-scoped range",
+   "quotes": [
+    "Cross-Site Scripting (XSS) via malicious HTML content ( CVE-2020-12625 ) **",
+    "Security updates 1.4.4, 1.3.11 and 1.2.10 released",
+    "We just published service and security updates to the stable version 1.4 and the LTS versions 1.3 and 1.2 of Roundcube Webmail.",
+    "See the full changelogs in the release notes on the Github download pages for the updated versions 1.4.4 , 1.3.11 and 1.2.10 ."
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2020-12640": {
+   "artifact": "data/public-snapshot/CVE-2020-12640/advisory.html",
+   "artifact_sha256": "211dd65434f5b824c2a6a8dca76c7419fae8f2e6eb9143ab0ba27f5123b09861",
+   "extraction_kind": "fixed_version_list",
+   "ranges": [
+    {
+     "line": "1.4",
+     "end_excluding": "1.4.4"
+    },
+    {
+     "line": "1.3",
+     "end_excluding": "1.3.11"
+    },
+    {
+     "line": "1.2",
+     "end_excluding": "1.2.10"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "news post lists the fixed releases per line (1.4.4 / 1.3.11 / 1.2.10) without an affected-version block; each branch is encoded as a line-scoped range",
+   "quotes": [
+    "Path traversal vulnerability allowing local file inclusion via crafted",
+    "Security updates 1.4.4, 1.3.11 and 1.2.10 released",
+    "We just published service and security updates to the stable version 1.4 and the LTS versions 1.3 and 1.2 of Roundcube Webmail.",
+    "See the full changelogs in the release notes on the Github download pages for the updated versions 1.4.4 , 1.3.11 and 1.2.10 ."
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2020-12641": {
+   "artifact": "data/public-snapshot/CVE-2020-12641/advisory.html",
+   "artifact_sha256": "211dd65434f5b824c2a6a8dca76c7419fae8f2e6eb9143ab0ba27f5123b09861",
+   "extraction_kind": "fixed_version_list",
+   "ranges": [
+    {
+     "line": "1.4",
+     "end_excluding": "1.4.4"
+    },
+    {
+     "line": "1.3",
+     "end_excluding": "1.3.11"
+    },
+    {
+     "line": "1.2",
+     "end_excluding": "1.2.10"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "news post lists the fixed releases per line (1.4.4 / 1.3.11 / 1.2.10) without an affected-version block; each branch is encoded as a line-scoped range",
+   "quotes": [
+    "Remote code execution via crafted config options ( CVE-2020-12641 ) **",
+    "Security updates 1.4.4, 1.3.11 and 1.2.10 released",
+    "We just published service and security updates to the stable version 1.4 and the LTS versions 1.3 and 1.2 of Roundcube Webmail.",
+    "See the full changelogs in the release notes on the Github download pages for the updated versions 1.4.4 , 1.3.11 and 1.2.10 ."
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2020-13671": {
+   "artifact": "data/public-snapshot/CVE-2020-13671/advisory.html",
+   "artifact_sha256": "5ae156e6de1d90159cb055b151288422ba28497998e4471203ac6ff1b7499a4b",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "line": "7",
+     "end_excluding": "7.74"
+    },
+    {
+     "start_including": "8.0.0",
+     "end_excluding": "8.8.11"
+    },
+    {
+     "start_including": "8.9.0",
+     "end_excluding": "8.9.9"
+    },
+    {
+     "start_including": "9.0.0",
+     "end_excluding": "9.0.8"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    ">=7.0 <7.74 || >= 8.0.0 <8.8.11 || >= 8.9.0 <8.9.9 || >=9.0.0 <9.0.8"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2020-25213": {
+   "artifact": "data/public-snapshot/CVE-2020-25213/advisory-fallback.html",
+   "artifact_sha256": "5a9a35f531c969a8edc0dc501e239a001752af83cb12afb017942a2c02e13b9f",
+   "extraction_kind": "none",
+   "ranges": null,
+   "null_reason": "recorded primary URL was bot-blocked; the vendor fallback changelog names the fixed release 6.9 but no affected range",
+   "scope_note": "spec §4.3 null list",
+   "quotes": [
+    "6.9 (1st Sept, 2020) Security issue fixed"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2021-23017": {
+   "artifact": "data/public-snapshot/CVE-2021-23017/advisory.html",
+   "artifact_sha256": "c4775a1af300b3a1057540e2f5fc7a7e30417d6a4cb5906f7b8cb26525412c40",
+   "extraction_kind": "fixed_version_table",
+   "ranges": [
+    {
+     "op": "lt",
+     "version": "1.18.0-6ubuntu9"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "Ubuntu CVE page states per-release fixed package revisions (no upstream affected range); the observed banner carries no package revision, so advisory-only cannot place the target in or out of this distro-build range (R2)",
+   "quotes": [
+    "Fixed 1.18.0-6ubuntu9"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2021-24917": {
+   "artifact": "data/public-snapshot/CVE-2021-24917/advisory.html",
+   "artifact_sha256": "2a960479fb5650843f5f9c1f70a0d3a71e7fbff122f9ef31f5bacbbc98627668",
+   "extraction_kind": "title_fixed_in",
+   "ranges": [
+    {
+     "end_excluding": "1.9.1"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    "Fixed in 1.9.1"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2021-29447": {
+   "artifact": "data/public-snapshot/CVE-2021-29447/advisory.html",
+   "artifact_sha256": "578d1ffd5d2112e250e3bb2a102b7f2aa8aadbbcb80e7d8265ae2163fb05b9bb",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "start_including": "5.6",
+     "end_excluding": "5.7.1"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    "Affected versions 5.6 - 5.7",
+    "Patched versions 5.7.1"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2021-41773": {
+   "artifact": "data/public-snapshot/CVE-2021-41773/advisory.html",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "eq": "2.4.49"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "httpd security page entry for CVE-2021-41773 (title/fixed header scoping used to avoid the sibling entry)",
+   "quotes": [
+    "This issue only affects Apache 2.4.49 and not earlier versions"
+   ],
+   "extraction": "entry-scoped description sentence of the CVE-2021-41773 entry: ['2.4.49']"
+  },
+  "CVE-2021-42013": {
+   "artifact": "data/public-snapshot/CVE-2021-42013/advisory.html",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "eq": "2.4.49"
+    },
+    {
+     "eq": "2.4.50"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "httpd security page entry for CVE-2021-42013 (title/fixed header scoping used to avoid the sibling entry)",
+   "quotes": [
+    "This issue only affects Apache 2.4.49 and Apache 2.4.50 and not earlier versions"
+   ],
+   "extraction": "entry-scoped description sentence of the CVE-2021-42013 entry: ['2.4.49', '2.4.50']"
+  },
+  "CVE-2021-44026": {
+   "artifact": "data/public-snapshot/CVE-2021-44026/advisory.html",
+   "artifact_sha256": "b37e8641b28b2827df64c2c29c4fae05fdd75f2a2d28feb3d241728c4555b35e",
+   "extraction_kind": "none",
+   "ranges": null,
+   "null_reason": "saved artifact is the commit page (diff only); no affected/fixed version statement",
+   "scope_note": "spec §4.3 null list",
+   "quotes": [
+    "Rename session items 'search' and 'search_params' to 'contact_search' and 'contact_search_params'"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2022-21661": {
+   "artifact": "data/public-snapshot/CVE-2022-21661/advisory.html",
+   "artifact_sha256": "af8d6b10fec0256a616c3b17e9767b0d8fbeff06113cbc06c8f7852ed163d1d0",
+   "extraction_kind": "body_sentence",
+   "ranges": [
+    {
+     "start_including": "3.7",
+     "end_excluding": "5.8.3"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "release post states the affected span for the four issues and the fixed release 5.8.3; not per-CVE branched",
+   "quotes": [
+    "Four security issues affect WordPress versions between 3.7 and 5.8",
+    "a SQL injection vulnerability in WP_Query"
+   ],
+   "negative_checks": [],
+   "extraction": "body sentence (span 3.7–5.8) + fixed release 5.8.3 from the release title"
+  },
+  "CVE-2023-2745": {
+   "artifact": "data/public-snapshot/CVE-2023-2745/advisory.html",
+   "artifact_sha256": "c4fc1a3057e5f025b53169f6a7dc6a8c6ca286764ecb52be5e9f911d7c34d65d",
+   "extraction_kind": "fixed_release_statement",
+   "ranges": [
+    {
+     "line": "6.2",
+     "end_excluding": "6.2.1",
+     "out_of_scope": "unknown"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "advisory only determines the 6.2 line; other lines are affected per 'since 4.1' but with no stated fixed version -> out of 6.2 line = Unknown, no CPE/NVD borrowing. The release post names the fixed 6.2.1 for the 6.2 line and says \"All versions since WordPress 4.1 have also been updated\", but gives no per-line fixed versions; only the 6.2 line is precisely encodable, and the range key `out_of_scope: \"unknown\"` makes a non-6.2 observed version mechanically Unknown (source does not determine it) instead of \"outside the advisory line\" -> Not Applicable (source isolation, review findings 4b + 2745)",
+   "quotes": [
+    "WordPress 6.2.1 is now available!",
+    "All versions since WordPress 4.1 have also been updated."
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2023-28121": {
+   "artifact": "data/public-snapshot/CVE-2023-28121/advisory.html",
+   "artifact_sha256": "58437f304bdd5daad4d4f56e4fa57d43795681a057378bacffded3b3583b7034",
+   "extraction_kind": "fixed_version_list",
+   "ranges": [
+    {
+     "start_including": "4.8.0",
+     "end_excluding": "4.8.2"
+    },
+    {
+     "start_including": "4.9.0",
+     "end_excluding": "4.9.1"
+    },
+    {
+     "start_including": "5.0.0",
+     "end_excluding": "5.0.4"
+    },
+    {
+     "start_including": "5.1.0",
+     "end_excluding": "5.1.3"
+    },
+    {
+     "start_including": "5.2.0",
+     "end_excluding": "5.2.2"
+    },
+    {
+     "start_including": "5.3.0",
+     "end_excluding": "5.3.1"
+    },
+    {
+     "start_including": "5.4.0",
+     "end_excluding": "5.4.1"
+    },
+    {
+     "start_including": "5.5.0",
+     "end_excluding": "5.5.2"
+    },
+    {
+     "start_including": "5.6.0",
+     "end_excluding": "5.6.2"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "per-branch union derived from the advisory patched-version list + lower bound 4.8.0 (review finding 4a; a single span 4.8.0≤v<5.6.2 would wrongly mark mid-branch patched releases such as 5.5.2 as vulnerable)",
+   "quotes": [
+    "All websites with WooCommerce Payments 4.8.0 and higher installed and activated on their site",
+    "Patched WooCommerce Payments (WooPayments) Versions 4.8.2 4.9.1 5.0.4 5.1.3 5.2.2 5.3.1 5.4.1 5.5.2 5.6.2 5.7.0 6.2.2 6.3.0 6.3.2 6.4.0"
+   ],
+   "negative_checks": [],
+   "extraction": "the advisory lists patched versions (4.8.2 / 4.9.1 / 5.0.4 / 5.1.3 / 5.2.2 / 5.3.1 / 5.4.1 / 5.5.2 / 5.6.2 / 5.7.0 / 6.2.2 / 6.3.0 / 6.3.2 / 6.4.0) with the lower bound \"4.8.0 and higher\"; each patched release closes its own branch, so the affected set is the per-branch union [branch_first, patch)"
+  },
+  "CVE-2023-32243": {
+   "artifact": "data/public-snapshot/CVE-2023-32243/advisory.html",
+   "artifact_sha256": "39becd1d42467140f499f5833509f7f39e18da5c68c282443e695836cb11551b",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "start_including": "5.4.0",
+     "end_including": "5.7.1"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    "versions >= 5.4.0 and <= 5.7.1",
+    "The described vulnerability was fixed in version 5.7.2"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2023-3460": {
+   "artifact": "data/public-snapshot/CVE-2023-3460/advisory.html",
+   "artifact_sha256": "8bfb14d74ece4b1ecdc3fe8b1bc97c0c46261ee3cb9216ebaf7936807eb05748",
+   "extraction_kind": "title_fixed_in",
+   "ranges": [
+    {
+     "end_excluding": "2.6.7"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    "Fixed in 2.6.7"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2023-5631": {
+   "artifact": "data/public-snapshot/CVE-2023-5631/advisory.html",
+   "artifact_sha256": "b592d9ccb42bf7dc70f430d0046c160c4bac9ac602bb0dd2be1aa89034f9b584",
+   "extraction_kind": "fixed_release_statement",
+   "ranges": [
+    {
+     "start_including": "1.6.0",
+     "end_excluding": "1.6.4"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "the frozen news page only covers the 1.6 line (1.6.4); it does not state the 1.4/1.5 fixed releases, so this range cannot cover the 1.4.11 case build — recorded, not repaired (CVE is Unresolved, outside the metric denominator)",
+   "quotes": [
+    "We just published a security update to the version 1.6 of Roundcube Webmail.",
+    "We strongly recommend to update all productive installations of Roundcube 1.6.x with this new version."
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2023-5798": {
+   "artifact": "data/public-snapshot/CVE-2023-5798/advisory.html",
+   "artifact_sha256": "f29264eb9609681ae1dcc6a57d031b1c6f5d825270e7ba6d4a690d16ec1d546c",
+   "extraction_kind": "title_fixed_in",
+   "ranges": [
+    {
+     "end_excluding": "1.4.4"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": null,
+   "quotes": [
+    "Fixed in 1.4.4"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2024-10924": {
+   "artifact": "data/public-snapshot/CVE-2024-10924/advisory-fallback.html",
+   "artifact_sha256": "fc902c1048926731a23a7037b19dcbc650e8af2d8884147305de0e5bdff16be0",
+   "extraction_kind": "none",
+   "ranges": null,
+   "null_reason": "recorded primary URL returned a Cloudflare challenge; the vendor fallback changelog names the fixed release 9.1.2 without an affected range",
+   "scope_note": "spec §4.3 null list",
+   "quotes": [
+    "Security: authentication bypass fix"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2024-28000": {
+   "artifact": "data/public-snapshot/CVE-2024-28000/advisory.html",
+   "artifact_sha256": "b477bf708115b380bef04f05f95aae7e1fae537c98db0146d8bab50b62da4c16",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "end_including": "6.3.0.1"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "mapping literal 'Vulnerable version(s) 6.3.0.1' / 'Patched version 6.4' reverses the flattened label/value order — recorded as a cross-check note, the range itself is unchanged",
+   "quotes": [
+    "WordPress LiteSpeed Cache Plugin <= 6.3.0.1 is vulnerable to a high priority Privilege Escalation",
+    "Vulnerable version(s)",
+    "Patched version"
+   ],
+   "negative_checks": [],
+   "extraction": "Patchstack database fields: 'Vulnerable version(s)' = 6.3.0.1 and 'Patched version' = 6.4; the flattened page text emits the values before their labels, so the range is anchored on the sentence plus the two field labels"
+  },
+  "CVE-2024-37383": {
+   "artifact": "data/public-snapshot/CVE-2024-37383/advisory.html",
+   "artifact_sha256": "600f366fdbd5ab035c2adb3a2ca2e42b7007daabb1802b2c3ef1bb12fdf475ec",
+   "extraction_kind": "fixed_release_statement",
+   "ranges": [
+    {
+     "line": "1.5",
+     "end_excluding": "1.5.7"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "release notes cover the 1.5 line; the case build 1.5.6 is inside it (1.6 line kept in CPE only)",
+   "quotes": [
+    "This is a security update to the stable version 1.5 of Roundcube Webmail.",
+    "we recommend to update all productive installations of Roundcube 1.5.x with it"
+   ],
+   "negative_checks": [],
+   "extraction": null
+  },
+  "CVE-2023-23752": {
+   "artifact": "data/public-snapshot-2026-10-17/CVE-2023-23752/advisory.html",
+   "artifact_sha256": "41b8014857705f46ac51f74f63224bec6194285cedb65708fb197130b116877d",
+   "extraction_kind": "affected_versions_block",
+   "ranges": [
+    {
+     "start_including": "4.0.0",
+     "end_including": "4.2.7"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "vendor Security Centre announcement [20230201] states the affected span 4.0.0-4.2.7 and the fixed 4.2.8; NVD 'affected' (4.0.0-4.2.7) and the NVD/CPE configuration (versionStartIncluding 4.0.0, versionEndExcluding 4.2.8) agree with it -> no cross-source conflict for this CVE",
+   "quotes": [
+    "Versions: 4.0.0-4.2.7",
+    "Affected Installs Joomla! CMS versions 4.0.0-4.2.7",
+    "Solution Upgrade to version 4.2.8"
+   ],
+   "negative_checks": [],
+   "extraction": "vendor header block: 'Versions:' + 'Affected Installs' (inclusive range 4.0.0-4.2.7) + 'Solution' (fixed release 4.2.8)"
+  },
+  "CVE-2023-6553": {
+   "artifact": "data/public-snapshot-2026-10-17/CVE-2023-6553/advisory-fallback.json",
+   "artifact_sha256": "b4b39c29adec6d9034aa55c2bdfd4f9233ee88792e8ba50b131a947520ddbea2",
+   "extraction_kind": "cna_affected_versions_json",
+   "ranges": [
+    {
+     "start_including": "0",
+     "end_including": "1.3.7"
+    }
+   ],
+   "null_reason": null,
+   "scope_note": "CVE.org 5.x CNA record (assigner Wordfence, state PUBLISHED) is the advisory source: the recorded primary URL (WPScan) returned HTTP 403 (bot challenge), Wordfence returned HTTP 202 (Cloudflare, 0 B).  The record's only affected range is version '0' + lessThanOrEqual '1.3.7' (versionType semver, defaultStatus unaffected) => affected = every version up to and including 1.3.7.  The record does NOT name a fixed release.",
+   "quotes": [
+    "Backup Migration <= 1.3.7 - Unauthenticated Remote Code Execution",
+    "The Backup Migration plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 1.3.7 via the /includes/backup-heart.php file. This is due to an attacker being able to control the values passed to an include, and subsequently leverage that to achieve remote code execution. This makes it possible for unauthenticated attackers to easily execute code on the server."
+   ],
+   "negative_checks": [],
+   "extraction": "containers.cna.affected[].versions[] filtered to status='affected': [{\"version\": \"0\", \"status\": \"affected\", \"lessThanOrEqual\": \"1.3.7\", \"versionType\": \"semver\"}]",
+   "fixed_version_provenance": {
+    "fixed_version": "1.3.8",
+    "not_in_advisory": "neither the CVE.org CNA record nor the NVD record names a fixed release",
+    "source": "the 1.3.8 plugin package itself: readme.txt changelog '= 1.3.8 =' / '* [FIX] Patched reported CVE - please upgrade' and the added filterChainFix() guard",
+    "workspace_refs": [
+     "experiments/topup-2026-10-17/downloads/bb-1.3.8.zip (sha256 f8c98d4696e76a09a8cf7df873ca8017131a53b702bef915bbc2966568574e44)",
+     "experiments/topup-2026-10-17/fix-diff.md §2",
+     "notes/cve-verification-topup-2026-10-17.md §3.2"
+    ],
+    "note": "provenance only — the fixed release is not used to compute this advisory range (the range is the inclusive upper bound 1.3.7 from the CNA record)"
+   },
+   "primary_failure": {
+    "artifact": "data/public-snapshot-2026-10-17/CVE-2023-6553/advisory-primary.error.txt",
+    "artifact_sha256": "b4b94e6496f82953c3c9d3d25bb482409d0204bf741e0db198b944bfe1409172",
+    "http_status": 403,
+    "note": "failed-primary audit body preserved by the snapshot; not an advisory source"
+   }
+  }
+ }
+}

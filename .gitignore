@@ -1,0 +1,36 @@
+# BẮT BUỘC — bảo mật
+ssh_vm.txt
+
+# Nội bộ / tool
+.opencode/
+context/
+
+# Ngoài phạm vi / scratch
+legacy/
+tmp/
+paper/
+
+# Phần mềm thứ 3 + release tải về (manifest/sha256 đã đủ tái-lặp)
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# Artifact build LaTeX
+*.aux
+*.log
+*.out
+*.toc
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# Nội bộ — không đưa lên public
+AGENTS.md
+
+# Scratch screenshots (không phải hình luận văn)
+images/2.png
+images/Untitled.png
+
+# Fixture review scratch
+experiments/methods/fixture/review-tmp-*/

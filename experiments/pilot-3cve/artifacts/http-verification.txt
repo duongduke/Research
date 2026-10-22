@@ -1,0 +1,58 @@
+# Pilot 3-CVE deployment — HTTP verification
+# timestamp: 2026-10-07T00:42:06Z
+
+## Listening sockets (must all be 127.0.0.1)
+LISTEN 0      4096       127.0.0.1:13306      0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8086       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8084       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8085       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8082       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8083       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:8081       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:3143       0.0.0.0:*          
+LISTEN 0      4096       127.0.0.1:3025       0.0.0.0:*          
+
+## Ca A — WordPress + Really Simple Security
+-- [wp-vuln-9.1.1.1] http://127.0.0.1:8081
+   GET /            -> 200
+   GET /wp-login.php-> 200
+   plugin asset ver -> ver=9.1.1.1
+   generator meta   -> content="WordPress 6.7.1"
+   GET /wp-json/    -> 200
+-- [wp-fixed-9.1.2] http://127.0.0.1:8082
+   GET /            -> 200
+   GET /wp-login.php-> 200
+   plugin asset ver -> ver=9.1.2
+   generator meta   -> content="WordPress 6.7.1"
+   GET /wp-json/    -> 200
+
+## Ca B — Drupal 8.6.x REST/web-services
+-- [drupal-vuln-8.6.9] http://127.0.0.1:8083
+   GET /                       -> 200
+   GET /core/CHANGELOG.txt     -> 200
+     first line: New minor (feature) releases of Drupal 8 are released every six months and
+   GET /core/install.php       -> 200
+   REST   /node/1?_format=hal_json -> 200
+   JSONAPI /jsonapi/node/article   -> 404
+-- [drupal-fixed-8.6.10] http://127.0.0.1:8084
+   GET /                       -> 200
+   GET /core/CHANGELOG.txt     -> 200
+     first line: New minor (feature) releases of Drupal 8 are released every six months and
+   GET /core/install.php       -> 200
+   REST   /node/1?_format=hal_json -> 200
+   JSONAPI /jsonapi/node/article   -> 404
+
+## Ca C — Roundcube XSS
+-- [roundcube-vuln-1.4.3] http://127.0.0.1:8085
+   GET /?_task=login -> 200
+   GET /CHANGELOG    -> 403
+   version (ground truth, image CHANGELOG): RELEASE 1.4.3
+-- [roundcube-fixed-1.4.4] http://127.0.0.1:8086
+   GET /?_task=login -> 200
+   GET /CHANGELOG    -> 403
+   version (ground truth, image CHANGELOG): RELEASE 1.4.4
+
+## IMAP backend
+   IMAP :3143 banner -> * OK IMAP4rev1 Server GreenMail v2.1.3 ready
+   SMTP :3025 banner -> 220 /172.18.0.3 GreenMail SMTP Service v2.1.3 ready
+421 Ser

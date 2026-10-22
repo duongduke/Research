@@ -1,0 +1,186 @@
+{
+  "cohort": "2026-10-17",
+  "snapshot_date": "2026-10-17",
+  "snapshot_date_source": "D-035 §5 (the 2 top-up CVEs form a separate snapshot cohort with the actual fetch date)",
+  "separate_from": "data/public-snapshot/ (frozen 30-CVE cohort, 2026-10-11, D-026)",
+  "manifest_generated_at_utc": "2026-10-17T15:12:16.533Z",
+  "generator": "experiments/public-snapshot-2026-10-17/build_cohort.py",
+  "sources_config": "experiments/public-snapshot-2026-10-17/sources.json",
+  "nvd_api": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+  "nvd_rate_limit_note": "no API key; ~5 requests / 30 s. No NVD call was made by this build — all NVD bytes are inherited from the step-1 fetch of 2026-10-17.",
+  "new_fetches_this_run": 0,
+  "fetch_mode": "inherited_from_step1",
+  "n_benchmark_cves": 2,
+  "artifacts": {
+    "CVE-2023-23752": {
+      "cve_id": "CVE-2023-23752",
+      "product": "Joomla! CMS",
+      "advisory_declared_url": "https://developer.joomla.org/security-centre/894-20230201-core-improper-access-check-in-webservice-endpoints.html",
+      "advisory_url_provenance": "vendor advisory (Joomla! Security Centre); recorded in notes/cve-verification-topup-2026-10-17.md §1.1 and experiments/topup-2026-10-17/manifest.md §2",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-23752",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-23752",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-17T13:48:31Z",
+          "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:31 +07:00 = 13:48:31Z); same mtime convention that reproduces the step-1 download timestamps exactly",
+          "fetch_mode": "inherited_from_step1",
+          "inherited_from": "experiments/topup-2026-10-17/sources/CVE-2023-23752.nvd.json",
+          "provenance": "step-1 fetch 2026-10-17; NVD 2.0 API envelope (resultsPerPage/startIndex/totalResults/format/version/timestamp/vulnerabilities) — verified structurally in this build step",
+          "content_type": "application/json",
+          "content_type_basis": "NVD 2.0 API contract + sniffed body ('{'); step-1 response headers were not persisted",
+          "redirected": null,
+          "path": "CVE-2023-23752/nvd.json",
+          "bytes": 3518,
+          "sha256": "290310c5f4e5ea8e650efd98b1442baac1baaeb926f1555acafa1796d95608a2"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-23752",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-17T15:12:01.010Z",
+          "fetched_at_basis": "derived locally from the saved nvd.json; timestamp preserved across rebuilds",
+          "extracted_at_utc": "2026-10-17T15:12:01.010Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "path": "CVE-2023-23752/cpe.json",
+          "bytes": 2250,
+          "sha256": "cb3fb133e0387f6f7925c03ff618c5a4fd1e5c8b16632825b3ba1c7b5b4f786f"
+        },
+        "advisory": {
+          "role": "primary",
+          "declared_url": "https://developer.joomla.org/security-centre/894-20230201-core-improper-access-check-in-webservice-endpoints.html",
+          "provenance": "vendor advisory (Joomla! Security Centre); recorded in notes/cve-verification-topup-2026-10-17.md §1.1 and experiments/topup-2026-10-17/manifest.md §2",
+          "final_url": "https://developer.joomla.org/security-centre/894-20230201-core-improper-access-check-in-webservice-endpoints.html",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-17T13:48:38Z",
+          "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:38 +07:00 = 13:48:38Z)",
+          "fetch_mode": "inherited_from_step1",
+          "inherited_from": "experiments/topup-2026-10-17/sources/joomla-advisory.html",
+          "content_type": "text/html",
+          "content_type_basis": "sniffed from saved bytes; step-1 response headers were not persisted",
+          "redirected": null,
+          "path": "CVE-2023-23752/advisory.html",
+          "bytes": 34126,
+          "sha256": "41b8014857705f46ac51f74f63224bec6194285cedb65708fb197130b116877d"
+        }
+      },
+      "failures": []
+    },
+    "CVE-2023-6553": {
+      "cve_id": "CVE-2023-6553",
+      "product": "WordPress plugin Backup Migration (backup-backup)",
+      "advisory_declared_url": "https://wpscan.com/vulnerability/6a4d0af9-e1cd-4a69-a56c-3c009e207eca",
+      "advisory_url_provenance": "step-1 attempt; BLOCKED (HTTP 403 JS bot-challenge page). The file contains no advisory text; it is kept as the failed-primary audit body (advisory-primary.error.txt), NOT as an advisory source.",
+      "files": {
+        "nvd": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-6553",
+          "final_url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-6553",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-17T13:48:32Z",
+          "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:32 +07:00 = 13:48:32Z)",
+          "fetch_mode": "inherited_from_step1",
+          "inherited_from": "experiments/topup-2026-10-17/sources/CVE-2023-6553.nvd.json",
+          "provenance": "step-1 fetch 2026-10-17; NVD 2.0 API envelope (vulnStatus: Modified) — verified structurally in this build step",
+          "content_type": "application/json",
+          "content_type_basis": "NVD 2.0 API contract + sniffed body ('{'); step-1 response headers were not persisted",
+          "redirected": null,
+          "path": "CVE-2023-6553/nvd.json",
+          "bytes": 5843,
+          "sha256": "9ba740dd5e4851308af18a4347a73bce79723cb74c5f7eb5134ea5c3547bb744"
+        },
+        "cpe": {
+          "url": "https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2023-6553",
+          "derived_from": "nvd.json",
+          "fetched_at_utc": "2026-10-17T15:12:01.054Z",
+          "fetched_at_basis": "derived locally from the saved nvd.json; timestamp preserved across rebuilds",
+          "extracted_at_utc": "2026-10-17T15:12:01.054Z",
+          "http_status": null,
+          "n_cpe_match_entries": 1,
+          "path": "CVE-2023-6553/cpe.json",
+          "bytes": 1785,
+          "sha256": "1a33ad1301d611a7821070edf792fd467f65e1f7a81feaab3917607fb4297f9e"
+        },
+        "advisory": {
+          "role": "primary",
+          "declared_url": "https://wpscan.com/vulnerability/6a4d0af9-e1cd-4a69-a56c-3c009e207eca",
+          "provenance": "step-1 attempt; BLOCKED (HTTP 403 JS bot-challenge page). The file contains no advisory text; it is kept as the failed-primary audit body (advisory-primary.error.txt), NOT as an advisory source.",
+          "final_url": "https://wpscan.com/vulnerability/6a4d0af9-e1cd-4a69-a56c-3c009e207eca",
+          "http_status": 403,
+          "fetched_at_utc": "2026-10-17T13:48:51Z",
+          "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:51 +07:00 = 13:48:51Z)",
+          "fetch_mode": "inherited_from_step1",
+          "inherited_from": "experiments/topup-2026-10-17/sources/wpscan-6553.html",
+          "content_type": "text/html",
+          "content_type_basis": "sniffed from saved bytes; step-1 response headers were not persisted",
+          "redirected": null,
+          "note": "primary advisory HTTP 403 — body persisted as the failed-primary audit record, NOT as an advisory source",
+          "error_body": "CVE-2023-6553/advisory-primary.error.txt",
+          "error_body_bytes": 7355,
+          "error_body_sha256": "b4b94e6496f82953c3c9d3d25bb482409d0204bf741e0db198b944bfe1409172"
+        },
+        "advisory_fallback": {
+          "role": "fallback",
+          "declared_url": "https://cveawg.mitre.org/api/cve/CVE-2023-6553",
+          "provenance": "CVE.org 5.x CNA record (assigner Wordfence, state=PUBLISHED) — the AUTHORITATIVE range source for this CVE in this cohort, per D-035 / notes/cve-verification-topup-2026-10-17.md §3.2 item 6 (WPScan + Wordfence bot-blocked). Used as the documented fallback, the same convention as the frozen cohort's CVE-2020-25213 (403) and CVE-2024-10924 (202).",
+          "final_url": "https://cveawg.mitre.org/api/cve/CVE-2023-6553",
+          "http_status": 200,
+          "fetched_at_utc": "2026-10-17T13:48:49Z",
+          "fetched_at_basis": "file mtime of the persisted step-1 copy (2026-10-17 20:48:49 +07:00 = 13:48:49Z)",
+          "fetch_mode": "inherited_from_step1",
+          "inherited_from": "experiments/topup-2026-10-17/sources/cveorg-6553.json",
+          "content_type": "application/json",
+          "content_type_basis": "sniffed from saved bytes; step-1 response headers were not persisted",
+          "redirected": null,
+          "note": "fallback used because the primary advisory was bot-blocked; see failures",
+          "path": "CVE-2023-6553/advisory-fallback.json",
+          "bytes": 4227,
+          "sha256": "b4b39c29adec6d9034aa55c2bdfd4f9233ee88792e8ba50b131a947520ddbea2"
+        }
+      },
+      "failures": [
+        {
+          "source": "advisory",
+          "url": "https://wpscan.com/vulnerability/6a4d0af9-e1cd-4a69-a56c-3c009e207eca",
+          "http_status": 403,
+          "reason": "primary advisory HTTP 403"
+        },
+        {
+          "source": "advisory (coordinator page, Wordfence Threat Intel)",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/3511ba64-56a3-43d7-8ab8-c6e40e3b686e",
+          "http_status": 202,
+          "reason": "Cloudflare challenge, 0-byte body (nothing to preserve beyond the 0-byte fact)"
+        }
+      ]
+    }
+  },
+  "failures": [
+    {
+      "cve_id": "CVE-2023-6553",
+      "source": "advisory",
+      "url": "https://wpscan.com/vulnerability/6a4d0af9-e1cd-4a69-a56c-3c009e207eca",
+      "http_status": 403,
+      "reason": "primary advisory HTTP 403"
+    },
+    {
+      "cve_id": "CVE-2023-6553",
+      "source": "advisory (coordinator page, Wordfence Threat Intel)",
+      "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/3511ba64-56a3-43d7-8ab8-c6e40e3b686e",
+      "http_status": 202,
+      "reason": "Cloudflare challenge, 0-byte body (nothing to preserve beyond the 0-byte fact)"
+    }
+  ],
+  "summary": {
+    "n_cves": 2,
+    "n_complete_nvd_cpe_advisory": 2,
+    "complete": [
+      "CVE-2023-23752",
+      "CVE-2023-6553"
+    ],
+    "n_partial_or_failed": 0,
+    "partial_or_failed": [],
+    "n_unique_cves_with_nvd": 2,
+    "n_unique_cves_with_cpe": 2,
+    "n_unique_cves_with_primary_advisory": 1,
+    "n_unique_cves_with_fallback_advisory": 1
+  }
+}

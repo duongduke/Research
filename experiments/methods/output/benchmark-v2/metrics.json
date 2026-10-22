@@ -1,0 +1,1307 @@
+{
+ "unit": "case",
+ "labels_attached_after_prediction": true,
+ "n_unique_cves": 30,
+ "n_cases": 64,
+ "n_labels": {
+  "Applicable": 28,
+  "Not Applicable": 34,
+  "Unresolved": 2
+ },
+ "duplicate_prediction_vectors": [
+  [
+   "cpe_only",
+   "http_version_only",
+   "nvd_only"
+  ]
+ ],
+ "methods": {
+  "cpe_only": {
+   "confusion": {
+    "TP": 10,
+    "FP": 3,
+    "TN": 9,
+    "FN_def": 0,
+    "U_A": 18,
+    "U_N": 22
+   },
+   "scores": {
+    "N": 62,
+    "n_determined": 22,
+    "n_abstained": 40,
+    "precision": 0.7692307692307693,
+    "recall": 0.35714285714285715,
+    "F1": 0.4878048780487805,
+    "coverage": 0.3548387096774194,
+    "unknown_rate": 0.6451612903225806
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-2019-6341__unresolved",
+     "cve_id": "CVE-2019-6341",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    },
+    {
+     "case_id": "CVE-2023-5631__unresolved",
+     "cve_id": "CVE-2023-5631",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-2021-41773__weakened_249",
+     "CVE-2024-10924__9_1_1_1_2fa_on",
+     "CVE-2015-3440__vuln",
+     "CVE-2017-1001000__vuln",
+     "CVE-2019-8942__vuln",
+     "CVE-2021-29447__vuln",
+     "CVE-2021-42013__vuln",
+     "CVE-2022-21661__vuln",
+     "CVE-2023-2745__vuln",
+     "CVE-2023-3460__vuln"
+    ],
+    "FP": [
+     "CVE-2021-41773__default_249",
+     "CVE-2024-10924__9_1_1_1_2fa_off",
+     "CVE-2017-1001000__fixed"
+    ],
+    "TN": [
+     "CVE-2021-41773__fixed_251",
+     "CVE-2024-10924__9_1_2_2fa_on_fixed",
+     "CVE-2015-3440__fixed",
+     "CVE-2019-8942__fixed",
+     "CVE-2021-29447__fixed",
+     "CVE-2021-42013__fixed",
+     "CVE-2022-21661__fixed",
+     "CVE-2023-2745__fixed",
+     "CVE-2023-3460__fixed"
+    ],
+    "FN_def": [],
+    "U_A": [
+     "CVE-2019-6340__rest_on_869",
+     "CVE-2019-6340__rest_off_jsonapi_on_869",
+     "CVE-2020-12625__1_4_3",
+     "CVE-2014-3704__vuln",
+     "CVE-2018-7600__vuln",
+     "CVE-2018-7602__vuln",
+     "CVE-2019-10692__vuln",
+     "CVE-2020-12640__config_on_vuln",
+     "CVE-2020-12641__config_on_vuln",
+     "CVE-2020-13671__config_on_vuln",
+     "CVE-2020-25213__vuln",
+     "CVE-2021-24917__vuln",
+     "CVE-2021-44026__vuln",
+     "CVE-2023-28121__vuln",
+     "CVE-2023-32243__vuln",
+     "CVE-2023-5798__vuln",
+     "CVE-2024-28000__vuln",
+     "CVE-2024-37383__vuln"
+    ],
+    "U_N": [
+     "CVE-2019-6340__both_off_869",
+     "CVE-2019-6340__rest_on_8610_fixed",
+     "CVE-2020-12625__1_4_4_fixed",
+     "CVE-2014-3704__fixed",
+     "CVE-2018-7600__fixed",
+     "CVE-2018-7602__fixed",
+     "CVE-2019-10692__fixed",
+     "CVE-2020-12640__config_off",
+     "CVE-2020-12640__config_on_fixed",
+     "CVE-2020-12641__config_off",
+     "CVE-2020-12641__config_on_fixed",
+     "CVE-2020-13671__config_off",
+     "CVE-2020-13671__config_on_fixed",
+     "CVE-2020-25213__fixed",
+     "CVE-2021-23017__backport_na_a",
+     "CVE-2021-24917__fixed",
+     "CVE-2021-44026__fixed",
+     "CVE-2023-28121__fixed",
+     "CVE-2023-32243__fixed",
+     "CVE-2023-5798__fixed",
+     "CVE-2024-28000__fixed",
+     "CVE-2024-37383__fixed"
+    ]
+   },
+   "by_group": {
+    "rule_development": {
+     "n_cases": 12,
+     "confusion": {
+      "TP": 2,
+      "FP": 2,
+      "TN": 2,
+      "FN_def": 0,
+      "U_A": 3,
+      "U_N": 3
+     },
+     "scores": {
+      "N": 12,
+      "n_determined": 6,
+      "n_abstained": 6,
+      "precision": 0.5,
+      "recall": 0.4,
+      "F1": 0.4444444444444444,
+      "coverage": 0.5,
+      "unknown_rate": 0.5
+     }
+    },
+    "signal_development": {
+     "n_cases": 13,
+     "confusion": {
+      "TP": 5,
+      "FP": 1,
+      "TN": 4,
+      "FN_def": 0,
+      "U_A": 1,
+      "U_N": 2
+     },
+     "scores": {
+      "N": 13,
+      "n_determined": 10,
+      "n_abstained": 3,
+      "precision": 0.8333333333333334,
+      "recall": 0.8333333333333334,
+      "F1": 0.8333333333333334,
+      "coverage": 0.7692307692307693,
+      "unknown_rate": 0.23076923076923078
+     }
+    },
+    "no_development": {
+     "n_cases": 39,
+     "confusion": {
+      "TP": 3,
+      "FP": 0,
+      "TN": 3,
+      "FN_def": 0,
+      "U_A": 14,
+      "U_N": 17
+     },
+     "scores": {
+      "N": 37,
+      "n_determined": 6,
+      "n_abstained": 31,
+      "precision": 1.0,
+      "recall": 0.17647058823529413,
+      "F1": 0.3,
+      "coverage": 0.16216216216216217,
+      "unknown_rate": 0.8378378378378378
+     }
+    },
+    "tag:ẩn-version": {
+     "n_cases": 26,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 10,
+      "U_N": 14
+     },
+     "scores": {
+      "N": 24,
+      "n_determined": 0,
+      "n_abstained": 24,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:CPE-sai": {
+     "n_cases": 3,
+     "confusion": {
+      "TP": 1,
+      "FP": 1,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 0
+     },
+     "scores": {
+      "N": 2,
+      "n_determined": 2,
+      "n_abstained": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "F1": 0.6666666666666666,
+      "coverage": 1.0,
+      "unknown_rate": 0.0
+     }
+    },
+    "tag:config-tắt": {
+     "n_cases": 9,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 3,
+      "U_N": 6
+     },
+     "scores": {
+      "N": 9,
+      "n_determined": 0,
+      "n_abstained": 9,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:backport": {
+     "n_cases": 1,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 1
+     },
+     "scores": {
+      "N": 1,
+      "n_determined": 0,
+      "n_abstained": 1,
+      "precision": "N/A",
+      "recall": "N/A",
+      "F1": "N/A",
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    }
+   }
+  },
+  "nvd_only": {
+   "confusion": {
+    "TP": 10,
+    "FP": 3,
+    "TN": 9,
+    "FN_def": 0,
+    "U_A": 18,
+    "U_N": 22
+   },
+   "scores": {
+    "N": 62,
+    "n_determined": 22,
+    "n_abstained": 40,
+    "precision": 0.7692307692307693,
+    "recall": 0.35714285714285715,
+    "F1": 0.4878048780487805,
+    "coverage": 0.3548387096774194,
+    "unknown_rate": 0.6451612903225806
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-2019-6341__unresolved",
+     "cve_id": "CVE-2019-6341",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    },
+    {
+     "case_id": "CVE-2023-5631__unresolved",
+     "cve_id": "CVE-2023-5631",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-2021-41773__weakened_249",
+     "CVE-2024-10924__9_1_1_1_2fa_on",
+     "CVE-2015-3440__vuln",
+     "CVE-2017-1001000__vuln",
+     "CVE-2019-8942__vuln",
+     "CVE-2021-29447__vuln",
+     "CVE-2021-42013__vuln",
+     "CVE-2022-21661__vuln",
+     "CVE-2023-2745__vuln",
+     "CVE-2023-3460__vuln"
+    ],
+    "FP": [
+     "CVE-2021-41773__default_249",
+     "CVE-2024-10924__9_1_1_1_2fa_off",
+     "CVE-2017-1001000__fixed"
+    ],
+    "TN": [
+     "CVE-2021-41773__fixed_251",
+     "CVE-2024-10924__9_1_2_2fa_on_fixed",
+     "CVE-2015-3440__fixed",
+     "CVE-2019-8942__fixed",
+     "CVE-2021-29447__fixed",
+     "CVE-2021-42013__fixed",
+     "CVE-2022-21661__fixed",
+     "CVE-2023-2745__fixed",
+     "CVE-2023-3460__fixed"
+    ],
+    "FN_def": [],
+    "U_A": [
+     "CVE-2019-6340__rest_on_869",
+     "CVE-2019-6340__rest_off_jsonapi_on_869",
+     "CVE-2020-12625__1_4_3",
+     "CVE-2014-3704__vuln",
+     "CVE-2018-7600__vuln",
+     "CVE-2018-7602__vuln",
+     "CVE-2019-10692__vuln",
+     "CVE-2020-12640__config_on_vuln",
+     "CVE-2020-12641__config_on_vuln",
+     "CVE-2020-13671__config_on_vuln",
+     "CVE-2020-25213__vuln",
+     "CVE-2021-24917__vuln",
+     "CVE-2021-44026__vuln",
+     "CVE-2023-28121__vuln",
+     "CVE-2023-32243__vuln",
+     "CVE-2023-5798__vuln",
+     "CVE-2024-28000__vuln",
+     "CVE-2024-37383__vuln"
+    ],
+    "U_N": [
+     "CVE-2019-6340__both_off_869",
+     "CVE-2019-6340__rest_on_8610_fixed",
+     "CVE-2020-12625__1_4_4_fixed",
+     "CVE-2014-3704__fixed",
+     "CVE-2018-7600__fixed",
+     "CVE-2018-7602__fixed",
+     "CVE-2019-10692__fixed",
+     "CVE-2020-12640__config_off",
+     "CVE-2020-12640__config_on_fixed",
+     "CVE-2020-12641__config_off",
+     "CVE-2020-12641__config_on_fixed",
+     "CVE-2020-13671__config_off",
+     "CVE-2020-13671__config_on_fixed",
+     "CVE-2020-25213__fixed",
+     "CVE-2021-23017__backport_na_a",
+     "CVE-2021-24917__fixed",
+     "CVE-2021-44026__fixed",
+     "CVE-2023-28121__fixed",
+     "CVE-2023-32243__fixed",
+     "CVE-2023-5798__fixed",
+     "CVE-2024-28000__fixed",
+     "CVE-2024-37383__fixed"
+    ]
+   },
+   "by_group": {
+    "rule_development": {
+     "n_cases": 12,
+     "confusion": {
+      "TP": 2,
+      "FP": 2,
+      "TN": 2,
+      "FN_def": 0,
+      "U_A": 3,
+      "U_N": 3
+     },
+     "scores": {
+      "N": 12,
+      "n_determined": 6,
+      "n_abstained": 6,
+      "precision": 0.5,
+      "recall": 0.4,
+      "F1": 0.4444444444444444,
+      "coverage": 0.5,
+      "unknown_rate": 0.5
+     }
+    },
+    "signal_development": {
+     "n_cases": 13,
+     "confusion": {
+      "TP": 5,
+      "FP": 1,
+      "TN": 4,
+      "FN_def": 0,
+      "U_A": 1,
+      "U_N": 2
+     },
+     "scores": {
+      "N": 13,
+      "n_determined": 10,
+      "n_abstained": 3,
+      "precision": 0.8333333333333334,
+      "recall": 0.8333333333333334,
+      "F1": 0.8333333333333334,
+      "coverage": 0.7692307692307693,
+      "unknown_rate": 0.23076923076923078
+     }
+    },
+    "no_development": {
+     "n_cases": 39,
+     "confusion": {
+      "TP": 3,
+      "FP": 0,
+      "TN": 3,
+      "FN_def": 0,
+      "U_A": 14,
+      "U_N": 17
+     },
+     "scores": {
+      "N": 37,
+      "n_determined": 6,
+      "n_abstained": 31,
+      "precision": 1.0,
+      "recall": 0.17647058823529413,
+      "F1": 0.3,
+      "coverage": 0.16216216216216217,
+      "unknown_rate": 0.8378378378378378
+     }
+    },
+    "tag:ẩn-version": {
+     "n_cases": 26,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 10,
+      "U_N": 14
+     },
+     "scores": {
+      "N": 24,
+      "n_determined": 0,
+      "n_abstained": 24,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:CPE-sai": {
+     "n_cases": 3,
+     "confusion": {
+      "TP": 1,
+      "FP": 1,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 0
+     },
+     "scores": {
+      "N": 2,
+      "n_determined": 2,
+      "n_abstained": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "F1": 0.6666666666666666,
+      "coverage": 1.0,
+      "unknown_rate": 0.0
+     }
+    },
+    "tag:config-tắt": {
+     "n_cases": 9,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 3,
+      "U_N": 6
+     },
+     "scores": {
+      "N": 9,
+      "n_determined": 0,
+      "n_abstained": 9,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:backport": {
+     "n_cases": 1,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 1
+     },
+     "scores": {
+      "N": 1,
+      "n_determined": 0,
+      "n_abstained": 1,
+      "precision": "N/A",
+      "recall": "N/A",
+      "F1": "N/A",
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    }
+   }
+  },
+  "advisory_only": {
+   "confusion": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 8,
+    "FN_def": 0,
+    "U_A": 28,
+    "U_N": 26
+   },
+   "scores": {
+    "N": 62,
+    "n_determined": 8,
+    "n_abstained": 54,
+    "precision": "N/A",
+    "recall": 0.0,
+    "F1": 0.0,
+    "coverage": 0.12903225806451613,
+    "unknown_rate": 0.8709677419354839
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-2019-6341__unresolved",
+     "cve_id": "CVE-2019-6341",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    },
+    {
+     "case_id": "CVE-2023-5631__unresolved",
+     "cve_id": "CVE-2023-5631",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [],
+    "FP": [],
+    "TN": [
+     "CVE-2021-41773__fixed_251",
+     "CVE-2015-3440__fixed",
+     "CVE-2017-1001000__fixed",
+     "CVE-2021-29447__fixed",
+     "CVE-2021-42013__fixed",
+     "CVE-2022-21661__fixed",
+     "CVE-2023-2745__fixed",
+     "CVE-2023-3460__fixed"
+    ],
+    "FN_def": [],
+    "U_A": [
+     "CVE-2021-41773__weakened_249",
+     "CVE-2019-6340__rest_on_869",
+     "CVE-2019-6340__rest_off_jsonapi_on_869",
+     "CVE-2024-10924__9_1_1_1_2fa_on",
+     "CVE-2020-12625__1_4_3",
+     "CVE-2014-3704__vuln",
+     "CVE-2015-3440__vuln",
+     "CVE-2017-1001000__vuln",
+     "CVE-2018-7600__vuln",
+     "CVE-2018-7602__vuln",
+     "CVE-2019-10692__vuln",
+     "CVE-2019-8942__vuln",
+     "CVE-2020-12640__config_on_vuln",
+     "CVE-2020-12641__config_on_vuln",
+     "CVE-2020-13671__config_on_vuln",
+     "CVE-2020-25213__vuln",
+     "CVE-2021-24917__vuln",
+     "CVE-2021-29447__vuln",
+     "CVE-2021-42013__vuln",
+     "CVE-2021-44026__vuln",
+     "CVE-2022-21661__vuln",
+     "CVE-2023-2745__vuln",
+     "CVE-2023-28121__vuln",
+     "CVE-2023-32243__vuln",
+     "CVE-2023-3460__vuln",
+     "CVE-2023-5798__vuln",
+     "CVE-2024-28000__vuln",
+     "CVE-2024-37383__vuln"
+    ],
+    "U_N": [
+     "CVE-2021-41773__default_249",
+     "CVE-2019-6340__both_off_869",
+     "CVE-2019-6340__rest_on_8610_fixed",
+     "CVE-2024-10924__9_1_1_1_2fa_off",
+     "CVE-2024-10924__9_1_2_2fa_on_fixed",
+     "CVE-2020-12625__1_4_4_fixed",
+     "CVE-2014-3704__fixed",
+     "CVE-2018-7600__fixed",
+     "CVE-2018-7602__fixed",
+     "CVE-2019-10692__fixed",
+     "CVE-2019-8942__fixed",
+     "CVE-2020-12640__config_off",
+     "CVE-2020-12640__config_on_fixed",
+     "CVE-2020-12641__config_off",
+     "CVE-2020-12641__config_on_fixed",
+     "CVE-2020-13671__config_off",
+     "CVE-2020-13671__config_on_fixed",
+     "CVE-2020-25213__fixed",
+     "CVE-2021-23017__backport_na_a",
+     "CVE-2021-24917__fixed",
+     "CVE-2021-44026__fixed",
+     "CVE-2023-28121__fixed",
+     "CVE-2023-32243__fixed",
+     "CVE-2023-5798__fixed",
+     "CVE-2024-28000__fixed",
+     "CVE-2024-37383__fixed"
+    ]
+   },
+   "by_group": {
+    "rule_development": {
+     "n_cases": 12,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 1,
+      "FN_def": 0,
+      "U_A": 5,
+      "U_N": 6
+     },
+     "scores": {
+      "N": 12,
+      "n_determined": 1,
+      "n_abstained": 11,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.08333333333333333,
+      "unknown_rate": 0.9166666666666666
+     }
+    },
+    "signal_development": {
+     "n_cases": 13,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 4,
+      "FN_def": 0,
+      "U_A": 6,
+      "U_N": 3
+     },
+     "scores": {
+      "N": 13,
+      "n_determined": 4,
+      "n_abstained": 9,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.3076923076923077,
+      "unknown_rate": 0.6923076923076923
+     }
+    },
+    "no_development": {
+     "n_cases": 39,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 3,
+      "FN_def": 0,
+      "U_A": 17,
+      "U_N": 17
+     },
+     "scores": {
+      "N": 37,
+      "n_determined": 3,
+      "n_abstained": 34,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.08108108108108109,
+      "unknown_rate": 0.918918918918919
+     }
+    },
+    "tag:ẩn-version": {
+     "n_cases": 26,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 10,
+      "U_N": 14
+     },
+     "scores": {
+      "N": 24,
+      "n_determined": 0,
+      "n_abstained": 24,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:CPE-sai": {
+     "n_cases": 3,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 1,
+      "FN_def": 0,
+      "U_A": 1,
+      "U_N": 0
+     },
+     "scores": {
+      "N": 2,
+      "n_determined": 1,
+      "n_abstained": 1,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.5,
+      "unknown_rate": 0.5
+     }
+    },
+    "tag:config-tắt": {
+     "n_cases": 9,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 3,
+      "U_N": 6
+     },
+     "scores": {
+      "N": 9,
+      "n_determined": 0,
+      "n_abstained": 9,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:backport": {
+     "n_cases": 1,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 1
+     },
+     "scores": {
+      "N": 1,
+      "n_determined": 0,
+      "n_abstained": 1,
+      "precision": "N/A",
+      "recall": "N/A",
+      "F1": "N/A",
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    }
+   }
+  },
+  "http_version_only": {
+   "confusion": {
+    "TP": 10,
+    "FP": 3,
+    "TN": 9,
+    "FN_def": 0,
+    "U_A": 18,
+    "U_N": 22
+   },
+   "scores": {
+    "N": 62,
+    "n_determined": 22,
+    "n_abstained": 40,
+    "precision": 0.7692307692307693,
+    "recall": 0.35714285714285715,
+    "F1": 0.4878048780487805,
+    "coverage": 0.3548387096774194,
+    "unknown_rate": 0.6451612903225806
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-2019-6341__unresolved",
+     "cve_id": "CVE-2019-6341",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    },
+    {
+     "case_id": "CVE-2023-5631__unresolved",
+     "cve_id": "CVE-2023-5631",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-2021-41773__weakened_249",
+     "CVE-2024-10924__9_1_1_1_2fa_on",
+     "CVE-2015-3440__vuln",
+     "CVE-2017-1001000__vuln",
+     "CVE-2019-8942__vuln",
+     "CVE-2021-29447__vuln",
+     "CVE-2021-42013__vuln",
+     "CVE-2022-21661__vuln",
+     "CVE-2023-2745__vuln",
+     "CVE-2023-3460__vuln"
+    ],
+    "FP": [
+     "CVE-2021-41773__default_249",
+     "CVE-2024-10924__9_1_1_1_2fa_off",
+     "CVE-2017-1001000__fixed"
+    ],
+    "TN": [
+     "CVE-2021-41773__fixed_251",
+     "CVE-2024-10924__9_1_2_2fa_on_fixed",
+     "CVE-2015-3440__fixed",
+     "CVE-2019-8942__fixed",
+     "CVE-2021-29447__fixed",
+     "CVE-2021-42013__fixed",
+     "CVE-2022-21661__fixed",
+     "CVE-2023-2745__fixed",
+     "CVE-2023-3460__fixed"
+    ],
+    "FN_def": [],
+    "U_A": [
+     "CVE-2019-6340__rest_on_869",
+     "CVE-2019-6340__rest_off_jsonapi_on_869",
+     "CVE-2020-12625__1_4_3",
+     "CVE-2014-3704__vuln",
+     "CVE-2018-7600__vuln",
+     "CVE-2018-7602__vuln",
+     "CVE-2019-10692__vuln",
+     "CVE-2020-12640__config_on_vuln",
+     "CVE-2020-12641__config_on_vuln",
+     "CVE-2020-13671__config_on_vuln",
+     "CVE-2020-25213__vuln",
+     "CVE-2021-24917__vuln",
+     "CVE-2021-44026__vuln",
+     "CVE-2023-28121__vuln",
+     "CVE-2023-32243__vuln",
+     "CVE-2023-5798__vuln",
+     "CVE-2024-28000__vuln",
+     "CVE-2024-37383__vuln"
+    ],
+    "U_N": [
+     "CVE-2019-6340__both_off_869",
+     "CVE-2019-6340__rest_on_8610_fixed",
+     "CVE-2020-12625__1_4_4_fixed",
+     "CVE-2014-3704__fixed",
+     "CVE-2018-7600__fixed",
+     "CVE-2018-7602__fixed",
+     "CVE-2019-10692__fixed",
+     "CVE-2020-12640__config_off",
+     "CVE-2020-12640__config_on_fixed",
+     "CVE-2020-12641__config_off",
+     "CVE-2020-12641__config_on_fixed",
+     "CVE-2020-13671__config_off",
+     "CVE-2020-13671__config_on_fixed",
+     "CVE-2020-25213__fixed",
+     "CVE-2021-23017__backport_na_a",
+     "CVE-2021-24917__fixed",
+     "CVE-2021-44026__fixed",
+     "CVE-2023-28121__fixed",
+     "CVE-2023-32243__fixed",
+     "CVE-2023-5798__fixed",
+     "CVE-2024-28000__fixed",
+     "CVE-2024-37383__fixed"
+    ]
+   },
+   "by_group": {
+    "rule_development": {
+     "n_cases": 12,
+     "confusion": {
+      "TP": 2,
+      "FP": 2,
+      "TN": 2,
+      "FN_def": 0,
+      "U_A": 3,
+      "U_N": 3
+     },
+     "scores": {
+      "N": 12,
+      "n_determined": 6,
+      "n_abstained": 6,
+      "precision": 0.5,
+      "recall": 0.4,
+      "F1": 0.4444444444444444,
+      "coverage": 0.5,
+      "unknown_rate": 0.5
+     }
+    },
+    "signal_development": {
+     "n_cases": 13,
+     "confusion": {
+      "TP": 5,
+      "FP": 1,
+      "TN": 4,
+      "FN_def": 0,
+      "U_A": 1,
+      "U_N": 2
+     },
+     "scores": {
+      "N": 13,
+      "n_determined": 10,
+      "n_abstained": 3,
+      "precision": 0.8333333333333334,
+      "recall": 0.8333333333333334,
+      "F1": 0.8333333333333334,
+      "coverage": 0.7692307692307693,
+      "unknown_rate": 0.23076923076923078
+     }
+    },
+    "no_development": {
+     "n_cases": 39,
+     "confusion": {
+      "TP": 3,
+      "FP": 0,
+      "TN": 3,
+      "FN_def": 0,
+      "U_A": 14,
+      "U_N": 17
+     },
+     "scores": {
+      "N": 37,
+      "n_determined": 6,
+      "n_abstained": 31,
+      "precision": 1.0,
+      "recall": 0.17647058823529413,
+      "F1": 0.3,
+      "coverage": 0.16216216216216217,
+      "unknown_rate": 0.8378378378378378
+     }
+    },
+    "tag:ẩn-version": {
+     "n_cases": 26,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 10,
+      "U_N": 14
+     },
+     "scores": {
+      "N": 24,
+      "n_determined": 0,
+      "n_abstained": 24,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:CPE-sai": {
+     "n_cases": 3,
+     "confusion": {
+      "TP": 1,
+      "FP": 1,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 0
+     },
+     "scores": {
+      "N": 2,
+      "n_determined": 2,
+      "n_abstained": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "F1": 0.6666666666666666,
+      "coverage": 1.0,
+      "unknown_rate": 0.0
+     }
+    },
+    "tag:config-tắt": {
+     "n_cases": 9,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 3,
+      "U_N": 6
+     },
+     "scores": {
+      "N": 9,
+      "n_determined": 0,
+      "n_abstained": 9,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:backport": {
+     "n_cases": 1,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 1
+     },
+     "scores": {
+      "N": 1,
+      "n_determined": 0,
+      "n_abstained": 1,
+      "precision": "N/A",
+      "recall": "N/A",
+      "F1": "N/A",
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    }
+   }
+  },
+  "fusion": {
+   "confusion": {
+    "TP": 3,
+    "FP": 0,
+    "TN": 11,
+    "FN_def": 0,
+    "U_A": 25,
+    "U_N": 23
+   },
+   "scores": {
+    "N": 62,
+    "n_determined": 14,
+    "n_abstained": 48,
+    "precision": 1.0,
+    "recall": 0.10714285714285714,
+    "F1": 0.1935483870967742,
+    "coverage": 0.22580645161290322,
+    "unknown_rate": 0.7741935483870968
+   },
+   "excluded_unresolved": [
+    {
+     "case_id": "CVE-2019-6341__unresolved",
+     "cve_id": "CVE-2019-6341",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    },
+    {
+     "case_id": "CVE-2023-5631__unresolved",
+     "cve_id": "CVE-2023-5631",
+     "ground_truth_label": "Unresolved",
+     "reason": "label outside the metric denominator (Unresolved)"
+    }
+   ],
+   "case_ids": {
+    "TP": [
+     "CVE-2024-10924__9_1_1_1_2fa_on",
+     "CVE-2017-1001000__vuln",
+     "CVE-2023-3460__vuln"
+    ],
+    "FP": [],
+    "TN": [
+     "CVE-2021-41773__fixed_251",
+     "CVE-2024-10924__9_1_1_1_2fa_off",
+     "CVE-2024-10924__9_1_2_2fa_on_fixed",
+     "CVE-2015-3440__fixed",
+     "CVE-2017-1001000__fixed",
+     "CVE-2019-8942__fixed",
+     "CVE-2021-29447__fixed",
+     "CVE-2021-42013__fixed",
+     "CVE-2022-21661__fixed",
+     "CVE-2023-2745__fixed",
+     "CVE-2023-3460__fixed"
+    ],
+    "FN_def": [],
+    "U_A": [
+     "CVE-2021-41773__weakened_249",
+     "CVE-2019-6340__rest_on_869",
+     "CVE-2019-6340__rest_off_jsonapi_on_869",
+     "CVE-2020-12625__1_4_3",
+     "CVE-2014-3704__vuln",
+     "CVE-2015-3440__vuln",
+     "CVE-2018-7600__vuln",
+     "CVE-2018-7602__vuln",
+     "CVE-2019-10692__vuln",
+     "CVE-2019-8942__vuln",
+     "CVE-2020-12640__config_on_vuln",
+     "CVE-2020-12641__config_on_vuln",
+     "CVE-2020-13671__config_on_vuln",
+     "CVE-2020-25213__vuln",
+     "CVE-2021-24917__vuln",
+     "CVE-2021-29447__vuln",
+     "CVE-2021-42013__vuln",
+     "CVE-2021-44026__vuln",
+     "CVE-2022-21661__vuln",
+     "CVE-2023-2745__vuln",
+     "CVE-2023-28121__vuln",
+     "CVE-2023-32243__vuln",
+     "CVE-2023-5798__vuln",
+     "CVE-2024-28000__vuln",
+     "CVE-2024-37383__vuln"
+    ],
+    "U_N": [
+     "CVE-2021-41773__default_249",
+     "CVE-2019-6340__both_off_869",
+     "CVE-2019-6340__rest_on_8610_fixed",
+     "CVE-2020-12625__1_4_4_fixed",
+     "CVE-2014-3704__fixed",
+     "CVE-2018-7600__fixed",
+     "CVE-2018-7602__fixed",
+     "CVE-2019-10692__fixed",
+     "CVE-2020-12640__config_off",
+     "CVE-2020-12640__config_on_fixed",
+     "CVE-2020-12641__config_off",
+     "CVE-2020-12641__config_on_fixed",
+     "CVE-2020-13671__config_off",
+     "CVE-2020-13671__config_on_fixed",
+     "CVE-2020-25213__fixed",
+     "CVE-2021-23017__backport_na_a",
+     "CVE-2021-24917__fixed",
+     "CVE-2021-44026__fixed",
+     "CVE-2023-28121__fixed",
+     "CVE-2023-32243__fixed",
+     "CVE-2023-5798__fixed",
+     "CVE-2024-28000__fixed",
+     "CVE-2024-37383__fixed"
+    ]
+   },
+   "by_group": {
+    "rule_development": {
+     "n_cases": 12,
+     "confusion": {
+      "TP": 1,
+      "FP": 0,
+      "TN": 3,
+      "FN_def": 0,
+      "U_A": 4,
+      "U_N": 4
+     },
+     "scores": {
+      "N": 12,
+      "n_determined": 4,
+      "n_abstained": 8,
+      "precision": 1.0,
+      "recall": 0.2,
+      "F1": 0.3333333333333333,
+      "coverage": 0.3333333333333333,
+      "unknown_rate": 0.6666666666666666
+     }
+    },
+    "signal_development": {
+     "n_cases": 13,
+     "confusion": {
+      "TP": 2,
+      "FP": 0,
+      "TN": 5,
+      "FN_def": 0,
+      "U_A": 4,
+      "U_N": 2
+     },
+     "scores": {
+      "N": 13,
+      "n_determined": 7,
+      "n_abstained": 6,
+      "precision": 1.0,
+      "recall": 0.3333333333333333,
+      "F1": 0.5,
+      "coverage": 0.5384615384615384,
+      "unknown_rate": 0.46153846153846156
+     }
+    },
+    "no_development": {
+     "n_cases": 39,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 3,
+      "FN_def": 0,
+      "U_A": 17,
+      "U_N": 17
+     },
+     "scores": {
+      "N": 37,
+      "n_determined": 3,
+      "n_abstained": 34,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.08108108108108109,
+      "unknown_rate": 0.918918918918919
+     }
+    },
+    "tag:ẩn-version": {
+     "n_cases": 26,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 10,
+      "U_N": 14
+     },
+     "scores": {
+      "N": 24,
+      "n_determined": 0,
+      "n_abstained": 24,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:CPE-sai": {
+     "n_cases": 3,
+     "confusion": {
+      "TP": 1,
+      "FP": 0,
+      "TN": 1,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 0
+     },
+     "scores": {
+      "N": 2,
+      "n_determined": 2,
+      "n_abstained": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "F1": 1.0,
+      "coverage": 1.0,
+      "unknown_rate": 0.0
+     }
+    },
+    "tag:config-tắt": {
+     "n_cases": 9,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 3,
+      "U_N": 6
+     },
+     "scores": {
+      "N": 9,
+      "n_determined": 0,
+      "n_abstained": 9,
+      "precision": "N/A",
+      "recall": 0.0,
+      "F1": 0.0,
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    },
+    "tag:backport": {
+     "n_cases": 1,
+     "confusion": {
+      "TP": 0,
+      "FP": 0,
+      "TN": 0,
+      "FN_def": 0,
+      "U_A": 0,
+      "U_N": 1
+     },
+     "scores": {
+      "N": 1,
+      "n_determined": 0,
+      "n_abstained": 1,
+      "precision": "N/A",
+      "recall": "N/A",
+      "F1": "N/A",
+      "coverage": 0.0,
+      "unknown_rate": 1.0
+     }
+    }
+   }
+  }
+ }
+}

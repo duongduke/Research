@@ -1,0 +1,70 @@
+## host: <lab-user> / Ubuntu 24.04.5 LTS
+Docker version 29.8.2, build 7fc2dff
+
+## image digests
+/topup-jl427 image_sha256=sha256:91c0b3c0c293ab2825d08481240086bc0cba86911d84679e141597edcb788f86
+/topup-jl428 image_sha256=sha256:91c0b3c0c293ab2825d08481240086bc0cba86911d84679e141597edcb788f86
+/topup-wp image_sha256=sha256:43693c77589bcad6f6babe86fa14728a19224445ff883c4dbf8660d260dd547b
+/topup-db image_sha256=sha256:7db29378d4fdab73f8123bbc2b48905c90d1a4b00cf848b028f1e81e623257f2
+
+## Joomla PHP (mod_php / CLI)
+PHP 8.0.30 (cli) (built: Nov 21 2023 16:13:28) ( NTS )
+sapi=cli allow_url_include=0 short_open_tag=1 iconv=1 mysqli=1
+Server version: Apache/2.4.56 (Debian)
+mariadb  Ver 15.1 Distrib 10.11.19-MariaDB, for debian-linux-gnu (x86_64) using  EditLine wrapper
+
+## Joomla version constants
+## Joomla version constants
+
+## schema row (install sanity)
+extension_id	version_id
+224	4.2.7-2022-12-29
+
+## webservices plugins enabled (4.2.7)
+element	enabled banners	1 config	1 contact	1 content	1 installer	1 languages	1 media	1 menus	1 messages	1 modules	1 newsfeeds	1 plugins	1 privacy	1 redirect	1 tags	1 templates	1 users	1 
+## webservices plugins enabled (4.2.8)
+element	enabled banners	1 config	1 contact	1 content	1 installer	1 languages	1 media	1 menus	1 messages	1 modules	1 newsfeeds	1 plugins	1 privacy	1 redirect	1 tags	1 templates	1 users	1 
+
+## published ports
+topup-wp 127.0.0.1:8930->80/tcp
+topup-db 127.0.0.1:13313->3306/tcp
+topup-jl428 127.0.0.1:8921->80/tcp
+topup-jl427 127.0.0.1:8920->80/tcp
+b1-d7-759 127.0.0.1:8912->80/tcp
+b1-d7-758 127.0.0.1:8911->80/tcp
+b1-d8-852 127.0.0.1:8905->80/tcp
+b1-d8-8612 127.0.0.1:8909->80/tcp
+b1-d8-853 127.0.0.1:8906->80/tcp
+b1-d7-731 127.0.0.1:8901->80/tcp
+b1-d8-899 127.0.0.1:8908->80/tcp
+b1-d7-732 127.0.0.1:8902->80/tcp
+b1-d8-851 127.0.0.1:8904->80/tcp
+b1-d8-898 127.0.0.1:8907->80/tcp
+b1-d8-850 127.0.0.1:8903->80/tcp
+b1-d8-8613 127.0.0.1:8910->80/tcp
+b1-db 127.0.0.1:13312->3306/tcp
+b4-rc-157 127.0.0.1:8848->80/tcp
+b4-rc-1443 127.0.0.1:8841->80/tcp
+b4-rc-155 127.0.0.1:8846->80/tcp
+b4-rc-1444 127.0.0.1:8842->80/tcp
+b4-rc-1411 127.0.0.1:8843->80/tcp
+b4-rc-1412 127.0.0.1:8844->80/tcp
+b4-rc-156 127.0.0.1:8847->80/tcp
+b4-rc-153 127.0.0.1:8845->80/tcp
+b4-db 127.0.0.1:13311->3306/tcp
+b4-imap 3110/tcp, 3465/tcp, 3993/tcp, 3995/tcp, 8080/tcp, 127.0.0.1:3026->3025/tcp, 127.0.0.1:3144->3143/tcp
+b2-wp-f 127.0.0.1:8831->80/tcp
+b2-wp-v 127.0.0.1:8830->80/tcp
+b2-db 127.0.0.1:13310->3306/tcp
+b3-wp-1701-vuln 127.0.0.1:8711->80/tcp
+b3-wp-1701-fixed 127.0.0.1:8712->80/tcp
+b3-db 127.0.0.1:13309->3306/tcp
+b0-nginx-jammy 127.0.0.1:8190->80/tcp
+pilot-drupal-fixed 127.0.0.1:8084->80/tcp
+pilot-drupal-vuln 127.0.0.1:8083->80/tcp
+pilot-wp-fixed 127.0.0.1:8082->80/tcp
+pilot-wp-vuln 127.0.0.1:8081->80/tcp
+pilot-roundcube-vuln 127.0.0.1:8085->80/tcp
+pilot-roundcube-fixed 127.0.0.1:8086->80/tcp
+pilot-db 127.0.0.1:13306->3306/tcp
+pilot-imap 127.0.0.1:3025->3025/tcp, 3110/tcp, 3465/tcp, 3993/tcp, 3995/tcp, 127.0.0.1:3143->3143/tcp, 8080/tcp
